@@ -14,7 +14,7 @@
 
 [Awesome Lists](https://github.com/wx-chevalier/Awesome-Lists) 就为我们准备了精而全的技术开发学习与实践资料索引，去芜存菁，去重留一；譬如其中的 [Awesome WebSites](https://github.com/wx-chevalier/Awesome-Lists/blob/master/Specials/Awesome-WebSites.md) 一文就为我们推荐了值得阅读的资讯、博客等站点列表。知识广度的拓展也并非一蹴而就之事，需得循序渐进，从初窥门径，到登堂入室，最后融会贯通，当我们感觉乱花渐欲迷人眼，太多的碎片化知识反而使自己迷失方向之际，就可以前往 [Awesome CS Books Warehouse](https://github.com/wx-chevalier/Awesome-CS-Books-Warehouse)，去深入地阅读学习各个领域的精选书籍、课程等系统化的内容。
 
-俗话说，好记性不如烂笔头，当我们阅读的多了，自然也要开始记录；而笔者认为记录的开始就要有自己的知识体系。在自己的知识体系下随看随记、定期整理。唯有建立符合自己认知方式的知识图谱，才能有效地沉淀知识，明晰知识边界并进行不断地探索。上车伊始，笔者即致力于构建自己的 [Awesome MindMaps](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/tree/master/MindMap)，提供了软件工程通用、前端、后端、DevOps、测试、架构师、人工智能工程师等多领域的知识图谱、学习成长路线与面试必备内容，并在数年来不断维护与刷新。
+俗话说，好记性不如烂笔头，当我们阅读的多了，自然也要开始记录；而笔者认为记录的开始就要有自己的知识体系。在自己的知识体系下随看随记、定期整理。唯有建立符合自己认知方式的知识图谱，才能有效地沉淀知识，明晰知识边界并进行不断地探索。上车伊始，笔者即致力于构建自己的 [Awesome MindMaps](https://github.com/wx-chevalier/Awesome-MindMaps)，提供了软件工程通用、前端、后端、DevOps、测试、架构师、人工智能工程师等多领域的知识图谱、学习成长路线与面试必备内容，并在数年来不断维护与刷新。
 
 笔者目前选择的是以 MarkDown 格式记录，并且将所有的笔记存放于 [Github-文档札记](https://github.com/topics/wx-doc)以 Git 方式进行版本管理；编辑器是直接使用的 VSCode，移动端编辑的话也是用的 GitGo/WorkCopy 这样的 Git 应用。这些笔记即是笔者自身技术视野与认知的外化，也类比于外设之于内存，在需要的时候分页加载到脑海中使用，以应对这知识爆炸的时代。其中的典型代表，[Awesome CheatSheets](https://github.com/wx-chevalier/Awesome-CheatSheets)，对于日常开发中用到的相关知识的备忘录/清单进行总结, 适合快速掌握或者回顾某个语言/框架/工具的语法或使用要点。[Tech Road, 我的技术之路](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/blob/master/TechRoad)是对于笔者多年学习与认知变迁的总结。
 
@@ -26,7 +26,7 @@
 
 # 1.编程语言与软件工程
 
-编程语言是一切的基础，正如 Steve McConnell 在 [Code Complete](https://github.com/wx-chevalier/Awesome-CS-Books-Warehouse) 一书中提及，我们应该 `Program into a language` 而不是 `Program in a language`，针对不同的需要选择合适的编程语言来实现，而不是受制于自己所会的语言。在[知识图谱](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/tree/master/MindMap)中也包含了跨编程语言的公共知识杂谈，笔者与编程语言相关的文章存放在 [Programming Language Series | 编程语言语法基础与工程实践](https://github.com/wx-chevalier/ProgrammingLanguage-Series)仓库中，其涵盖了 **C/C++、Go、Java、JavaScript、Python、Rust、Swift** 等常见的语言，以及通用的[编程语言理论](https://github.com/wx-chevalier/ProgrammingLanguage-Series/blob/master/编程语言理论)。
+编程语言是一切的基础，正如 Steve McConnell 在 [Code Complete](https://github.com/wx-chevalier/Awesome-CS-Books-Warehouse) 一书中提及，我们应该 `Program into a language` 而不是 `Program in a language`，针对不同的需要选择合适的编程语言来实现，而不是受制于自己所会的语言。在[知识图谱](https://github.com/wx-chevalier/Awesome-MindMaps)中也包含了跨编程语言的公共知识杂谈，笔者与编程语言相关的文章存放在 [Programming Language Series | 编程语言语法基础与工程实践](https://github.com/wx-chevalier/ProgrammingLanguage-Series)仓库中，其涵盖了 **C/C++、Go、Java、JavaScript、Python、Rust、Swift** 等常见的语言，以及通用的[编程语言理论](https://github.com/wx-chevalier/ProgrammingLanguage-Series/blob/master/编程语言理论)。
 
 编程能力锻炼的基础，首要的就是关于[数据结构与算法](https://github.com/wx-chevalier/SoftwareEngineering-Series/tree/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)，以及[面向对象的设计模式](https://github.com/wx-chevalier/SoftwareEngineering-Series/tree/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)，其对应的代码分别存放在了 [coding-snippets](https://github.com/wx-chevalier/coding-snippets), [algorithm-snippets](https://github.com/wx-chevalier/algorithm-snippets), [design-pattern-snippets](https://github.com/wx-chevalier/design-pattern-snippets) 中。此外，我们还可以从零编写一些类似于 Guava & Lodash 这样的自己的通用工具库，笔者自身是整合在了 [Guash](https://github.com/wx-chevalier/guash) 中。
 
@@ -107,7 +107,7 @@
 
 - 在 Gitbook 中在线浏览，每个系列对应各自的 Gitbook 仓库。
 
-| [Awesome Lists](https://ngte-al.gitbook.io/i/) | [Awesome CheatSheets](https://ngte-ac.gitbook.io/i/) | [Awesome Interviews](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/tree/master/Interview) | [Awesome RoadMaps](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/tree/master/RoadMap) | [Awesome MindMaps](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/tree/master/MindMap) | [Awesome-CS-Books-Warehouse](https://github.com/wx-chevalier/Awesome-CS-Books-Warehouse) |
+| [Awesome Lists](https://ngte-al.gitbook.io/i/) | [Awesome CheatSheets](https://ngte-ac.gitbook.io/i/) | [Awesome Interviews](https://github.com/wx-chevalier/Awesome-Interviews) | [Awesome RoadMaps](https://github.com/wx-chevalier/Awesome-RoadMaps) | [Awesome MindMaps](https://github.com/wx-chevalier/Awesome-MindMaps) | [Awesome-CS-Books-Warehouse](https://github.com/wx-chevalier/Awesome-CS-Books-Warehouse) |
 | ---------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 
 
