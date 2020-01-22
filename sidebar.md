@@ -13,6 +13,7 @@
     - [技术人的进阶](/技术之外/技术人的进阶.md)
     - [能力模型](/技术之外/能力模型.md)
   - [服务端架构](/服务端架构/README.md)
+    - [HA RoadMap](/服务端架构/HA-RoadMap.md)
     - [Java RoadMap](/服务端架构/Java-RoadMap.md)
   - [测试与运维](/测试与运维/README.md)
     
