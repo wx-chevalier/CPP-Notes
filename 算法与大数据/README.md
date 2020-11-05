@@ -56,3 +56,7 @@ SparkCaffeTensorFlow 推荐阅读：周志华——《机器学习》
 最后，关注你所在行业的最新 paper，对最近的算法理论体系发展有一个大致印象，譬如计算广告领域的几大经典问题：
 
 ![img](https://pic4.zhimg.com/v2-1c3851d3910d380f2e26d9030f101317_b.png)
+
+# TBD
+
+- [AI-Expert-Roadmap](https://github.com/AMAI-GmbH/AI-Expert-Roadmap)
