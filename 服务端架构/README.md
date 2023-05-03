@@ -1,6 +1,6 @@
 # 服务端开发工程师
 
-这是全栈的时代，我们更多地以业务来划分而非单纯地前后端，[Backend Series | 服务端应用程序开发与系统架构/微服务架构与实践](https://github.com/wx-chevalier/Backend-Series)承载了笔者在服务端的总结与经验，其包含了**服务端应用程序开发基础，深入浅出 Node.js 全栈架构，Spring Boot 5 与 Spring Cloud 微服务实践**等内容。
+这是全栈的时代，我们更多地以业务来划分而非单纯地前后端，[Backend Series | 服务端应用程序开发与系统架构/微服务架构与实践](https://github.com/wx-chevalier/Backend-Notes)承载了笔者在服务端的总结与经验，其包含了**服务端应用程序开发基础，深入浅出 Node.js 全栈架构，Spring Boot 5 与 Spring Cloud 微服务实践**等内容。
 
 - [Backend-Boilerplates](https://github.com/wx-chevalier/Backend-Boilerplates) is Boilerplate for Your Server Side(Backend) Application, Java | Spring(Boot, Cloud) | Node.js(Express, Koa, Egg) | Go | Python | DevOps.
 
@@ -22,7 +22,7 @@
 
 - 物理架构：物理架构关注软件元件是如何放到硬件上的，专注于基础设施，某种软硬件体系，甚至云平台，包括机房搭建、网络拓扑结构，网络分流器、代理服务器、Web 服务器、应用服务器、报表服务器、整合服务器、存储服务器和主机等。
 
-前文讨论的更多是应用层的知识，而对于更底层的操作系统、数据库、大数据处理等[分布式基础架构](https://github.com/wx-chevalier/Distributed-Infrastructure-Series)相关内容，都存放在了 [Distributed-Infrastructure-Series | 深入浅出分布式基础架构](https://github.com/wx-chevalier/Distributed-Infrastructure-Series)系列中，主要包含分布式计算、分布式系统、数据存储、虚拟化、网络、操作系统等几个部分。
+前文讨论的更多是应用层的知识，而对于更底层的操作系统、数据库、大数据处理等[分布式基础架构](https://github.com/wx-chevalier/Distributed-Infrastructure-Notes)相关内容，都存放在了 [Distributed-Infrastructure-Notes | 深入浅出分布式基础架构](https://github.com/wx-chevalier/Distributed-Infrastructure-Notes)系列中，主要包含分布式计算、分布式系统、数据存储、虚拟化、网络、操作系统等几个部分。
 
 如上文所述，我们需要在重构轮子中成长：
 

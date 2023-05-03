@@ -2,14 +2,14 @@
 
 如果您对于 JavaScript 基础语法尚不完全了解，那么建议您首先浏览[现代 JavaScript 语法基础与工程实践](https://parg.co/UIj)或者 [JavaScript-CheatSheet](https://github.com/wx-chevalier/Awesome-CheatSheets/blob/master/ProgrammingLanguage/JavaScript/JavaScript-CheatSheet.md) 以了解基础的 JavaScript 语法及实践应用。
 
-如果您想快速地了解 Web 开发实践，或者是想查阅某些清单，那么建议您前往 [Awesome-CheatSheets/Web](https://github.com/wx-chevalier/Web-Series/blob/master)；或者从[导论篇](https://github.com/wx-chevalier/Web-Series/blob/master/%E5%AF%BC%E8%AE%BA)开始阅读，它会包含 **Web 开发简史与变迁**、**数据流驱动的界面**、**模块化与组件化**、**工具化与工程化**、**前后端分离与全栈架构**、**微前端与大前端**、**运行机制与性能优化**等内容。
+如果您想快速地了解 Web 开发实践，或者是想查阅某些清单，那么建议您前往 [Awesome-CheatSheets/Web](https://github.com/wx-chevalier/Web-Notes/blob/master)；或者从[导论篇](https://github.com/wx-chevalier/Web-Notes/blob/master/%E5%AF%BC%E8%AE%BA)开始阅读，它会包含 **Web 开发简史与变迁**、**数据流驱动的界面**、**模块化与组件化**、**工具化与工程化**、**前后端分离与全栈架构**、**微前端与大前端**、**运行机制与性能优化**等内容。
 
 接下来，您可以选择以下章节中感兴趣的模块进行深度阅读：
 
-- [基础篇](https://github.com/wx-chevalier/Web-Series/blob/master/%E5%9F%BA%E7%A1%80): 对于 HTML、CSS、DOM 等 Web 开发中涉及的基础知识与理念的总结介绍。
-- [工程实践篇](https://github.com/wx-chevalier/Web-Series/blob/master/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5): 构建工具，测试，安全，WebAssembly。
-- [架构优化篇](https://github.com/wx-chevalier/Web-Series/blob/master/%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96%E7%AF%87): 组件化，状态管理，性能优化，PWA。
-- [React 篇](https://github.com/wx-chevalier/Web-Series/blob/master/React)：近年来前端领域百花齐放，各种技术方案争妍斗艳，各领风骚。本书立足于其中的佼佼者 React，深入浅出的介绍 React, Webpack, ES6, Redux, MobX 等常见前端开发工具与开发库的用法，帮助初学者能够迅速成为一名合格前端工程师。而本书也不仅局限于工具使用的层面，探寻各种技术方案背后蕴含的设计思想与架构模式，从前端工程化的角度讨论前端开发者在进阶过程中需要掌握的工程实践、模块化与组件化、质量保障、性能优化等知识要点。最终帮助开发者在前端开发中能够因地制宜的指定合理方案，以尽可能快的速度实现可信赖的产品。
+- [基础篇](https://github.com/wx-chevalier/Web-Notes/blob/master/%E5%9F%BA%E7%A1%80): 对于 HTML、CSS、DOM 等 Web 开发中涉及的基础知识与理念的总结介绍。
+- [工程实践篇](https://github.com/wx-chevalier/Web-Notes/blob/master/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5): 构建工具，测试，安全，WebAssembly。
+- [架构优化篇](https://github.com/wx-chevalier/Web-Notes/blob/master/%E6%9E%B6%E6%9E%84%E4%BC%98%E5%8C%96%E7%AF%87): 组件化，状态管理，性能优化，PWA。
+- [React 篇](https://github.com/wx-chevalier/Web-Notes/blob/master/React)：近年来前端领域百花齐放，各种技术方案争妍斗艳，各领风骚。本书立足于其中的佼佼者 React，深入浅出的介绍 React, Webpack, ES6, Redux, MobX 等常见前端开发工具与开发库的用法，帮助初学者能够迅速成为一名合格前端工程师。而本书也不仅局限于工具使用的层面，探寻各种技术方案背后蕴含的设计思想与架构模式，从前端工程化的角度讨论前端开发者在进阶过程中需要掌握的工程实践、模块化与组件化、质量保障、性能优化等知识要点。最终帮助开发者在前端开发中能够因地制宜的指定合理方案，以尽可能快的速度实现可信赖的产品。
 
 在阅读之外，我们同样需要进行大量的代码实践，不仅仅是熟悉常用的框架，还需要去积累自己的组件、框架等功能库：
 
