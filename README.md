@@ -1,51 +1,83 @@
-![](https://assets.ng-tech.icu/item/20230418222224.png)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![license: CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey.svg)][license-url]
 
-# Awesome RoadMaps
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/wx-chevalier/Java-Notes">
+    <img src="https://assets.ng-tech.icu/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
+  </a>
 
-当我们站在技术之路的原点，未来可能充满了迷茫，也存在着很多不同的可能；我们可能成为 **Web/(大)前端/终端工程师、服务端架构工程师、测试/运维/安全工程师等质量保障、可用性保障相关的工程师、大数据/云计算/虚拟化工程师、算法工程师、产品经理**等等某个或者某几个角色。在这个知识爆炸与终身学习/碎片化学习为主的时代，我们面临的问题之一就是如何进行有效学习，不仅能有效平衡广度与深度，并且能真正的积淀下来，提升自己的研发效能。于笔者而言，常常郁结于胸的就是以下三个问题：
+  <p align="center">
+    <a href="https://ng-tech.icu/books/Java-Notes"><strong>在线阅读 >> </strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/wx-chevalier/cpp-examples">代码案例（cpp-examples）</a>
+    ·
+    <a href="https://github.com/wx-chevalier/Awesome-Lists">参考资料</a>
 
-- 应该学习什么？这是怎样的一个技术世界？存在着怎样的高峰与路径？
-- 如何克服遗忘带来的无效学习？
-- 如何不再碎片化地学习？
+  </p>
+</p>
 
-究其根本，也就是需要拓展自己的**知识广度**，精进自己的**知识深度**，锤炼自己的**编程能力**。所谓知识广度，即是为实际问题选择合适的解决方案的能力，广义来说也是眼界与格局的表现。它并不拘泥于某个技术方向或者行业领域，而需要对传统/流行的各类语言、工具、框架、库、服务等有一定的认识；能够明晰各个方案的优劣，并在较高的层次（High Level）描述相关原理。知识广度的拓展与保持需要建立在庞大的阅读量与知识沉淀能力上。在[能力模型](https://github.com/wx-chevalier/Awesome-RoadMaps/blob/master/%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%A4%96/%E8%83%BD%E5%8A%9B%E6%A8%A1%E5%9E%8B.md)一节中，我们从业务、团队、技术这三个维度，对技术人员的五个层次进行了梳理：
+<!-- ABOUT THE PROJECT -->
 
-![路线图](https://assets.ng-tech.icu/item/20230418222247.png)
+# 现代 C 与 C++ 开发基础
 
-[Awesome Lists](https://github.com/wx-chevalier/Awesome-Lists) 就为我们准备了精而全的技术开发学习与实践资料索引，去芜存菁，去重留一；譬如其中的 [Awesome WebSites](https://github.com/wx-chevalier/Awesome-Lists/blob/master/Specials/Awesome-WebSites.md) 一文就为我们推荐了值得阅读的资讯、博客等站点列表。知识广度的拓展也并非一蹴而就之事，需得循序渐进，从初窥门径，到登堂入室，最后融会贯通，当我们感觉乱花渐欲迷人眼，太多的碎片化知识反而使自己迷失方向之际，就可以前往 [Awesome CS Books Warehouse](https://github.com/wx-chevalier/Awesome-CS-Books)，去深入地阅读学习各个领域的精选书籍、课程等系统化的内容。
+C++ 是一种令人兴奋的语言，它在 C 语言的基础 上添加了对面向对象编程和泛型编程的支持，在 20 世纪 90 年代便是最重要的编程语言之一，并在 21 世纪仍保持强劲势头。C++继承了 C 语言高 效、简洁、快速和可移植性的传统。C++ 1x (C++11/14, 甚至 C++17) 为传统 C++ 注入的大量特性使得整个 C++ 变得更加像一门现代化的语言。C++1x 不仅仅增强了 C++ 语言自身的可用性，auto 关键字语义的修改使得我们更加有信心来操控极度复杂的模板类型。同时还对语言运行期进行了大量的强化，Lambda 表达式的出现让 C++ 具有了几乎在现代的编程语言中已经司空见惯的匿名函数的闭包特性，右值引用的出现解决了 C++ 长期以来被人诟病的临时对象效率问题等等。C++ 1x 为自身的标准库增加了非常多的工具和方法，诸如在语言层面上提供了 std::thread 支持了并发编程，在不同平台上不再依赖于系统底层的 API，实现了语言层面的跨平台支持；std::regex 提供了完整的正则表达式支持等等。C++98 已经被实践证明了是一种非常成功的范型，而 C++ 1x 的出现，则进一步推动这种范型，让 C++ 成为系统程序设计和库开发更好的语言。
 
-俗话说，好记性不如烂笔头，当我们阅读的多了，自然也要开始记录；而笔者认为记录的开始就要有自己的知识体系。在自己的知识体系下随看随记、定期整理。唯有建立符合自己认知方式的知识图谱，才能有效地沉淀知识，明晰知识边界并进行不断地探索。上车伊始，笔者即致力于构建自己的 [Awesome MindMaps](https://github.com/wx-chevalier/Awesome-MindMaps)，提供了软件工程通用、前端、后端、DevOps、测试、架构师、人工智能工程师等多领域的知识图谱、学习成长路线与面试必备内容，并在数年来不断维护与刷新。
+![C++ 版本变迁](https://assets.ng-tech.icu/item/20221231163035.png)
 
-笔者目前选择的是以 MarkDown 格式记录，并且将所有的笔记存放于 [Github-文档札记](https://github.com/topics/wx-doc)以 Git 方式进行版本管理；编辑器是直接使用的 VSCode，移动端编辑的话也是用的 GitGo/WorkCopy 这样的 Git 应用。这些笔记即是笔者自身技术视野与认知的外化，也类比于外设之于内存，在需要的时候分页加载到脑海中使用，以应对这知识爆炸的时代。其中的典型代表，[Awesome CheatSheets](https://github.com/wx-chevalier/Awesome-CheatSheets)，对于日常开发中用到的相关知识的备忘录/清单进行总结, 适合快速掌握或者回顾某个语言/框架/工具的语法或使用要点。[Tech Road, 我的技术之路](https://github.com/wx-chevalier/Developer-Zero-To-Mastery/blob/master/技术之路)是对于笔者多年学习与认知变迁的总结。
+- C++ 编程语言的历史可以追溯到 **1979 年**，当时 Bjarne Stroustrup 为博士学位论文进行了一些开发。在 Stroustrup 可以使用的所有语言中，有一种被称为 Simula 的语言，顾名思义，它可能是一种主要为仿真而设计的语言。Simula 67 语言是 Stroustrup 使用的变体，被认为是支持面向对象编程范例的主要语言。Stroustrup 发现这种范例对包装开发很有帮助。但是，Simula 语言对于实践和实际使用而言太慢了。随后不久，Bjarne Stroustrup 希望通过支持面向对象范例来增强 C。他深入研究了 Smalltalk 的 OO 实现，以获取有关实现的想法。但是他不愿意为此放弃性能，因此他开始从事 “C with Classes (带有类的 C）” 的工作，希望 C++ 代码运行时应具有与 C 代码相似（或更好）的性能。
 
-先贤有云，知行合一，知是行之始，行是知之成，Linus Torvalds 也曾提到：'Talk is cheap. Show me the code.'，在阅读与笔记之后，就是要开始实践编码。所谓编程能力，并不仅仅是编写代码(Write Code)的能力，而是包含了阅读、编写、理解、重构、抽象等多个方面，是所谓的代码管理/掌控。其外在表现之一即是能够随时随地用合适的语言无阻塞地实现某些功能需求，对于常见的语法，接口，算法，设计模式等能够做到心随意动，信手拈来。编程能力是提升研发效能的重要保障，于笔者而言也是毕生应该追求的目标与爱好之一。笔者的编程能力较弱，日常开发，特别是在多语言多框架并用的场景下，往往会需要不断地中断，查找以继续工作，也是令我颇为苦恼。[Coding Snippets](https://github.com/topics/wx-snippets) 系列仓库，即是对笔者在编程语言、前后端编码过程中常用的模板、模式等代码片、工具库的汇聚。
+- **1983 年**，语言的名称从 “带有类的 C” 更改为 C++。C 语言中的 ++ 运算符是用于递增变量的运算符，它使您可以深入了解 Stroustrup 如何看待该语言。在此期间添加了许多新功能，其中最引人注目的是虚函数，函数重载，带有＆符号的引用，const 关键字和使用两个正斜杠的单行注释。
 
-前文重在讨论如何拓宽技术视野、追寻技术的广度，但是需要铭记的是，技术深度才是技术广度的基石，正如中国自古以来常用道术之辩，知其然，也要知其所以然；亦如 Richard Feynman 所述：”What I cannot create, I do not understand.”。所谓知识深度，即是能够对某个方面做到深入了解，并且达到融会贯通，洞若观火，可以随心所欲地加以扩展、优化、创新等改造或变换。这方面则更加的见仁见智，不同的领域与方向对于深度的定义与挖掘方向也是千差万别。[Reinvent Wheels](https://github.com/topics/wx-code) 系列仓库即是笔者在前后端到基础架构中重造的轮子的汇总。
+- **1985 年**，Stroustrup 出版了名为*“C++ 编程语言” 的书籍*。同年，C++ 被实现为商业产品。该语言尚未正式标准化，因此使该书成为非常重要的参考。该语言在 1989 年再次进行了更新，以包括受保护的成员和静态成员，以及从多个类的继承。
 
-我们需要自己去从零开始造些轮子，才能深刻理解使用的框架/库/平台的内部原理，才能在碰到故障时快速地修复；在下文的几乎每个章节中，我们都会提到某些笔者自造的轮子。笔者目前将所有的文档归类到了不同的系列中，每个系列又分为 篇-章-节-小节 这样的层次结构。
+- **1990 年**，发行了*《带注释的 C++ 参考手册*》。同年，Borland 的 Turbo C++ 编译器将作为商业产品发布。Turbo C++ 添加了许多其他库，这些库会对 C++ 的开发产生相当大的影响。尽管 Turbo C++ 的最后一个稳定版本是 2006 年，但该编译器仍被广泛使用。
 
-# 编程语言与软件工程
+- **1998 年**，C++ 标准委员会发布了第一个 C++ ISO / IEC 14882：1998 国际标准，其非正式名称为 C++ 98。据说*《带注释的 C++ 参考手册》*对标准的制定产生了很大的影响。还包括标准模板库，该模板库于 1979 年开始概念开发。2003 年，该委员会对 1998 年标准所报告的多个问题做出了回应，并对其进行了相应的修订。更改的语言称为 C++ 03。
 
-编程语言是一切的基础，正如 Steve McConnell 在 [Code Complete](https://github.com/wx-chevalier/Awesome-CS-Books) 一书中提及，我们应该 `Program into a language` 而不是 `Program in a language`，针对不同的需要选择合适的编程语言来实现，而不是受制于自己所会的语言。在[知识图谱](https://github.com/wx-chevalier/Awesome-MindMaps)中也包含了跨编程语言的公共知识杂谈，笔者与编程语言相关的文章存放在 [Programming Language Series | 编程语言语法基础与工程实践](https://github.com/wx-chevalier/ProgrammingLanguage-Notes)仓库中，其涵盖了 **C/C++、Go、Java、JavaScript、Python、Rust、Swift** 等常见的语言，以及通用的[编程语言理论](https://github.com/wx-chevalier/ProgrammingLanguage-Notes/blob/master/编程语言理论)。
+- **2005 年**，C++ 标准委员会发布了一份技术报告（称为 TR1），详细介绍了他们计划添加到最新 C++ 标准中的各种功能。新标准被非正式地称为 C++ 0x，因为它有望在第一个十年结束之前的某个时间发布。具有讽刺意味的是，新标准要到 2011 年年中才会发布。直到那时为止，已经发布了几份技术报告，并且一些编译器开始为新功能添加实验性支持。
 
-编程能力锻炼的基础，首要的就是关于[数据结构与算法](https://github.com/wx-chevalier/SoftwareEngineering-Notes/tree/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)，以及[面向对象的设计模式](https://github.com/wx-chevalier/SoftwareEngineering-Notes/tree/master/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)，其对应的代码分别存放在了 [coding-snippets](https://github.com/wx-chevalier/coding-snippets), [algorithm-snippets](https://github.com/wx-chevalier/algorithm-snippets), [design-pattern-snippets](https://github.com/wx-chevalier/design-pattern-snippets) 中。此外，我们还可以从零编写一些类似于 Guava & Lodash 这样的自己的通用工具库，笔者自身是整合在了 [Guash](https://github.com/wx-chevalier/guash) 中。
+- **2011 年中**，新的 C++ 标准（称为 C++ 11）完成。Boost 库项目对新标准产生了重大影响，其中一些新模块直接来自相应的 Boost 库。一些新功能包括正则表达式支持，全面的随机化库，新的 C++ 时间库，原子支持，标准线程库 ，一种新的 for 循环语法，提供的功能类似于某些其他语言中的 foreach 循环，auto 关键字，新的容器类，对联合和数组初始化列表以及可变参数模板的更好支持。
 
-在编程语言之上，我们就需要考虑如何去实现真正的软件系统，譬如 [软件工程基础](https://github.com/wx-chevalier/SoftwareEngineering-Notes) 系列中的**开发工具/Git 漫谈、软件系统架构、软件质量保障**等内容，我们也可以自己去实现一些自己的工具，譬如笔者的 [Soogle](https://github.com/wx-chevalier/Soogle) 是构建自身搜索、外部服务访问能力的工具集合；而 [xCompass](https://github.com/wx-chevalier/xCompass) 是包含个人主页在内的多端阅读能力的源代码仓库。
+- **2014 年**，C++ 14（也称为 C++ 1y）作为 C++11 的一个小扩展发布，主要功能是错误修复和小的改进，国际标准投票程序草案于 2014 年 8 月中完成，加强 lambda 函数，constexpr 和类型推导特性。
+
+- **2017 年**，发布 C++ 17 标准，C++ 17 提供了很多东西。增强了核心语言和库。
+
+- **2020 年**，发布 C++20 标准，推出了很多重量级功能，其中比较重要的有：
+  - Concepts：概念改变了我们思考和编程模板的方式。它们是模板参数的语义类别。它们使您可以直接在类型系统中表达您的意图。如果出了什么问题，您会收到清晰的错误消息。
+  - Ranges library：新的 ranges 库使它可以直接在容器上执行算法，用管道符号组成算法，并将其应用于无限数据流。
+  - Coroutines：由于协程，C++ 中的异步编程成为主流。协程是协作任务，事件循环，无限数据流或管道的基础。
+  - Modules：模块克服了头文件的限制。头文件和源文件的分离变得和预处理器一样过时了。最后，我们有更快的构建时间和更轻松的构建软件包的方法。
+  - Concurrency：Atomic Smart Pointers, Joining & Cancellable Threads,The C20 Synchronization Library，增强了 C++ 并发编程能力；
 
 # About
 
-## RoadMaps
+## Links
 
-- [Developer Roadmaps](https://roadmap.sh/): Step by step guides and paths to learn different tools or technologies
-
-- [golang-developer-roadmap](https://github.com/Alikhll/golang-developer-roadmap): Roadmap to becoming a Go developer in 2020
-
-- [data-engineer-roadmap](https://github.com/datastacktv/data-engineer-roadmap): Roadmap to becoming a data engineer in 2021
+- https://www.cnblogs.com/QG-whz/category/685776.html?page=2
+- http://c.biancheng.net/view/vip_2242.html
 
 ## Copyright & More | 延伸阅读
-
-![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 
 笔者所有文章遵循[知识共享 署名 - 非商业性使用 - 禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)，欢迎转载，尊重版权。您还可以前往 [NGTE Books](https://ng-tech.icu/books-gallery/) 主页浏览包含知识体系、编程语言、软件工程、模式与架构、Web 与大前端、服务端开发实践与工程架构、分布式基础架构、人工智能与深度学习、产品运营与创业等多类目的书籍列表：
 
 [![NGTE Books](https://s2.ax1x.com/2020/01/18/19uXtI.png)](https://ng-tech.icu/books-gallery/)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/Java-Notes.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/Java-Notes/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/Java-Notes.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/Java-Notes/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/Java-Notes.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/Java-Notes/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/Java-Notes.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/Java-Notes/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/Java-Notes.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/Java-Notes/blob/master/LICENSE.txt
