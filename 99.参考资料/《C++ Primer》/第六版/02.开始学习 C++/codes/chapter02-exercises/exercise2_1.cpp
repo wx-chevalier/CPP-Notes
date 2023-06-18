@@ -1,6 +1,4 @@
-//
-// Created by Shujia Huang on 7/19/21.
-//
+
 #include <iostream>
 
 int main()
