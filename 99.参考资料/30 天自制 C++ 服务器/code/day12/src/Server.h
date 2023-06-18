@@ -1,9 +1,9 @@
 /******************************
-*   author: yuesong-feng
-*   
-*
-*
-******************************/
+ *   author: yuesong-feng
+ *
+ *
+ *
+ ******************************/
 #pragma once
 #include <map>
 #include <vector>
@@ -17,16 +17,15 @@ class Server
 private:
     EventLoop *mainReactor;
     Acceptor *acceptor;
-    std::map<int, Connection*> connections;
-    std::vector<EventLoop*> subReactors;
+    std::map<int, Connection *> connections;
+    std::vector<EventLoop *> subReactors;
     ThreadPool *thpool;
+
 public:
-    Server(EventLoop*);
+    Server(EventLoop *);
     ~Server();
 
     void handleReadEvent(int);
     void newConnection(Socket *sock);
     void deleteConnection(int sockfd);
 };
-
-

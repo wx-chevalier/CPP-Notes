@@ -1,9 +1,9 @@
 /******************************
-*   author: yuesong-feng
-*   
-*
-*
-******************************/
+ *   author: yuesong-feng
+ *
+ *
+ *
+ ******************************/
 #pragma once
 #include <functional>
 class Socket;
@@ -19,6 +19,7 @@ private:
     bool useThreadPool;
     std::function<void()> readCallback;
     std::function<void()> writeCallback;
+
 public:
     Channel(EventLoop *_loop, int _fd);
     ~Channel();
@@ -37,4 +38,3 @@ public:
     void setReadCallback(std::function<void()>);
     void setUseThreadPool(bool use = true);
 };
-

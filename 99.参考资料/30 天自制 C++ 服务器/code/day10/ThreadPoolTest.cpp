@@ -2,11 +2,13 @@
 #include <string>
 #include "src/ThreadPool.h"
 
-void print(int a, double b, const char *c, std::string d){
+void print(int a, double b, const char *c, std::string d)
+{
     std::cout << a << b << c << d << std::endl;
 }
 
-void test(){
+void test()
+{
     std::cout << "hellp" << std::endl;
 }
 

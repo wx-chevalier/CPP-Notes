@@ -1,9 +1,9 @@
 /******************************
-*   author: yuesong-feng
-*   
-*
-*
-******************************/
+ *   author: yuesong-feng
+ *
+ *
+ *
+ ******************************/
 #pragma once
 #include <map>
 class EventLoop;
@@ -15,14 +15,13 @@ class Server
 private:
     EventLoop *loop;
     Acceptor *acceptor;
-    std::map<int, Connection*> connections;
+    std::map<int, Connection *> connections;
+
 public:
-    Server(EventLoop*);
+    Server(EventLoop *);
     ~Server();
 
     void handleReadEvent(int);
     void newConnection(Socket *sock);
     void deleteConnection(int sockfd);
 };
-
-

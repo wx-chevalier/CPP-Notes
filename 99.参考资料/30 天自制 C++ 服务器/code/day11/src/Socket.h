@@ -1,9 +1,9 @@
 /******************************
-*   author: yuesong-feng
-*   
-*
-*
-******************************/
+ *   author: yuesong-feng
+ *
+ *
+ *
+ ******************************/
 
 #pragma once
 
@@ -12,18 +12,18 @@ class Socket
 {
 private:
     int fd;
+
 public:
     Socket();
     Socket(int _fd);
     ~Socket();
 
-    void bind(InetAddress*);
+    void bind(InetAddress *);
     void listen();
-    int accept(InetAddress*);
+    int accept(InetAddress *);
 
-    void connect(InetAddress*);
+    void connect(InetAddress *);
 
     void setnonblocking();
     int getFd();
 };
-

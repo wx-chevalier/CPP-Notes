@@ -9,7 +9,7 @@ Acceptor::Acceptor(EventLoop *_loop) : loop(_loop)
     sock = new Socket();
     addr = new InetAddress("127.0.0.1", 8888);
     sock->bind(addr);
-    sock->listen(); 
+    sock->listen();
     sock->setnonblocking();
     acceptChannel = new Channel(loop, sock->getFd());
     std::function<void()> cb = std::bind(&Acceptor::acceptConnection, this);
@@ -17,16 +17,19 @@ Acceptor::Acceptor(EventLoop *_loop) : loop(_loop)
     acceptChannel->enableReading();
 }
 
-Acceptor::~Acceptor(){
+Acceptor::~Acceptor()
+{
     delete sock;
     delete addr;
     delete acceptChannel;
 }
 
-void Acceptor::acceptConnection(){
+void Acceptor::acceptConnection()
+{
     newConnectionCallback(sock);
 }
 
-void Acceptor::setNewConnectionCallback(std::function<void(Socket*)> _cb){
+void Acceptor::setNewConnectionCallback(std::function<void(Socket *)> _cb)
+{
     newConnectionCallback = _cb;
 }

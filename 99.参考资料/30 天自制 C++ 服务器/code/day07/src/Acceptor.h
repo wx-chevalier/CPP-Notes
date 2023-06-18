@@ -12,11 +12,11 @@ private:
     Socket *sock;
     InetAddress *addr;
     Channel *acceptChannel;
+
 public:
     Acceptor(EventLoop *_loop);
     ~Acceptor();
     void acceptConnection();
-    std::function<void(Socket*)> newConnectionCallback;
-    void setNewConnectionCallback(std::function<void(Socket*)>);
+    std::function<void(Socket *)> newConnectionCallback;
+    void setNewConnectionCallback(std::function<void(Socket *)>);
 };
-

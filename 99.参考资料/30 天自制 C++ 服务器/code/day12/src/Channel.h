@@ -1,9 +1,9 @@
 /******************************
-*   author: yuesong-feng
-*   
-*
-*
-******************************/
+ *   author: yuesong-feng
+ *
+ *
+ *
+ ******************************/
 #pragma once
 #include <functional>
 class Socket;
@@ -18,6 +18,7 @@ private:
     bool inEpoll;
     std::function<void()> readCallback;
     std::function<void()> writeCallback;
+
 public:
     Channel(EventLoop *_loop, int _fd);
     ~Channel();
@@ -35,4 +36,3 @@ public:
     void setReady(uint32_t);
     void setReadCallback(std::function<void()>);
 };
-
