@@ -244,9 +244,9 @@
         - [9.6.1.2 02.理解 auto 类型推导](/99.参考资料/《Effective%20Modern%20C++%20》/01.类型推导/02.理解%20auto%20类型推导.md)
         - [9.6.1.3 03.理解 decltypre](/99.参考资料/《Effective%20Modern%20C++%20》/01.类型推导/03.理解%20decltypre.md)
         - [9.6.1.4 04.学会查看类型推导结果](/99.参考资料/《Effective%20Modern%20C++%20》/01.类型推导/04.学会查看类型推导结果.md)
-      - 9.6.2 02.Auto [2]
-        - [9.6.2.1 item5](/99.参考资料/《Effective%20Modern%20C++%20》/02.Auto/item5.md)
-        - [9.6.2.2 item6](/99.参考资料/《Effective%20Modern%20C++%20》/02.Auto/item6.md)
+      - [9.6.2 02.Auto [2]](/99.参考资料/《Effective%20Modern%20C++%20》/02.Auto/README.md)
+        - [9.6.2.1 05.优先考虑 auto 而非显式类型声明](/99.参考资料/《Effective%20Modern%20C++%20》/02.Auto/05.优先考虑%20auto%20而非显式类型声明.md)
+        - [9.6.2.2 06.auto 推导若非己愿，使用显式类型初始化惯用法](/99.参考资料/《Effective%20Modern%20C++%20》/02.Auto/06.auto%20推导若非己愿，使用显式类型初始化惯用法.md)
       - 9.6.3 03.移步现代 C++ [11]
         - [9.6.3.1 item10](/99.参考资料/《Effective%20Modern%20C++%20》/03.移步现代%20C++/item10.md)
         - [9.6.3.2 item11](/99.参考资料/《Effective%20Modern%20C++%20》/03.移步现代%20C++/item11.md)
