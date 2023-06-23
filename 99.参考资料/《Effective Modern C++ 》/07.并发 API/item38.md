@@ -8,7 +8,7 @@
 
 我们可以观察到实际上*future*是通信信道的一端，被调用者通过该信道将结果发送给调用者。（[Item39](../7.TheConcurrencyAPI/item39.md)说，与*future*有关的这种通信信道也可以被用于其他目的。但是对于本条款，我们只考虑它们作为这样一个机制的用法，即被调用者传送结果给调用者。）被调用者（通常是异步执行）将计算结果写入通信信道中（通常通过`std::promise`对象），调用者使用*future*读取结果。你可以想象成下面的图示，虚线表示信息的流动方向：
 
-![item38_fig1](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item38_fig1.png)
+![item38_fig1](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item38_fig1.png)
 
 但是被调用者的结果存储在哪里？被调用者会在调用者`get`相关的*future*之前执行完成，所以结果不能存储在被调用者的`std::promise`。这个对象是局部的，当被调用者执行结束后，会被销毁。
 
@@ -18,7 +18,7 @@
 
 我们可以想象调用者，被调用者，共享状态之间关系如下图，虚线还是表示信息流方向：
 
-![item38_fig2](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item38_fig2.png)
+![item38_fig2](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item38_fig2.png)
 
 共享状态的存在非常重要，因为*future*的析构函数——这个条款的话题——取决于与*future*关联的共享状态。特别地，
 

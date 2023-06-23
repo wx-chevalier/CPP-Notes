@@ -55,7 +55,7 @@ std::vector<std::shared_ptr<Widget>> vpw{ pw1, pw2 };
 
 它不能。它必须使用更多的内存。然而，那部分内存不是`std::shared_ptr`对象的一部分。那部分在堆上面，或者`std::shared_ptr`创建者利用`std::shared_ptr`对自定义分配器的支持能力，那部分内存随便在哪都行。我前面提到了`std::shared_ptr`对象包含了所指对象的引用计数的指针。没错，但是有点误导人。因为引用计数是另一个更大的数据结构的一部分，那个数据结构通常叫做**控制块**（_control block_）。每个`std::shared_ptr`管理的对象都有个相应的控制块。控制块除了包含引用计数值外还有一个自定义删除器的拷贝，当然前提是存在自定义删除器。如果用户还指定了自定义分配器，控制块也会包含一个分配器的拷贝。控制块可能还包含一些额外的数据，正如[Item21](../4.SmartPointers/item21.md)提到的，一个次级引用计数*weak count*，但是目前我们先忽略它。我们可以想象`std::shared_ptr`对象在内存中是这样：
 
-![item19_fig1](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item19_fig1.png)
+![item19_fig1](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item19_fig1.png)
 
 当指向对象的`std::shared_ptr`一创建，对象的控制块就建立了。至少我们期望是如此。通常，对于一个创建指向对象的`std::shared_ptr`的函数来说不可能知道是否有其他`std::shared_ptr`早已指向那个对象，所以控制块的创建会遵循下面几条规则：
 

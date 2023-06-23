@@ -17,199 +17,9 @@
 
 本书的示例主要为 C++项目设计，并使用 C++示例进行了演示，但 CMake 也可以用于其他语言的项目，包括 C 和 Fortran。我们会尝试一些有意思的配置，其中包含了一些 C++、C 和 Fortran 语言示例。您可以根据自己喜好，选择性了解。有些示例是定制的，以突出在选择特定语言时需要面临的挑战。
 
-# 1.1 将单个源文件编译为可执行文件
-
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-01 中找到，包含 C++、C 和 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
-
-本节示例中，我们将演示如何运行 CMake 配置和构建一个简单的项目。该项目由单个源文件组成，用于生成可执行文件。我们将用 C++讨论这个项目，您在 GitHub 示例库中可以找到 C 和 Fortran 的例子。
-
-## 准备工作
-
-我们希望将以下源代码编译为单个可执行文件：
-
-```cpp
-#include <cstdlib>
-#include <iostream>
-#include <string>
-
-std::string say_hello() { return std::string("Hello, CMake world!"); }
-
-int main() {
-  std::cout << say_hello() << std::endl;
-  return EXIT_SUCCESS;
-}
-```
-
-## 具体实施
-
-除了源文件之外，我们还需要向 CMake 提供项目配置描述。该描述使用 CMake 完成，完整的文档可以在 https://cmake.org/cmake/help/latest/ 找到。我们把 CMake 指令放入一个名为`CMakeLists.txt`的文件中。
-
-**NOTE**:_文件的名称区分大小写，必须命名为`CMakeLists.txt`，CMake 才能够解析。_
-
-具体步骤如下：
-
-1. 用编辑器打开一个文本文件，将这个文件命名为`CMakeLists.txt`。
-
-2. 第一行，设置 CMake 所需的最低版本。如果使用的 CMake 版本低于该版本，则会发出致命错误：
-
-   ```
-   cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-   ```
-
-3. 第二行，声明了项目的名称(`recipe-01`)和支持的编程语言(CXX 代表 C++)：
-
-   ```
-   project(recipe-01 LANGUAGES CXX)
-   ```
-
-4. 指示 CMake 创建一个新目标：可执行文件`hello-world`。这个可执行文件是通过编译和链接源文件`hello-world.cpp`生成的。CMake 将为编译器使用默认设置，并自动选择生成工具：
-
-   ```
-   add_executable(hello-world hello-world.cpp)
-   ```
-
-5. 将该文件与源文件`hello-world.cpp`放在相同的目录中。记住，它只能被命名为`CMakeLists.txt`。
-
-6. 现在，可以通过创建`build`目录，在`build`目录下来配置项目：
-
-   ```
-   $ mkdir -p build
-   $ cd build
-   $ cmake ..
-
-   -- The CXX compiler identification is GNU 8.1.0
-   -- Check for working CXX compiler: /usr/bin/c++
-   -- Check for working CXX compiler: /usr/bin/c++ -- works
-   -- Detecting CXX compiler ABI info
-   -- Detecting CXX compiler ABI info - done
-   -- Detecting CXX compile features
-   -- Detecting CXX compile features - done
-   -- Configuring done
-   -- Generating done
-   -- Build files have been written to: /home/user/cmake-cookbook/chapter-01/recipe-01/cxx-example/build
-   ```
-
-7. 如果一切顺利，项目的配置已经在`build`目录中生成。我们现在可以编译可执行文件：
-
-   ```
-   $ cmake --build .
-
-   Scanning dependencies of target hello-world
-   [ 50%] Building CXX object CMakeFiles/hello-world.dir/hello-world.cpp.o
-   [100%] Linking CXX executable hello-world
-   [100%] Built target hello-world
-   ```
-
-## 工作原理
-
-示例中，我们使用了一个简单的`CMakeLists.txt`来构建“Hello world”可执行文件：
-
-```
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(recipe-01 LANGUAGES CXX)
-add_executable(hello-world hello-world.cpp)
-```
-
-**NOTE**:_CMake 语言不区分大小写，但是参数区分大小写。_
-
-**TIPS**:_CMake 中，C++是默认的编程语言。不过，我们还是建议使用`LANGUAGES`选项在`project`命令中显式地声明项目的语言。_
-
-要配置项目并生成构建器，我们必须通过命令行界面(CLI)运行 CMake。CMake CLI 提供了许多选项，`cmake -help`将输出以显示列出所有可用选项的完整帮助信息，我们将在书中对这些选项进行更多地了解。正如您将从`cmake -help`的输出中显示的内容，它们中的大多数选项会让你您访问 CMake 手册，查看详细信息。通过下列命令生成构建器：
-
-```
-$ mkdir -p build
-$ cd build
-$ cmake ..
-```
-
-这里，我们创建了一个目录`build`(生成构建器的位置)，进入`build`目录，并通过指定`CMakeLists.txt`的位置(本例中位于父目录中)来调用 CMake。可以使用以下命令行来实现相同的效果：
-
-```
-$ cmake -H. -Bbuild
-```
-
-该命令是跨平台的，使用了`-H`和`-B`为 CLI 选项。`-H`表示当前目录中搜索根`CMakeLists.txt`文件。`-Bbuild`告诉 CMake 在一个名为`build`的目录中生成所有的文件。
-
-**NOTE**:_`cmake -H. -Bbuild`也属于 CMake 标准使用方式: https://cmake.org/pipermail/cmake-developers/2018-January/030520.html 。不过，我们将在本书中使用传统方法(创建一个构建目录，进入其中，并通过将 CMake 指向`CMakeLists.txt`的位置来配置项目)。_
-
-运行`cmake`命令会输出一系列状态消息，显示配置信息：
-
-```
-$ cmake ..
-
--- The CXX compiler identification is GNU 8.1.0
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Configuring done
--- Generating done
--- Build files have been written to: /home/user/cmake-cookbook/chapter-01/recipe-01/cxx-example/build
-```
-
-**NOTE**:_在与`CMakeLists.txt`相同的目录中执行`cmake .`，原则上足以配置一个项目。然而，CMake 会将所有生成的文件写到项目的根目录中。这将是一个源代码内构建，通常是不推荐的，因为这会混合源代码和项目的目录树。我们首选的是源外构建。_
-
-CMake 是一个构建系统生成器。将描述构建系统(如：Unix Makefile、Ninja、Visual Studio 等)应当如何操作才能编译代码。然后，CMake 为所选的构建系统生成相应的指令。默认情况下，在 GNU/Linux 和 macOS 系统上，CMake 使用 Unix Makefile 生成器。Windows 上，Visual Studio 是默认的生成器。在下一个示例中，我们将进一步研究生成器，并在第 13 章中重新讨论生成器。
-
-GNU/Linux 上，CMake 默认生成 Unix Makefile 来构建项目：
-
-- `Makefile`: `make`将运行指令来构建项目。
-- `CMakefile`：包含临时文件的目录，CMake 用于检测操作系统、编译器等。此外，根据所选的生成器，它还包含特定的文件。
-- `cmake_install.cmake`：处理安装规则的 CMake 脚本，在项目安装时使用。
-- `CMakeCache.txt`：如文件名所示，CMake 缓存。CMake 在重新运行配置时使用这个文件。
-
-要构建示例项目，我们运行以下命令：
-
-```
-$ cmake --build .
-```
-
-最后，CMake 不强制指定构建目录执行名称或位置，我们完全可以把它放在项目路径之外。这样做同样有效：
-
-```
-$ mkdir -p /tmp/someplace
-$ cd /tmp/someplace
-$ cmake /path/to/source
-$ cmake --build .
-```
-
-## 更多信息
-
-官方文档 https://cmake.org/runningcmake/ 给出了运行 CMake 的简要概述。由 CMake 生成的构建系统，即上面给出的示例中的 Makefile，将包含为给定项目构建目标文件、可执行文件和库的目标及规则。`hello-world`可执行文件是在当前示例中的唯一目标，运行以下命令：
-
-```
-$ cmake --build . --target help
-
-The following are some of the valid targets for this Makefile:
-... all (the default if no target is provided)
-... clean
-... depend
-... rebuild_cache
-... hello-world
-... edit_cache
-... hello-world.o
-... hello-world.i
-... hello-world.s
-```
-
-CMake 生成的目标比构建可执行文件的目标要多。可以使用`cmake --build . --target <target-name>`语法，实现如下功能：
-
-- **all**(或 Visual Studio generator 中的 ALL_BUILD)是默认目标，将在项目中构建所有目标。
-- **clean**，删除所有生成的文件。
-- **rebuild_cache**，将调用 CMake 为源文件生成依赖(如果有的话)。
-- **edit_cache**，这个目标允许直接编辑缓存。
-
-对于更复杂的项目，通过测试阶段和安装规则，CMake 将生成额外的目标：
-
-- **test**(或 Visual Studio generator 中的**RUN_TESTS**)将在 CTest 的帮助下运行测试套件。我们将在第 4 章中详细讨论测试和 CTest。
-- **install**，将执行项目安装规则。我们将在第 10 章中讨论安装规则。
-- **package**，此目标将调用 CPack 为项目生成可分发的包。打包和 CPack 将在第 11 章中讨论。
-
 # 1.2 切换生成器
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-02 中找到，其中有一个 C++、C 和 Fortran 示例。该配置在 CMake 3.5 版(或更高版本)下测试没问题，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-02 中找到，其中有一个 C++、C 和 Fortran 示例。该配置在 CMake 3.5 版(或更高版本)下测试没问题，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
 
 CMake 是一个构建系统生成器，可以使用单个 CMakeLists.txt 为不同平台上的不同工具集配置项目。您可以在 CMakeLists.txt 中描述构建系统必须运行的操作，以配置并编译代码。基于这些指令，CMake 将为所选的构建系统(Unix Makefile、Ninja、Visual Studio 等等)生成相应的指令。我们将在第 13 章中重新讨论生成器。
 
@@ -293,7 +103,7 @@ Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
 
 # 1.3 构建和链接静态库和动态库
 
-**NOTE**: _这个示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-03 找到，其中有 C++和 Fortran 示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
+**NOTE**: _这个示例代码可以在 codes/chapter-01/recipe-03 找到，其中有 C++和 Fortran 示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
 
 项目中会有单个源文件构建的多个可执行文件的可能。项目中有多个源文件，通常分布在不同子目录中。这种实践有助于项目的源代码结构，而且支持模块化、代码重用和关注点分离。同时，这种分离可以简化并加速项目的重新编译。本示例中，我们将展示如何将源代码编译到库中，以及如何链接这些库。
 
@@ -320,7 +130,7 @@ int main() {
 
 `Message`类包装了一个字符串，并提供重载过的`<<`操作，并且包括两个源码文件：`Message.hpp`头文件与`Message.cpp`源文件。`Message.hpp`中的接口包含以下内容：
 
-```
+```cpp
 #pragma once
 
 #include <iosfwd>
@@ -340,7 +150,7 @@ private:
 
 `Message.cpp`实现如下：
 
-```
+```cpp
 #include "Message.hpp"
 
 #include <iostream>
@@ -434,7 +244,7 @@ CMake 还能够生成特殊类型的库，这不会在构建系统中产生输�
 
 现在展示`OBJECT`库的使用，修改`CMakeLists.txt`，如下：
 
-```
+```sh
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 project(recipe-03 LANGUAGES CXX)
 
@@ -472,9 +282,9 @@ target_link_libraries(hello-world message-static)
 
 现在，可以使用这个对象库来获取静态库(`message-static`)和动态库(`message-shared`)。要注意引用对象库的生成器表达式语法:`$<TARGET_OBJECTS:message-objs>`。生成器表达式是 CMake 在生成时(即配置之后)构造，用于生成特定于配置的构建输出。参见: https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html 。我们将在第 5 章中深入研究生成器表达式。最后，将`hello-world`可执行文件链接到消息库的静态版本。
 
-是否可以让 CMake 生成同名的两个库？换句话说，它们都可以被称为`message`，而不是`message-static`和`message-share`d 吗？我们需要修改这两个目标的属性：
+是否可以让 CMake 生成同名的两个库？换句话说，它们都可以被称为`message`，而不是`message-static`和`message-share` 吗？我们需要修改这两个目标的属性：
 
-```
+```sh
 add_library(message-shared
   SHARED
     $<TARGET_OBJECTS:message-objs>
@@ -505,7 +315,7 @@ set_target_properties(message-static
 
 # 1.4 用条件句控制编译
 
-**NOTE**:_这个示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-04 找到，其中有一个 C++示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
+**NOTE**:_这个示例代码可以在 codes/chapter-01/recipe-04 找到，其中有一个 C++示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
 
 目前为止，看到的示例比较简单，CMake 执行流是线性的：从一组源文件到单个可执行文件，也可以生成静态库或动态库。为了确保完全控制构建项目、配置、编译和链接所涉及的所有步骤的执行流，CMake 提供了自己的语言。本节中，我们将探索条件结构`if-else- else-endif`的使用。
 
@@ -515,8 +325,8 @@ set_target_properties(message-static
 
 从与上一个示例的的源代码开始，我们希望能够在不同的两种行为之间进行切换：
 
-1. 将`Message.hpp`和`Message.cpp`构建成一个库(静态或动态)，然后将生成库链接到`hello-world`可执行文件中。
-2. 将`Message.hpp`，`Message.cpp`和`hello-world.cpp`构建成一个可执行文件，但不生成任何一个库。
+1. 将 `Message.hpp` 和 `Message.cpp` 构建成一个库(静态或动态)，然后将生成库链接到`hello-world`可执行文件中。
+2. 将 `Message.hpp`，`Message.cpp`和`hello-world.cpp`构建成一个可执行文件，但不生成任何一个库。
 
 让我们来看看如何使用`CMakeLists.txt`来实现：
 
@@ -549,7 +359,7 @@ set_target_properties(message-static
 
 5. 然后，引入一个基于`USE_LIBRARY`值的`if-else`语句。如果逻辑为真，则`Message.hpp`和`Message.cpp`将打包成一个库：
 
-   ```
+   ```sh
    if(USE_LIBRARY)
    	# add_library will create a static library
    	# since BUILD_SHARED_LIBS is OFF
@@ -580,7 +390,7 @@ set_target_properties(message-static
 
 # 1.5 向用户显示选项
 
-**NOTE**: _这个示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-05 找到，其中有一个 C++示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
+**NOTE**: _这个示例代码可以在 codes/chapter-01/recipe-05 找到，其中有一个 C++示例。该配置在 CMake 3.5 版(或更高版本)测试有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
 
 前面的配置中，我们引入了条件句：通过硬编码的方式给定逻辑变量值。不过，这会影响用户修改这些变量。CMake 代码没有向读者传达，该值可以从外部进行修改。推荐在`CMakeLists.txt`中使用`option()`命令，以选项的形式显示逻辑开关，用于外部设置，从而切换构建系统的生成行为。本节的示例将向您展示，如何使用这个命令。
 
@@ -665,7 +475,7 @@ CMake 有适当的机制，通过包含模块来扩展其语法和功能，这�
 
 # 1.6 指定编译器
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-06 中找到，其中有一个 C++/C 示例。该配置在 CMake 3.5 版(或更高版本)下测试没问题，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-06 中找到，其中有一个 C++/C 示例。该配置在 CMake 3.5 版(或更高版本)下测试没问题，并且已经在 GNU/Linux、macOS 和 Windows 上进行了测试。_
 
 目前为止，我们还没有过多考虑如何选择编译器。CMake 可以根据平台和生成器选择编译器，还能将编译器标志设置为默认值。然而，我们通常控制编译器的选择。在后面的示例中，我们还将考虑构建类型的选择，并展示如何控制编译器标志。
 
@@ -758,7 +568,7 @@ $ cmake ..
 
 # 1.7 切换构建类型
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-07 中找到，包含一个 C++/C 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-07 中找到，包含一个 C++/C 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 CMake 可以配置构建类型，例如：Debug、Release 等。配置时，可以为 Debug 或 Release 构建设置相关的选项或属性，例如：编译器和链接器标志。控制生成构建系统使用的配置变量是`CMAKE_BUILD_TYPE`。该变量默认为空，CMake 识别的值为:
 
@@ -861,7 +671,7 @@ $ cmake --build . --config Release
 
 # 1.8 设置编译器选项
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-08 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-08 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 前面的示例展示了如何探测 CMake，从而获得关于编译器的信息，以及如何切换项目中的编译器。后一个任务是控制项目的编译器标志。CMake 为调整或扩展编译器标志提供了很大的灵活性，您可以选择下面两种方法:
 
@@ -928,7 +738,7 @@ int main() {
 └─ geometry_square.hpp
 ```
 
-我们不会为所有文件提供清单，读者可以参考 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-08 。
+我们不会为所有文件提供清单，读者可以参考 codes/chapter-01/recipe-08 。
 
 ## 具体实施
 
@@ -1122,7 +932,7 @@ target_compile_option(compute-areas
 
 # 1.9 为语言设定标准
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-09 中找到，包含一个 C++和 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-09 中找到，包含一个 C++和 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 编程语言有不同的标准，即提供改进的语言版本。启用新标准是通过设置适当的编译器标志来实现的。前面的示例中，我们已经展示了如何为每个目标或全局进行配置。3.1 版本中，CMake 引入了一个独立于平台和编译器的机制，用于为`C++`和`C`设置语言标准：为目标设置`<LANG>_STANDARD`属性。
 
@@ -1256,7 +1066,7 @@ farm.subscribe("DOG", [](const std::string & n) { return std::make_unique<Dog>(n
 
 # 1.10 使用控制流
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-01/recipe-10 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-01/recipe-10 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 本章前面的示例中，已经使用过`if-else-endif`。CMake 还提供了创建循环的语言工具：`foreach endforeach`和`while-endwhile`。两者都可以与`break`结合使用，以便尽早从循环中跳出。本示例将展示如何使用`foreach`，来循环源文件列表。我们将应用这样的循环，在引入新目标的前提下，来为一组源文件进行优化降级。
 

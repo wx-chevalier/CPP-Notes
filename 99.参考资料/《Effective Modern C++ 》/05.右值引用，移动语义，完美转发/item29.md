@@ -22,7 +22,7 @@ std::vector<Widget> vm1;
 auto vm2 = std::move(vm1);
 ```
 
-![item29_fig1](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item29_fig1.png)
+![item29_fig1](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item29_fig1.png)
 
 `std::array`没有这种指针实现，数据就保存在`std::array`对象中：
 
@@ -36,7 +36,7 @@ std::array<Widget, 10000> aw1;
 auto aw2 = std::move(aw1);
 ```
 
-![item29_fig2](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item29_fig2.png)
+![item29_fig2](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item29_fig2.png)
 
 注意`aw1`中的元素被**移动**到了`aw2`中。假定`Widget`类的移动操作比复制操作快，移动`Widget`的`std::array`就比复制要快。所以`std::array`确实支持移动操作。但是使用`std::array`的移动操作还是复制操作都将花费线性时间的开销，因为每个容器中的元素终归需要拷贝或移动一次，这与“移动一个容器就像操作几个指针一样方便”的含义相去甚远。
 

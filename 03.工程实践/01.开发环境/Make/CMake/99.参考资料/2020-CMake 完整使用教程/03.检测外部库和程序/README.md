@@ -23,125 +23,6 @@
 
 **NOTE**:_可以使用`--help-command`命令行显示 CMake 内置命令的打印文档。_
 
-# 3.1 检测 Python 解释器
-
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-01 中找到。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
-
-Python 是一种非常流行的语言。许多项目用 Python 编写的工具，从而将主程序和库打包在一起，或者在配置或构建过程中使用 Python 脚本。这种情况下，确保运行时对 Python 解释器的依赖也需要得到满足。本示例将展示如何检测和使用 Python 解释器。
-
-我们将介绍`find_package`命令，这个命令将贯穿本章。
-
-## 具体实施
-
-我们将逐步建立`CMakeLists.txt`文件:
-
-1. 首先，定义 CMake 最低版本和项目名称。注意，这里不需要任何语言支持:
-
-   ```
-   cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-   project(recipe-01 LANGUAGES NONE)
-   ```
-
-2. 然后，使用`find_package`命令找到 Python 解释器:
-
-   ```
-   find_package(PythonInterp REQUIRED)
-   ```
-
-3. 然后，执行 Python 命令并捕获它的输出和返回值:
-
-   ```
-   execute_process(
-     COMMAND
-     	${PYTHON_EXECUTABLE} "-c" "print('Hello, world!')"
-     RESULT_VARIABLE _status
-     OUTPUT_VARIABLE _hello_world
-     ERROR_QUIET
-     OUTPUT_STRIP_TRAILING_WHITESPACE
-     )
-   ```
-
-4. 最后，打印 Python 命令的返回值和输出:
-
-   ```
-   message(STATUS "RESULT_VARIABLE is: ${_status}")
-   message(STATUS "OUTPUT_VARIABLE is: ${_hello_world}")
-   ```
-
-5. 配置项目:
-
-   ```
-   $ mkdir -p build
-   $ cd build
-   $ cmake ..
-
-   -- Found PythonInterp: /usr/bin/python (found version "3.6.5")
-   -- RESULT_VARIABLE is: 0
-   -- OUTPUT_VARIABLE is: Hello, world!
-   -- Configuring done
-   -- Generating done
-   -- Build files have been written to: /home/user/cmake-cookbook/chapter-03/recipe-01/example/build
-   ```
-
-## 工作原理
-
-`find_package`是用于发现和设置包的 CMake 模块的命令。这些模块包含 CMake 命令，用于标识系统标准位置中的包。CMake 模块文件称为`Find<name>.cmake`，当调用`find_package(<name>)`时，模块中的命令将会运行。
-
-除了在系统上实际查找包模块之外，查找模块还会设置了一些有用的变量，反映实际找到了什么，也可以在自己的`CMakeLists.txt`中使用这些变量。对于 Python 解释器，相关模块为`FindPythonInterp.cmake`附带的设置了一些 CMake 变量:
-
-- **PYTHONINTERP_FOUND**：是否找到解释器
-- **PYTHON_EXECUTABLE**：Python 解释器到可执行文件的路径
-- **PYTHON_VERSION_STRING**：Python 解释器的完整版本信息
-- **PYTHON_VERSION_MAJOR**：Python 解释器的主要版本号
-- **PYTHON_VERSION_MINOR** ：Python 解释器的次要版本号
-- **PYTHON_VERSION_PATCH**：Python 解释器的补丁版本号
-
-可以强制 CMake，查找特定版本的包。例如，要求 Python 解释器的版本大于或等于 2.7：`find_package(PythonInterp 2.7)`
-
-可以强制满足依赖关系:
-
-```
-find_package(PythonInterp REQUIRED)
-```
-
-如果在查找位置中没有找到适合 Python 解释器的可执行文件，CMake 将中止配置。
-
-**TIPS**:_CMake 有很多查找软件包的模块。我们建议在 CMake 在线文档中查询`Find<package>.cmake`模块，并在使用它们之前详细阅读它们的文档。`find_package`命令的文档可以参考 https://cmake.org/cmake/help/v3.5/command/find_ackage.html 。在线文档的一个很好的替代方法是浏览 https://github.com/Kitware/CMake/tree/master/Modules 中的 CMake 模块源代码——它们记录了模块使用的变量，以及模块可以在`CMakeLists.txt`中使用的变量。_
-
-## 更多信息
-
-软件包没有安装在标准位置时，CMake 无法正确定位它们。用户可以使用 CLI 的`-D`参数传递相应的选项，告诉 CMake 查看特定的位置。Python 解释器可以使用以下配置:
-
-```
-$ cmake -D PYTHON_EXECUTABLE=/custom/location/python ..
-```
-
-这将指定非标准`/custom/location/python`安装目录中的 Python 可执行文件。
-
-**NOTE**:_每个包都是不同的，`Find<package>.cmake`模块试图提供统一的检测接口。当 CMake 无法找到模块包时，我们建议您阅读相应检测模块的文档，以了解如何正确地使用 CMake 模块。可以在终端中直接浏览文档，本例中可使用`cmake --help-module FindPythonInterp`查看。_
-
-除了检测包之外，我们还想提到一个便于打印变量的 helper 模块。本示例中，我们使用了以下方法:
-
-```
-message(STATUS "RESULT_VARIABLE is: ${_status}")
-message(STATUS "OUTPUT_VARIABLE is: ${_hello_world}")
-```
-
-使用以下工具进行调试:
-
-```
-include(CMakePrintHelpers)
-cmake_print_variables(_status _hello_world)
-```
-
-将产生以下输出:
-
-```
--- _status="0" ; _hello_world="Hello, world!"
-```
-
-有关打印属性和变量的更多信息，请参考 https://cmake.org/cmake/help/v3.5/module/CMakePrintHelpers.html 。
-
 # 3.2 检测 Python 库
 
 **NOTE**:_此示例代码可以在 https://github.com/devcafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-02 中找到，有一个 C 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
@@ -557,7 +438,7 @@ target_sources(pure-embedding
 
 # 3.4 检测 BLAS 和 LAPACK 数学库
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-04 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-04 中找到，有一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 许多数据算法严重依赖于矩阵和向量运算。例如：矩阵-向量和矩阵-矩阵乘法，求线性方程组的解，特征值和特征向量的计算或奇异值分解。这些操作在代码库中非常普遍，因为操作的数据量比较大，因此高效的实现有绝对的必要。幸运的是，有专家库可用：基本线性代数子程序(BLAS)和线性代数包(LAPACK)，为许多线性代数操作提供了标准 API。供应商有不同的实现，但都共享 API。虽然，用于数学库底层实现，实际所用的编程语言会随着时间而变化(Fortran、C、Assembly)，但是也都是 Fortran 调用接口。考虑到调用街扩，本示例中的任务要链接到这些库，并展示如何用不同语言编写的库。
 
@@ -789,7 +670,7 @@ void C_DSCAL(size_t length, double alpha, double *vec, int inc) {
 
 # 3.5 检测 OpenMP 的并行环境
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-05 中找到，有一个 C++和一个 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-05 中也有一个适用于 CMake 3.5 的示例。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-05 中找到，有一个 C++和一个 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。codes/chapter-03/recipe-05 中也有一个适用于 CMake 3.5 的示例。_
 
 目前，市面上的计算机几乎都是多核机器，对于性能敏感的程序，我们必须关注这些多核处理器，并在编程模型中使用并发。OpenMP 是多核处理器上并行性的标准之一。为了从 OpenMP 并行化中获得性能收益，通常不需要修改或重写现有程序。一旦确定了代码中的性能关键部分，例如：使用分析工具，程序员就可以通过预处理器指令，指示编译器为这些区域生成可并行的代码。
 
@@ -987,7 +868,7 @@ set_target_properties(example
 
 # 3.6 检测 MPI 的并行环境
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-06 中找到，包含一个 C++和一个 C 的示例。该示例在 CMake 3.9 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-06 中也有一个适用于 CMake 3.5 的 C 示例。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-06 中找到，包含一个 C++和一个 C 的示例。该示例在 CMake 3.9 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。codes/chapter-03/recipe-06 中也有一个适用于 CMake 3.5 的 C 示例。_
 
 消息传递接口(Message Passing Interface, MPI)，可以作为 OpenMP(共享内存并行方式)的补充，它也是分布式系统上并行程序的实际标准。尽管，最新的 MPI 实现也允许共享内存并行，但高性能计算中的一种典型方法就是，在计算节点上 OpenMP 与 MPI 结合使用。MPI 标准的实施包括:
 
@@ -1140,7 +1021,7 @@ target_link_libraries(hello-mpi
 
 # 3.7 检测 Eigen 库
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-07 中找到，包含一个 C++的示例。该示例在 CMake 3.9 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-06 中也有一个适用于 CMake 3.5 的 C++示例。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-07 中找到，包含一个 C++的示例。该示例在 CMake 3.9 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。codes/chapter-03/recipe-06 中也有一个适用于 CMake 3.5 的 C++示例。_
 
 BLAS 库为矩阵和向量操作提供了标准化接口。不过，这个接口用 Fortran 语言书写。虽然已经展示了如何使用 C++直接使用这些库，但在现代 C++程序中，希望有更高级的接口。
 
@@ -1354,141 +1235,9 @@ CMake 将在预定义的位置层次结构中查找配置模块。首先是`CMAK
    $ cmake -D Eigen3_DIR=<installation-prefix>/share/eigen3/cmake ..
    ```
 
-# 3.8 检测 Boost 库
-
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-08 中找到，包含一个 C++的示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
-
-Boost 是一组 C++通用库。这些库提供了许多功能，这些功能在现代 C++项目中不可或缺，但是还不能通过 C++标准使用这些功能。例如，Boost 为元编程、处理可选参数和文件系统操作等提供了相应的组件。这些库中有许多特性后来被 C++11、C++14 和 C++17 标准所采用，但是对于保持与旧编译器兼容性的代码库来说，许多 Boost 组件仍然是首选。
-
-本示例将向您展示如何检测和链接 Boost 库的一些组件。
-
-## 准备工作
-
-我们将编译的源码是 Boost 提供的文件系统库与文件系统交互的示例。这个库可以跨平台使用，并将操作系统和文件系统之间的差异抽象为一致的 API。下面的代码(`path-info.cpp`)将接受一个路径作为参数，并将其组件的报告打印到屏幕上:
-
-```
-#include <iostream>
-
-#include <boost/filesystem.hpp>
-
-using namespace std;
-using namespace boost::filesystem;
-const char *say_what(bool b) { return b ? "true" : "false"; }
-int main(int argc, char *argv[])
-{
-  if (argc < 2)
-  {
-    cout
-        << "Usage: path_info path-element [path-element...]\n"
-           "Composes a path via operator/= from one or more path-element arguments\n"
-           "Example: path_info foo/bar baz\n"
-#ifdef BOOST_POSIX_API
-           " would report info about the composed path foo/bar/baz\n";
-#else // BOOST_WINDOWS_API
-           " would report info about the composed path foo/bar\\baz\n";
-#endif
-    return 1;
-  }
-  path p;
-  for (; argc > 1; --argc, ++argv)
-    p /= argv[1]; // compose path p from the command line arguments
-  cout << "\ncomposed path:\n";
-  cout << " operator<<()---------: " << p << "\n";
-  cout << " make_preferred()-----: " << p.make_preferred() << "\n";
-  cout << "\nelements:\n";
-  for (auto element : p)
-    cout << " " << element << '\n';
-  cout << "\nobservers, native format:" << endl;
-#ifdef BOOST_POSIX_API
-  cout << " native()-------------: " << p.native() << endl;
-  cout << " c_str()--------------: " << p.c_str() << endl;
-#else // BOOST_WINDOWS_API
-  wcout << L" native()-------------: " << p.native() << endl;
-  wcout << L" c_str()--------------: " << p.c_str() << endl;
-#endif
-  cout << " string()-------------: " << p.string() << endl;
-  wcout << L" wstring()------------: " << p.wstring() << endl;
-  cout << "\nobservers, generic format:\n";
-  cout << " generic_string()-----: " << p.generic_string() << endl;
-  wcout << L" generic_wstring()----: " << p.generic_wstring() << endl;
-  cout << "\ndecomposition:\n";
-  cout << " root_name()----------: " << p.root_name() << '\n';
-  cout << " root_directory()-----: " << p.root_directory() << '\n';
-  cout << " root_path()----------: " << p.root_path() << '\n';
-  cout << " relative_path()------: " << p.relative_path() << '\n';
-  cout << " parent_path()--------: " << p.parent_path() << '\n';
-  cout << " filename()-----------: " << p.filename() << '\n';
-  cout << " stem()---------------: " << p.stem() << '\n';
-  cout << " extension()----------: " << p.extension() << '\n';
-  cout << "\nquery:\n";
-  cout << " empty()--------------: " << say_what(p.empty()) << '\n';
-  cout << " is_absolute()--------: " << say_what(p.is_absolute()) << '\n';
-  cout << " has_root_name()------: " << say_what(p.has_root_name()) << '\n';
-  cout << " has_root_directory()-: " << say_what(p.has_root_directory()) << '\n';
-  cout << " has_root_path()------: " << say_what(p.has_root_path()) << '\n';
-  cout << " has_relative_path()--: " << say_what(p.has_relative_path()) << '\n';
-  cout << " has_parent_path()----: " << say_what(p.has_parent_path()) << '\n';
-  cout << " has_filename()-------: " << say_what(p.has_filename()) << '\n';
-  cout << " has_stem()-----------: " << say_what(p.has_stem()) << '\n';
-  cout << " has_extension()------: " << say_what(p.has_extension()) << '\n';
-  return 0;
-}
-```
-
-## 具体实施
-
-Boost 由许多不同的库组成，这些库可以独立使用。CMake 可将这个库集合，表示为组件的集合。`FindBoost.cmake`模块不仅可以搜索库集合的完整安装，还可以搜索集合中的特定组件及其依赖项(如果有的话)。我们将逐步建立相应的`CMakeLists.txt`:
-
-1. 首先，声明 CMake 最低版本、项目名称、语言，并使用 C++11 标准:
-
-   ```
-   cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-
-   project(recipe-08 LANGUAGES CXX)
-
-   set(CMAKE_CXX_STANDARD 11)
-   set(CMAKE_CXX_EXTENSIONS OFF)
-   set(CMAKE_CXX_STANDARD_REQUIRED ON)
-   ```
-
-2. 然后，使用`find_package`搜索 Boost。若需要对 Boost 强制性依赖，需要一个参数。这个例子中，只需要文件系统组件，所以将它作为参数传递给`find_package`:
-
-   ```
-   find_package(Boost 1.54 REQUIRED COMPONENTS filesystem)
-   ```
-
-3. 添加可执行目标，编译源文件:
-
-   ```
-   add_executable(path-info path-info.cpp)
-   ```
-
-4. 最后，将目标链接到 Boost 库组件。由于依赖项声明为`PUBLIC`，依赖于 Boost 的目标将自动获取依赖项:
-
-   ```
-   target_link_libraries(path-info
-     PUBLIC
-     	Boost::filesystem
-   	)
-   ```
-
-## 工作原理
-
-`FindBoost.cmake`是本示例中所使用的 CMake 模块，其会在标准系统安装目录中找到 Boost 库。由于我们链接的是`Boost::filesystem`，CMake 将自动设置包含目录并调整编译和链接标志。如果 Boost 库安装在非标准位置，可以在配置时使用`BOOST_ROOT`变量传递 Boost 安装的根目录，以便让 CMake 搜索非标准路径:
-
-```
-$ cmake -D BOOST_ROOT=/custom/boost
-```
-
-或者，可以同时传递包含头文件的`BOOST_INCLUDEDIR`变量和库目录的`BOOST_LIBRARYDIR`变量:
-
-```
-$ cmake -D BOOST_INCLUDEDIR=/custom/boost/include -DBOOST_LIBRARYDIR=/custom/boost/lib
-```
-
 # 3.9 检测外部库:Ⅰ. 使用 pkg-config
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-09 中找到，包含一个 C 的示例。该示例在 CMake 3.6 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-09 中也有一个适用于 CMake 3.5 的示例。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-09 中找到，包含一个 C 的示例。该示例在 CMake 3.6 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。codes/chapter-03/recipe-09 中也有一个适用于 CMake 3.5 的示例。_
 
 目前为止，我们已经讨论了两种检测外部依赖关系的方法:
 
@@ -1607,7 +1356,7 @@ pkg_search_module(
 
 # 3.10 检测外部库:Ⅱ. 自定义 find 模块
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-03/recipe-10 中找到，包含一个 C 的示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-03/recipe-10 中找到，包含一个 C 的示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 此示例补充了上一节的示例，我们将展示如何编写一个`find`模块来定位系统上的 ZeroMQ 消息库，以便能够在非 Unix 操作系统上检测该库。我们重用服务器-客户端示例代码。
 

@@ -77,11 +77,11 @@ std::shared_ptr<const Widget> fastLoadWidget(WidgetID id)
 
 作为最后一个使用`std::weak_ptr`的例子，考虑一个持有三个对象`A`、`B`、`C`的数据结构，`A`和`C`共享`B`的所有权，因此持有`std::shared_ptr`：
 
-![item20_fig1](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item20_fig1.png)
+![item20_fig1](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item20_fig1.png)
 
 假定从 B 指向 A 的指针也很有用。应该使用哪种指针？
 
-![item20_fig2](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/Effective%20C%2B%2B/item20_fig2.png)
+![item20_fig2](https://assets.ng-tech.icu/book/Effective%20C%2B%2B/item20_fig2.png)
 
 有三种选择：
 

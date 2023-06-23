@@ -11,7 +11,7 @@
 
 # 2.1 检测操作系统
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-01 中找到。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-01 中找到。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 CMake 是一组跨平台工具。不过，了解操作系统(OS)上执行配置或构建步骤也很重要。从而与操作系统相关的 CMake 代码，会根据操作系统启用条件编译，或者在可用或必要时使用特定于编译器的扩展。本示例中，我们将通过一个不需要编译任何源代码的示例，演示如何使用 CMake 检测操作系统。为了简单起见，我们只考虑配置过程。
 
@@ -66,7 +66,7 @@ CMake 为目标操作系统定义了`CMAKE_SYSTEM_NAME`，因此不需要使用�
 
 # 2.2 处理与平台相关的源代码
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-02 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-02 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 理想情况下，应该避免依赖于平台的源代码，但是有时我们没有选择，特别是当要求配置和编译不是自己编写的代码时。本示例中，将演示如何使用 CMake 根据操作系统编译源代码。
 
@@ -74,7 +74,7 @@ CMake 为目标操作系统定义了`CMAKE_SYSTEM_NAME`，因此不需要使用�
 
 修改`hello-world.cpp`示例代码，将第 1 章第 1 节的例子进行修改:
 
-```
+```cpp
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -116,7 +116,7 @@ int main() {
 
 3. 通过定义以下目标编译定义，让预处理器知道系统名称:
 
-   ```
+   ```sh
    if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
      target_compile_definitions(hello-world PUBLIC "IS_LINUX")
    endif()
@@ -172,7 +172,7 @@ std::string say_hello() {
 
 # 2.3 处理与编译器相关的源代码
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-03 中找到，包含一个 C++和 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-03 中找到，包含一个 C++和 Fortran 示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 这个方法与前面的方法类似，我们将使用 CMake 来编译依赖于环境的条件源代码：本例将依赖于编译器。为了可移植性，我们尽量避免去编写新代码，但遇到有依赖的情况我们也要去解决，特别是当使用历史代码或处理编译器依赖工具，如[sanitizers](https://github.com/google/sanitizers)。从这一章和前一章的示例中，我们已经掌握了实现这一目标的所有方法。尽管如此，讨论与编译器相关的源代码的处理问题还是很有用的，这样我们将有机会从另一方面了解 CMake。
 
@@ -182,7 +182,7 @@ std::string say_hello() {
 
 看一下`hello-world.cpp`源代码:
 
-```
+```cpp
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -318,7 +318,7 @@ Hello GNU compiler!
 
 # 2.4 检测处理器体系结构
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-04 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-04 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 19 世纪 70 年代，出现的 64 位整数运算和本世纪初出现的用于个人计算机的 64 位寻址，扩大了内存寻址范围，开发商投入了大量资源来移植为 32 位体系结构硬编码，以支持 64 位寻址。许多博客文章，如 https://www.viva64.com/en/a/0004/ ，致力于讨论将`C++`代码移植到 64 位平台中的典型问题和解决方案。虽然，避免显式硬编码的方式非常明智，但需要在使用 CMake 配置的代码中适应硬编码限制。本示例中，我们会来讨论检测主机处理器体系结构的选项。
 
@@ -467,7 +467,7 @@ endif()
 
 # 2.5 检测处理器指令集
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-05 中找到，包含一个 C++示例。该示例在 CMake 3.10 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-05 中找到，包含一个 C++示例。该示例在 CMake 3.10 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 本示例中，我们将讨论如何在 CMake 的帮助下检测主机处理器支持的指令集。这个功能是较新版本添加到 CMake 中的，需要 CMake 3.10 或更高版本。检测到的主机系统信息，可用于设置相应的编译器标志，或实现可选的源代码编译，或根据主机系统生成源代码。本示例中，我们的目标是检测主机系统信息，使用预处理器定义将其传递给`C++`源代码，并将信息打印到输出中。
 
@@ -665,7 +665,7 @@ int main()
 
 # 2.6 为 Eigen 库使能向量化
 
-**NOTE**:_此示例代码可以在 https://github.com/dev-cafe/cmake-cookbook/tree/v1.0/chapter-02/recipe-06 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
+**NOTE**:_此示例代码可以在 codes/chapter-02/recipe-06 中找到，包含一个 C++示例。该示例在 CMake 3.5 版(或更高版本)中是有效的，并且已经在 GNU/Linux、macOS 和 Windows 上进行过测试。_
 
 处理器的向量功能，可以提高代码的性能。对于某些类型的运算来说尤为甚之，例如：线性代数。本示例将展示如何使能矢量化，以便使用线性代数的 Eigen C++库加速可执行文件。
 
