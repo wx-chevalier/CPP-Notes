@@ -60,7 +60,7 @@ C++ 是一种令人兴奋的语言，它在 C 语言的基础 上添加了对面
 ## Links
 
 - https://www.cnblogs.com/QG-whz/category/685776.html?page=2
-- http://c.biancheng.net/view/vip_2242.html
+- http://c.biancheng.net/view/vip_2242.html，https://www.zhihu.com/column/c_1635193783049568256
 
 ## Copyright & More | 延伸阅读
 
