@@ -185,7 +185,7 @@ f(std::move(z)); // deduces as f(int&& &&) => f(int&&)
 
 **变参模板**
 
-`...`语法用来创建或展开一个参数包。模板参数包是一个接受 0 个或更多模板参数。 具有至少一个参数包的模板称为可变参数模板。
+`...`语法用来创建或展开一个参数包。模板参数包是一个接受 0 个或更多模板参数。具有至少一个参数包的模板称为可变参数模板。
 
 ```c++
 template <typename... T>
@@ -760,7 +760,7 @@ bool bbb = bool(b);	// OK
 
 **内联命名空间**
 
-将内联名称空间的所有成员视为其父名称空间的一部分，从而允许函数的专门化并简化版本控制过程。 这是一个传递属性，如果 a 包含 b，而 b 又包含 c，而 b 和 c 都是内联名称空间，那么 c 的成员就可以像在 a 上一样使用。
+将内联名称空间的所有成员视为其父名称空间的一部分，从而允许函数的专门化并简化版本控制过程。这是一个传递属性，如果 a 包含 b，而 b 又包含 c，而 b 和 c 都是内联名称空间，那么 c 的成员就可以像在 a 上一样使用。
 
 将内联命名空间的所有成员视为它们是在其父亲的命名空间下，从而使函数专有化(只属于某个作用域)并简化版本控制过程(将当前版本函数的命名空间设置成 inline)。这个属性是可传递的，如果 A 包含 B，B 又包含 C，而 B 和 C 都被声明成了内联，那么 A 可以直接使用 C 中的成员。
 
@@ -1015,7 +1015,7 @@ static_assert(is_rvalue_reference<_Tp>::value);
 
 ### Smart pointers
 
-C++11 引入了新的智能指针：`std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`。 `std::auto_ptr` 在 C++17 中已经被移除。
+C++11 引入了新的智能指针：`std::unique_ptr`, `std::shared_ptr`, `std::weak_ptr`。`std::auto_ptr` 在 C++17 中已经被移除。
 
 `std::unique_ptr`在管理其指向的堆内存对象时，要求对象不可复制，仅可移动。
 
@@ -1042,7 +1042,7 @@ if (p1) {
 // `Foo` instance is destroyed when `p1` goes out of scope
 ```
 
-`std::shared_ptr`是一个智能指针，它管理跨多个所有者共享的资源。共享指针持有一个控制块，该控制块具有一些组件，如托管对象和引用计数器。 所有控制块访问都是线程安全的，但是操作托管对象本身是非线程安全的。
+`std::shared_ptr`是一个智能指针，它管理跨多个所有者共享的资源。共享指针持有一个控制块，该控制块具有一些组件，如托管对象和引用计数器。所有控制块访问都是线程安全的，但是操作托管对象本身是非线程安全的。
 
 ```c++
 // p1在复制给参数时是线程安全的，保证计数正确，但是在操作对象时不是线程安全的
@@ -1225,7 +1225,7 @@ auto b = CountTwos(arr);  // 1
 ## Acknowledgements
 
 - [cppreference](http://en.cppreference.com/w/cpp) - 其中有很好的例子，特性和解释。
-- [C++ Rvalue References Explained](http://thbecker.net/articles/rvalue_references/section_01.html) - 一系列非常好的右值引用，完美转发， 移动语义文章。
+- [C++ Rvalue References Explained](http://thbecker.net/articles/rvalue_references/section_01.html) - 一系列非常好的右值引用，完美转发，移动语义文章。
 - [clang](http://clang.llvm.org/cxx_status.html) 和 [gcc](https://gcc.gnu.org/projects/cxx-status.html) 的标准支持标准页面。
 - [Compiler explorer](https://godbolt.org/) 一个由源码转到汇编代码的网页，(译者：**无敌好用**)。
 - [Scott Meyers' Effective Modern C++](https://www.amazon.com/Effective-Modern-Specific-Ways-Improve/dp/1491903996) - 特别推荐的书籍

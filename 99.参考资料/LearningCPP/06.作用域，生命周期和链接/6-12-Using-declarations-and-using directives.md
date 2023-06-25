@@ -187,7 +187,7 @@ using std::cout; // tell the compiler that cout means std::cout
 cout << "Hello, world!"; // so this means std::cout
 ```
 
-程序将可以顺利完成编译。 虽然你很可能并不会定义一个叫做 `cout` 的函数，但是 `std` 命名空间中有成百上千的标识符可能会与你定义的标识符产生冲突，比方说“count”, “min”, “max”, “search”, “sort” 等等。
+程序将可以顺利完成编译。虽然你很可能并不会定义一个叫做 `cout` 的函数，但是 `std` 命名空间中有成百上千的标识符可能会与你定义的标识符产生冲突，比方说“count”, “min”, “max”, “search”, “sort” 等等。
 
 而且，即使 `using` 指令今天没有带来命名冲突，也难保不在未来导致命名冲突。例如，如果你的代码使用  `using`  导入了某个命名空间，然后某天该库更新了，添加了一些新的变量名，那没准就会和你的代码产生冲突咯。
 

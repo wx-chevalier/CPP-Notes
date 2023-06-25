@@ -104,7 +104,7 @@ private:
 
 就像你看到的，`MyAllocList<Wine>::type`不是一个类型。如果`Widget`使用`Wine`实例化，在`Widget`模板中的`MyAllocList<Wine>::type`将会是一个数据成员，不是一个类型。在`Widget`模板内，`MyAllocList<T>::type`是否表示一个类型取决于`T`是什么，这就是为什么编译器会坚持要求你在前面加上`typename`。
 
-如果你尝试过模板元编程（_template metaprogramming_，TMP）， 你一定会碰到取模板类型参数然后基于它创建另一种类型的情况。举个例子，给一个类型`T`，如果你想去掉`T`的常量修饰和引用修饰（`const`- or reference qualifiers），比如你想把`const std::string&`变成`std::string`。又或者你想给一个类型加上`const`或变为左值引用，比如把`Widget`变成`const Widget`或`Widget&`。（如果你没有用过模板元编程，太遗憾了，因为如果你真的想成为一个高效 C++程序员，你需要至少熟悉 C++在这方面的基本知识。你可以看看在[Item23](../5.RRefMovSemPerfForw/item23.md)，[27](../5.RRefMovSemPerfForw/item27.md)里的 TMP 的应用实例，包括我提到的类型转换）。
+如果你尝试过模板元编程（_template metaprogramming_，TMP），你一定会碰到取模板类型参数然后基于它创建另一种类型的情况。举个例子，给一个类型`T`，如果你想去掉`T`的常量修饰和引用修饰（`const`- or reference qualifiers），比如你想把`const std::string&`变成`std::string`。又或者你想给一个类型加上`const`或变为左值引用，比如把`Widget`变成`const Widget`或`Widget&`。（如果你没有用过模板元编程，太遗憾了，因为如果你真的想成为一个高效 C++程序员，你需要至少熟悉 C++在这方面的基本知识。你可以看看在[Item23](../5.RRefMovSemPerfForw/item23.md)，[27](../5.RRefMovSemPerfForw/item27.md)里的 TMP 的应用实例，包括我提到的类型转换）。
 
 C++11 在*type traits*（类型特性）中给了你一系列工具去实现类型转换，如果要使用这些模板请包含头文件`<type_traits>`。里面有许许多多*type traits*，也不全是类型转换的工具，也包含一些可预测接口的工具。给一个你想施加转换的类型`T`，结果类型就是`std::`transformation`<T>::type`，比如：
 

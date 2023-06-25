@@ -411,7 +411,7 @@ for (auto& i : arr)
 }
 ```
 
-使用 `std::for_each` 时，程序的目的是非常清晰的——对`arr`中的每个元素调用 `doubleNumber`。 在 for 循环的例子中，我们必须添加一个新的变量`i`，在程序员疲惫或者分心的时候，这可能会带来一些问题。一方面，如果我们不使用 auto 的话，此处会发生[[implicit-type-conversion|隐式类型转换]]。我们也可能会忘记使用`&`，这样的话 `doubleNumber`  函数将无法修改数组元素。我们还可能会误将其他变量传递给 `doubleNumber`。而这些问题在使用  `std::for_each` 时都不会发生。
+使用 `std::for_each` 时，程序的目的是非常清晰的——对`arr`中的每个元素调用 `doubleNumber`。在 for 循环的例子中，我们必须添加一个新的变量`i`，在程序员疲惫或者分心的时候，这可能会带来一些问题。一方面，如果我们不使用 auto 的话，此处会发生[[implicit-type-conversion|隐式类型转换]]。我们也可能会忘记使用`&`，这样的话 `doubleNumber`  函数将无法修改数组元素。我们还可能会误将其他变量传递给 `doubleNumber`。而这些问题在使用  `std::for_each` 时都不会发生。
 
 不仅如此，`std::for_each`  还可以跳过第一个元素，例如 [`std::next`](https://en.cppreference.com/w/cpp/iterator/next)  就可以实现该功能。
 

@@ -30,7 +30,7 @@ tags:
 
 [[6-4-Introduction-to-global-variables|6.4 - 全局变量]]
 
-- [[global-variable|全局变量]]指的是定义在函数外部的变量。 全局变量具有[[file-scope|文件作用域]]，这也就意味着它的可见范围从变量定义开始到文件结束为止。全局变量具有[[static-storage-duration|静态存储持续时间]]，也是说该变量会在程序开始时创建，程序结束时销毁。尽可能避免对静态变量的动态 初始化。
+- [[global-variable|全局变量]]指的是定义在函数外部的变量。全局变量具有[[file-scope|文件作用域]]，这也就意味着它的可见范围从变量定义开始到文件结束为止。全局变量具有[[static-storage-duration|静态存储持续时间]]，也是说该变量会在程序开始时创建，程序结束时销毁。尽可能避免对静态变量的动态 初始化。
 
 [[6-5-Variable-shadowing-name-hiding|6.5 - 变量遮蔽]]
 
@@ -63,6 +63,6 @@ tags:
 
 [[6-15-Unnamed-and-inline-namespaces|6.15 - 未命名和内联命名空间]]
 
-- 最后，C++ 支持[[unnamed-namespace|匿名命名空间]]，它隐含地将其内部定义的内容赋予[[internal-linkage|内部链接]]。 C++ 同样还支持[[inline-namespace|内联命名空间]]，它为命名空间提供了原生的版本控制机制。
+- 最后，C++ 支持[[unnamed-namespace|匿名命名空间]]，它隐含地将其内部定义的内容赋予[[internal-linkage|内部链接]]。C++ 同样还支持[[inline-namespace|内联命名空间]]，它为命名空间提供了原生的版本控制机制。
 
 [[6-11-Scope-duration-and-linkage-summary|6.11 - 作用域和链接小结]]

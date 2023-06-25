@@ -49,7 +49,7 @@ tags:
 
 [[16-7-std-initializer_list|16.7 - std::initializer_list]]
 
-- `std::initializer_list` 可以用来实现构造函数、赋值操作符和其他接受列表初始化参数的函数。 `std::initailizer_list` 位于`<initializer_list>` 头文件中。
+- `std::initializer_list` 可以用来实现构造函数、赋值操作符和其他接受列表初始化参数的函数。`std::initailizer_list` 位于`<initializer_list>` 头文件中。
 
 |         属性类型         |   组合    |   聚合    |    关联    |    依赖    |
 | :----------------------: | :-------: | :-------: | :--------: | :--------: |

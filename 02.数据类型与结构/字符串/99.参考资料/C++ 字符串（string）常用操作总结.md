@@ -149,7 +149,9 @@ toupper(c)  // 类似上面的
 #include <iostream>
 #include <string>
 #include <cctype>
+
 using namespace std;
+
 int main(void)
 {
     string s1 = "nice to meet you~";    // 初始化一个空字符串
@@ -159,6 +161,7 @@ int main(void)
     cout << s1 << endl; // 输出
     return 0;
 }
+
 // 运行结果 //
 NICE TO MEET YOU~
 ```

@@ -100,7 +100,7 @@ int main()
 }
 ```
 
-单独看每个函数都没有问题，不过，由于最终的结果等效于 `_main.cpp_`  包含了两次  *square.h*，所以才遇到了上述问题。 如果 *geometry.h*  需要  `getSquareSides()` 而且  *main.cpp*  需要  *geometry.h*  和  *square.h*，那么应该如何解决上述问题呢？
+单独看每个函数都没有问题，不过，由于最终的结果等效于 `_main.cpp_`  包含了两次  *square.h*，所以才遇到了上述问题。如果 *geometry.h*  需要  `getSquareSides()` 而且  *main.cpp*  需要  *geometry.h*  和  *square.h*，那么应该如何解决上述问题呢？
 
 ## 头文件防卫式声明
 
@@ -263,7 +263,7 @@ int main()
 
 注意  *square.h*  被包含到了  *main.cpp*  和  *square.cpp* 中。这意味着  *square.h*  的内容被  *square.cpp*  和  *main.cpp* 各包含了一次。
 
-让我们仔细讲解一下为什么会这样。当  *square.h*  被包含到  *square.cpp* 时  `_SQUARE_H_`  被定义了，它的定义到  *square.cpp* 文件的末尾为止。该定义可以避免  *square.h* 的内容多次被包含到  *square.cpp*  中 。但是，*square.cpp*  处理完成后，*SQUARE_H*  就没有定义了。这意味当预处理器处理  *main.cpp* 时， *SQUARE_H*  尚未在  *main.cpp* 中定义。
+让我们仔细讲解一下为什么会这样。当  *square.h*  被包含到  *square.cpp* 时  `_SQUARE_H_`  被定义了，它的定义到  *square.cpp* 文件的末尾为止。该定义可以避免  *square.h* 的内容多次被包含到  *square.cpp*  中 。但是，*square.cpp*  处理完成后，*SQUARE_H*  就没有定义了。这意味当预处理器处理  *main.cpp* 时，*SQUARE_H*  尚未在  *main.cpp* 中定义。
 
 由于  *square.cpp*  和  *main.cpp*  中都包含了 `getSquareSides` 函数的定义。此时，文件是可以编译的，但是在链接时链接器会报告程序存在 `getSquareSides` 函数的重复定义。
 
@@ -306,7 +306,7 @@ int main()
 }
 ```
 
-现在， 程序在编译的时候，`getSquareSides` 函数只有一个定义了（来自  *square.cpp* ），因此链接器不会再报错。 *main.cpp*  可以调用该函数 (即使它的定义在  *square.cpp* 中) ，因为它包含了 _square.h_（包含该函数的声明），链接器会把 _main.cpp_ 中对 `getSquareSides` 函数的调用关联到  *square.cpp* 中 `getSquareSides` 函数的定义。
+现在，程序在编译的时候，`getSquareSides` 函数只有一个定义了（来自  *square.cpp* ），因此链接器不会再报错。 *main.cpp*  可以调用该函数 (即使它的定义在  *square.cpp* 中) ，因为它包含了 _square.h_（包含该函数的声明），链接器会把 _main.cpp_ 中对 `getSquareSides` 函数的调用关联到  *square.cpp* 中 `getSquareSides` 函数的定义。
 
 ## 不把定义放在头文件中不就行了？
 

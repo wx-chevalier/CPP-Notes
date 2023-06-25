@@ -48,7 +48,7 @@ bool b2 { !false }; // b2 被初始化为 true
 
 ## 打印布尔变量
 
-当使用 `std::cout`打印布尔变量时， `std::cout` 会将 false 打印成 0，而把 true 打印成 1：
+当使用 `std::cout`打印布尔变量时，`std::cout` 会将 false 打印成 0，而把 true 打印成 1：
 
 ```cpp
 #include <iostream>

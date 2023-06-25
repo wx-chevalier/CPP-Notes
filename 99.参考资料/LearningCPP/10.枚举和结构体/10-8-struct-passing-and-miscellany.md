@@ -224,7 +224,7 @@ int main()
 }
 ```
 
-在上面的例子中，我们首先定义了一个  `Employee`  结构体，然后将其作为另一个  `Company`  结构体的成员。 当  `Company` 初始化时，也可以通过嵌套的[[initializer-list|初始化值列表]]初始化`Employee`。如果我们想知道某个 CEO 的薪水是多少，则需要使用两次[[member-selection-operator|成员选择运算符]]：`myCompany.CEO.wage;`
+在上面的例子中，我们首先定义了一个  `Employee`  结构体，然后将其作为另一个  `Company`  结构体的成员。当  `Company` 初始化时，也可以通过嵌套的[[initializer-list|初始化值列表]]初始化`Employee`。如果我们想知道某个 CEO 的薪水是多少，则需要使用两次[[member-selection-operator|成员选择运算符]]：`myCompany.CEO.wage;`
 
 其次，类型也可以被嵌套定义在其他类型中，搜易如果 `Employee` 只会作为 `Company` 的成员使用，则可以将其定义在 `Company` 结构体中：
 

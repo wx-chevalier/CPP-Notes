@@ -310,7 +310,7 @@ public:
 };
 ```
 
-不过， 这样一来会带来另外的问题，因为 `Display::displayItem()` 使用 `Storage` 作为引用参数。而当我们将`Storage`的定义移动到`Display`后面时，`编译器就会抱怨它不知道Storage` 是什么，我们不能再调整顺序了，不然又会出现之前的问题。
+不过，这样一来会带来另外的问题，因为 `Display::displayItem()` 使用 `Storage` 作为引用参数。而当我们将`Storage`的定义移动到`Display`后面时，`编译器就会抱怨它不知道Storage` 是什么，我们不能再调整顺序了，不然又会出现之前的问题。
 
 幸运地是，只需要几步就可以解决该问题。首先，我们可以添加对于`Storage`的前向声明。第二，我们可以将 `Display::displayItem()` 移动到类外部，放在`Storage`类完整定义的后。
 

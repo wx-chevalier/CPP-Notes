@@ -261,7 +261,7 @@ Frank: 20.25
 
 派生类本身也是可以被继承的。而且在操作和使用上都没有什么特别之处。
 
-例如 `Supervisor` 类本身是 `Employee` 类的派生类， `Employee` 类则是 `Person` 类的子类：
+例如 `Supervisor` 类本身是 `Employee` 类的派生类，`Employee` 类则是 `Person` 类的子类：
 
 ```cpp
 class Supervisor: public Employee

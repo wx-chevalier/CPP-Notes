@@ -20,7 +20,7 @@ tags:
 
 [[M-2-R-value-references|M.2 - 右值引用]]
 
-- 一个[[rvalue-reference|右值引用]]引用应该使用一个右值来初始化。 右值引用使用双`&&`号创建。编写将右值引用作为[[parameters|形参]]的函数是可以的，但是绝对不要将右值引用作为返回值。
+- 一个[[rvalue-reference|右值引用]]引用应该使用一个右值来初始化。右值引用使用双`&&`号创建。编写将右值引用作为[[parameters|形参]]的函数是可以的，但是绝对不要将右值引用作为返回值。
 
 [[M-3-move-constructors-and-move-assignment|M.3 - 移动构造函数和移动赋值]]
 

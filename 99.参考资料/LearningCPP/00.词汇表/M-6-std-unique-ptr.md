@@ -45,11 +45,11 @@ void someFunction()
 
 因此，==智能指针本身永远都不应该被动态创建==（否则智能指针对象本身可能会被忘记释放，从而导致内存泄漏问题）。默认情况下，智能指针应该被创建在栈上（作为[[6-3-Local-variables|局部变量]]或作为其他类的成员），我们保证智能指针在离开作用域时（包含该指针的函数或对象结束时），它所拥有的资源会被恰当地释放。
 
-C++11 标准库提供了 4 种智能指针类：`std::auto_ptr` (在 C++17 中已经删除了)， `std::unique_ptr`， `std::shared_ptr` 和 `std::weak_ptr`。其中 `std::unique_ptr` 是目前最为常用的一个指针类，所以我们稍后会首先介绍它，在接下来的课程中，我们会介绍 `std::shared_ptr` 和`std::weak_ptr`。
+C++11 标准库提供了 4 种智能指针类：`std::auto_ptr` (在 C++17 中已经删除了)，`std::unique_ptr`，`std::shared_ptr` 和 `std::weak_ptr`。其中 `std::unique_ptr` 是目前最为常用的一个指针类，所以我们稍后会首先介绍它，在接下来的课程中，我们会介绍 `std::shared_ptr` 和`std::weak_ptr`。
 
 ## `std::unique_ptr`
 
-`std::unique_ptr` 在 C++11 中被用来替代 `std::auto_ptr`。该智能指针被用来管理动态分配的对象，且该对象并不被多个其他对象所共享。也就是说， `std::unique_ptr` 单独拥有它所管理的资源，而不会和其他类共享资源的所有权。 `std::unique_ptr` 被定义在 `<memory>` 头文件中。
+`std::unique_ptr` 在 C++11 中被用来替代 `std::auto_ptr`。该智能指针被用来管理动态分配的对象，且该对象并不被多个其他对象所共享。也就是说，`std::unique_ptr` 单独拥有它所管理的资源，而不会和其他类共享资源的所有权。`std::unique_ptr` 被定义在 `<memory>` 头文件中。
 
 再看一个简单的例子：
 
@@ -127,7 +127,7 @@ Resource destroyed
 
 `std::unique_ptr` 类重载了[[dereference-operator|解引用运算符]]和[[member-access-operator|成员访问运算符->]]，所以我们可以通过这两个运算符来返回被管理的对象。解引用运算符会返回被管理资源的引用，而`operator->`返回一个指针。
 
-记住，==`std::unique_ptr` 并不一定总是管理着某个对象——有可能是它被初始化为空（使用默认构造函数或`nullptr`字面量作为参数），也有可能是它管理的资源被转移了==。 所以在使用这些操作符之前，必须首先检查 `std::unique_ptr`是否有资源。==因为`std::unique_ptr`会被隐式转换为布尔类型，所以只需要对该指针进行条件判断就可以，当返回`true`时说明它包含资源。==
+记住，==`std::unique_ptr` 并不一定总是管理着某个对象——有可能是它被初始化为空（使用默认构造函数或`nullptr`字面量作为参数），也有可能是它管理的资源被转移了==。所以在使用这些操作符之前，必须首先检查 `std::unique_ptr`是否有资源。==因为`std::unique_ptr`会被隐式转换为布尔类型，所以只需要对该指针进行条件判断就可以，当返回`true`时说明它包含资源。==
 
 Here’s an example of this:
 

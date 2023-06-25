@@ -10,7 +10,7 @@ tags:
   - C++17
 ---
 
-??? note "Key Takeaway" - `std:: string_view`  提供了一个观察字符串的视图，字符串本身存放在二进制文件中 - 创建 `std:: string_view`  时不会发生复制，但是修改时会影响到所有的对象。 - `remove_prefix`和`remove_suffix`分别用于从字符串视图的左侧和右侧删除字符（不会影响到原字符串） - 要将`std:: string_view` 转换为 C 风格的字符串，我们可以先转换为`std:: string` - 使用 `str.c_str()`获取 C 风格字符串 - 如果我们想写一个接受字符串形参的函数，将形参设置为 `std:: string_view` 是最灵活的选择，因为它可以高效地配合 C 风格的字符串参数(包括字符串字面量)、`std:: string`参数(将隐式转换为' std:: string_view ')和 `std:: string_view`参数来工作： - 优先使用`std:: string_view`([[pass-by-value|按值传递]])而不是`const std:: string&`，除非你需要调用其他要求使用 C 风格字符串或`std::string`的函数。 - 确保`std::string_view`观察的字符串不会[[going-out-of-scope|离开作用域]]，也不会被修改。 - 因为 `std::string_view` 的生命周期是独立于它“观察”的字符串的（也就是说该字符串对象可以在先于`std::string_view`被销毁)。这种情况下访问`std::string_view`就会造成[[1-6-Uninitialized-variables-and-undefined-behavior|未定义行为]]。 - 只有在`std::string_view`没有被修改的情况下且字符串以空结束符结尾的情况下使用`std::string_view::data()`  如果字符串没有以空结束符结尾，则`std::string_view::data()`会导致未定义行为。
+??? note "Key Takeaway" - `std:: string_view`  提供了一个观察字符串的视图，字符串本身存放在二进制文件中 - 创建 `std:: string_view`  时不会发生复制，但是修改时会影响到所有的对象。- `remove_prefix`和`remove_suffix`分别用于从字符串视图的左侧和右侧删除字符（不会影响到原字符串） - 要将`std:: string_view` 转换为 C 风格的字符串，我们可以先转换为`std:: string` - 使用 `str.c_str()`获取 C 风格字符串 - 如果我们想写一个接受字符串形参的函数，将形参设置为 `std:: string_view` 是最灵活的选择，因为它可以高效地配合 C 风格的字符串参数(包括字符串字面量)、`std:: string`参数(将隐式转换为' std:: string_view ')和 `std:: string_view`参数来工作： - 优先使用`std:: string_view`([[pass-by-value|按值传递]])而不是`const std:: string&`，除非你需要调用其他要求使用 C 风格字符串或`std::string`的函数。- 确保`std::string_view`观察的字符串不会[[going-out-of-scope|离开作用域]]，也不会被修改。- 因为 `std::string_view` 的生命周期是独立于它“观察”的字符串的（也就是说该字符串对象可以在先于`std::string_view`被销毁)。这种情况下访问`std::string_view`就会造成[[1-6-Uninitialized-variables-and-undefined-behavior|未定义行为]]。- 只有在`std::string_view`没有被修改的情况下且字符串以空结束符结尾的情况下使用`std::string_view::data()`  如果字符串没有以空结束符结尾，则`std::string_view::data()`会导致未定义行为。
 
 !!! info "作者注"
 
@@ -170,7 +170,7 @@ each
 ea
 ```
 
-与真正的窗帘不同， `std:: string_view` 不能被重新打开。一旦你缩小了区域，重新扩大它的唯一方法就是通过重新分配源字符串给它来重置视图。
+与真正的窗帘不同，`std:: string_view` 不能被重新打开。一旦你缩小了区域，重新扩大它的唯一方法就是通过重新分配源字符串给它来重置视图。
 
 ## `std::string_view` 可以配合没有空字符结束符的字符串
 
@@ -334,7 +334,7 @@ Your name is �P@�P@
 
 在`mian`函数中访问被返回的`std::string_view`  会导致未定义行为，在笔者的电脑上，会打印奇怪的字符。
 
-问题发生的原因在于你通过`std::string` 创建了一个  `std::string_view`，然后又修改了 `std::string`。修改  `std::string` 会导致内部字符串被销毁或被替换（在代码的其他部分）。`std::string_view`  总是指向该字符串， 但该字符串可能已经不是它原来的模样或者已经不存在了。
+问题发生的原因在于你通过`std::string` 创建了一个  `std::string_view`，然后又修改了 `std::string`。修改  `std::string` 会导致内部字符串被销毁或被替换（在代码的其他部分）。`std::string_view`  总是指向该字符串，但该字符串可能已经不是它原来的模样或者已经不存在了。
 
 !!! warning "注意"
 

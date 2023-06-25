@@ -37,7 +37,7 @@ int main()
     int x{ 1 };
     int y{ 2 };
 
-    std::cout << (++x, ++y); // 对 x 和 y 递增， 对右侧操作数求值
+    std::cout << (++x, ++y); // 对 x 和 y 递增，对右侧操作数求值
 
     return 0;
 }

@@ -112,7 +112,7 @@ pBase is a Base and has value 5
 
 输出结果可能和你想的并不一样！
 
-事实证明，由于`rBase`和`pBase`是`Base`引用和指针，它们只能看到`Base`的成员(或`Base`父类们的成员)。因此，即使`Derived::getName()`遮蔽(隐藏)了`Derived`对象的`Base::getName()`， `Base`指针/引用也不能看到`Derived::getName()`。因此，它会调用`Base::getName()`，这就是`rBase`和`pBase`打印它们是`Base`而不是`Derived`的原因。
+事实证明，由于`rBase`和`pBase`是`Base`引用和指针，它们只能看到`Base`的成员(或`Base`父类们的成员)。因此，即使`Derived::getName()`遮蔽(隐藏)了`Derived`对象的`Base::getName()`，`Base`指针/引用也不能看到`Derived::getName()`。因此，它会调用`Base::getName()`，这就是`rBase`和`pBase`打印它们是`Base`而不是`Derived`的原因。
 
 注意，这也意味着你不能通过`rBase`或者`pBase`来调用`Derived::getValueDoubled()` 。因为它们看不到该函数。
 

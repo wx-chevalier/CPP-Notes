@@ -154,7 +154,7 @@ MyString::MyString(const MyString& source)
 
 注意，`m_data` 只是`source.m_data`的一个浅拷贝指针，所以它们指向同一块内存。
 
-现在， 考虑下面这段代码：
+现在，考虑下面这段代码：
 
 ```cpp
 #include <iostream>

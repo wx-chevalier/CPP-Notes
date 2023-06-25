@@ -166,7 +166,7 @@ int main()
 }
 ```
 
-因为，我们使用模板类型`T`定义了`x`，使用`U`定义了`y`，所以现在两个参数可以是不同的类型了。 在调用  `max(2, 3.5)`时  `T`  被解析为  `int` 而  `U` 被解析为  `double`。编译器实例化  `max<int, double>(int, double)`  函数。
+因为，我们使用模板类型`T`定义了`x`，使用`U`定义了`y`，所以现在两个参数可以是不同的类型了。在调用  `max(2, 3.5)`时  `T`  被解析为  `int` 而  `U` 被解析为  `double`。编译器实例化  `max<int, double>(int, double)`  函数。
 
 但是，上面的代码仍然有问题：在使用算数规则时([[8-4-Arithmetic-conversions|8.4 - 算术转换]])，`double`的优先级高于`int`因此条件运算符的返回值是`double`，而函数的返回值类型为  `T` —— 如果此时 `T`  被解析为了  `int`，则 `double`  类型的返回值在返回时会被[[narrowing-convertions|缩窄转换]]为`int`从而产生一个告警（通常也会导致数据丢失）。
 

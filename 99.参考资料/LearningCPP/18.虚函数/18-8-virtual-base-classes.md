@@ -114,7 +114,7 @@ class Copier: public Scanner, public Printer
 
 现在，当你创建一个 `Copier` 类对象时，每个`Copier`将只获得一个由`Scanner`和`Printer`共享的`PoweredDevice`副本。
 
-但是，这又导致了另一个问题：如果`Scanner`和`Printer`共享一个`PoweredDevice`基类，那么谁负责创建它呢？事实证明，答案是 `Copier` 。 `Copier` 的构造函数负责创建 `PoweredDevice`。因此， `Copier` 可以直接调用非直接父类(non-immediate-parent 构造函数一次：
+但是，这又导致了另一个问题：如果`Scanner`和`Printer`共享一个`PoweredDevice`基类，那么谁负责创建它呢？事实证明，答案是 `Copier` 。`Copier` 的构造函数负责创建 `PoweredDevice`。因此，`Copier` 可以直接调用非直接父类(non-immediate-parent 构造函数一次：
 
 ```cpp
 #include <iostream>

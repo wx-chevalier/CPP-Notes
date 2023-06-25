@@ -21,7 +21,7 @@ tags:
 
 [[insertion-operator|插入运算符]]用于向输出流插入数据。C++为所有的内建数据结构都预定义了插入运算符，我们也可以通过[[14-4-overloading-the-IO-operators|重载输入输出运算符]]为自定义的类提供插入运算符。
 
-在[[23-1-Input-and-output-IO-streams|23.1 - 输入输出流]]中我们介绍过， `istream` 和 `ostream` 都是从 `ios` 类派生来的。`ios` (和 `ios_base`) 类的一个功能就是控制输出的格式。
+在[[23-1-Input-and-output-IO-streams|23.1 - 输入输出流]]中我们介绍过，`istream` 和 `ostream` 都是从 `ios` 类派生来的。`ios` (和 `ios_base`) 类的一个功能就是控制输出的格式。
 
 ## 格式化
 
@@ -82,7 +82,7 @@ std::cout << 27 << '\n';
 27
 ```
 
-没有效果！这是因为 `setf()` 只能打开标记——但是它没有智能到懂得去关闭互斥的标记。因此，当 `std::ios::hex` 开启时， `std::ios::dec` 仍然是开启状态，由于它优先级更高，所以仍然是按照十进制输出的。有两个办法可以解决这个问题。
+没有效果！这是因为 `setf()` 只能打开标记——但是它没有智能到懂得去关闭互斥的标记。因此，当 `std::ios::hex` 开启时，`std::ios::dec` 仍然是开启状态，由于它优先级更高，所以仍然是按照十进制输出的。有两个办法可以解决这个问题。
 
 第一种方法是关闭 `std::ios::dec` 并开启 `std::hex`：
 
@@ -132,7 +132,7 @@ std::cout << std::dec << 29 << '\n'; // back to decimal
 
 ## 有用的标记
 
-这里我们列举一些很有用的标记、manipulators 以及成员函数。 标记位于 `std::ios` 类中，manipulators 则位于 std[[namespace|命名空间]]总，而成员函数则位于 `std::ostream` 类中。
+这里我们列举一些很有用的标记、manipulators 以及成员函数。标记位于 `std::ios` 类中，manipulators 则位于 std[[namespace|命名空间]]总，而成员函数则位于 `std::ostream` 类中。
 
 | 组标 | 记                    | 含义                                                                  |
 | :--- | :-------------------- | :-------------------------------------------------------------------- |

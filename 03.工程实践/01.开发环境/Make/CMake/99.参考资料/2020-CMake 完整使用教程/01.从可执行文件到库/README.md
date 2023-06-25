@@ -823,7 +823,7 @@ int main() {
 
 可见性的含义如下:
 
-- **PRIVATE**，编译选项会应用于给定的目标，不会传递给与目标相关的目标。我们的示例中， 即使`compute-areas`将链接到`geometry`库，`compute-areas`也不会继承`geometry`目标上设置的编译器选项。
+- **PRIVATE**，编译选项会应用于给定的目标，不会传递给与目标相关的目标。我们的示例中，即使`compute-areas`将链接到`geometry`库，`compute-areas`也不会继承`geometry`目标上设置的编译器选项。
 - **INTERFACE**，给定的编译选项将只应用于指定目标，并传递给与目标相关的目标。
 - **PUBLIC**，编译选项将应用于指定目标和使用它的目标。
 
