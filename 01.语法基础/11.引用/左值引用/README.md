@@ -1,5 +1,42 @@
 # 左值引用
 
+左值引用保留对象的地址，但行为方式在语法上与对象相似。您可以将左值引用视为对象的另一名称。左值引用声明由说明符的可选列表后跟一个引用声明符组成。引用必须初始化且无法更改。地址可转换为给定指针类型的任何对象也可转换为相似的引用类型。例如，地址可转换为类型 `char *` 的任何对象也可转换为类型 `char &`。
+
+不要将引用声明与 [address-of 运算符](https://learn.microsoft.com/zh-cn/cpp/cpp/address-of-operator-amp?view=msvc-170)的用法混淆。`&`identifier 前面有 **`int`** 或 **`char`** 之类的类型时，identifier 将声明为对该类型的引用。`&`identifier 前面没有类型时，用法就是 address-of 运算符的用法。
+
+以下示例通过声明 Person 对象和对该对象的引用演示了引用声明符。由于 rFriend 是对 myFriend 的引用，因此更新任一变量都将更改同一对象。
+
+```cpp
+// reference_declarator.cpp
+// compile with: /EHsc
+// Demonstrates the reference declarator.
+#include <iostream>
+using namespace std;
+
+struct Person
+{
+    char* Name;
+    short Age;
+};
+
+int main()
+{
+   // Declare a Person object.
+   Person myFriend;
+
+   // Declare a reference to the Person object.
+   Person& rFriend = myFriend;
+
+   // Set the fields of the Person object.
+   // Updating either variable changes the same object.
+   myFriend.Name = "Bill";
+   rFriend.Age = 40;
+
+   // Print the fields of the Person object to the console.
+   cout << rFriend.Name << " is " << myFriend.Age << endl;
+}
+```
+
 # 案例
 
 ## swap 案例

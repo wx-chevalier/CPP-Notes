@@ -12,11 +12,11 @@ tags:
 
 ??? note "Key Takeaway"
 
-    - 基本的文件IO类有三个： `ifstream` (派生自 `istream`)、 `ofstream` (派生自 `ostream`) 和 `fstream` (派生自 `iostream`)
+    - 基本的文件IO类有三个： `ifstream` (派生自 `istream`)、`ofstream` (派生自 `ostream`) 和 `fstream` (派生自 `iostream`)
 
-C++中的文件 I/O 和普通 I/O 非常类似。基本的文件 IO 类有三个： `ifstream` (派生自 `istream`)、 `ofstream` (派生自 `ostream`) 和 `fstream` (派生自 `iostream`)。这些类可以分别用于文件输入、文件输出和文件输入输出。使用这些文件 IO 类时，需要包含 `fstream` 头文件。
+C++中的文件 I/O 和普通 I/O 非常类似。基本的文件 IO 类有三个： `ifstream` (派生自 `istream`)、`ofstream` (派生自 `ostream`) 和 `fstream` (派生自 `iostream`)。这些类可以分别用于文件输入、文件输出和文件输入输出。使用这些文件 IO 类时，需要包含 `fstream` 头文件。
 
-和 `cout`、 `cin`、 `cerr` 以及 `clog` 这些已经连接好可以直接使用的流不同，文件流必须由程序员手动设置。不过，操作很简单：要打开一个用于读写的文件时，只需要实例化一个需要的文件 IO 类（将文件名作为参数）。然后使用[[extraction-operator|提取运算符]]或[[insertion-operator|插入运算符]]从文件中读取数据或向文件写入数据。完成操作后，==有几种方式可以关闭该文件：显式地调用 `close()` 函数或者让文件 IO 变量[[going-out-of-scope|离开作用域]]（[[destructor|析构函数]]会帮你关闭文件）。==
+和 `cout`、`cin`、`cerr` 以及 `clog` 这些已经连接好可以直接使用的流不同，文件流必须由程序员手动设置。不过，操作很简单：要打开一个用于读写的文件时，只需要实例化一个需要的文件 IO 类（将文件名作为参数）。然后使用[[extraction-operator|提取运算符]]或[[insertion-operator|插入运算符]]从文件中读取数据或向文件写入数据。完成操作后，==有几种方式可以关闭该文件：显式地调用 `close()` 函数或者让文件 IO 变量[[going-out-of-scope|离开作用域]]（[[destructor|析构函数]]会帮你关闭文件）。==
 
 ## 文件输出
 

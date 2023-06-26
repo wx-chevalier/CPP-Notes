@@ -1,4 +1,4 @@
-# C++ 工程：总结 CMake 添加第三方库依赖方式 git submodule、 find_library、FetchContent、CPM 等
+# C++ 工程：总结 CMake 添加第三方库依赖方式 git submodule、find_library、FetchContent、CPM 等
 
 CMake 已经成为了 C++工程管理的主流方式，功能非常强大，现在大多数的 C++ 库都已经支持 CMake，下面以 [jsoncpp](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fopen-source-parsers%2Fjsoncpp) 为例，介绍几种引入第三方库的方式。
 
