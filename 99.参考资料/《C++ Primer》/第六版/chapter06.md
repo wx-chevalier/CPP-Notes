@@ -107,7 +107,7 @@ C++有一个常被用来代替 `if else` 语句的运算符，这个运算符被
 expression1 ? expression2 : expression3
 ```
 
-如果 `expression1` 为 `true`，则整个条件表达式的值为 `expression2` 的值； 否则，整个表达式的值为 `expression3` 的值。
+如果 `expression1` 为 `true`，则整个条件表达式的值为 `expression2` 的值；否则，整个表达式的值为 `expression3` 的值。
 
 ![image-20210728233356197](https://assets.ng-tech.icu/item/image-20210728233356197.png)
 

@@ -116,7 +116,7 @@ int sum_arr(int arr[], int n);
 cookies == &cookies[0];   // array name is the address of first element
 ```
 
-首先，数组声明使用数组名来标记存储位置； 其次，对数组名使用 sizeof 将得到整个数组的长度（以字节为单位）； 第三，正如第 4 章指出的，将地址运算符&用于数组名时，将返回整个数组的地址。
+首先，数组声明使用数组名来标记存储位置；其次，对数组名使用 sizeof 将得到整个数组的长度（以字节为单位）；第三，正如第 4 章指出的，将地址运算符&用于数组名时，将返回整个数组的地址。
 
 ![image-20210804152348446](https://assets.ng-tech.icu/item/image-20210804152348446.png)
 
