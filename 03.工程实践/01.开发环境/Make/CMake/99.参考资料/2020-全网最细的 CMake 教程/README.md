@@ -1,4 +1,4 @@
-> [原文地址](https://zhuanlan.zhihu.com/p/534439206)，注意，此文章使用的 CMake 版本已经较老
+> [原文地址](https://www.hahack.com/codes/cmake/#%E5%AE%89%E8%A3%85%E5%92%8C%E6%B5%8B%E8%AF%95)，注意，此文章使用的 CMake 版本已经较老
 
 # 什么是 CMake?
 
