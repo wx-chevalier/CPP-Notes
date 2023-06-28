@@ -75,7 +75,7 @@ What happens if we try to store the number 280 (which requires 9 bits to represe
 
 这个问题还可以这样理解。比最大值还大的数在存放时会被“wraps around” (有时候也称为“modulo wrapping”)，即从 0 开始重新计算。255 在 1 字节整型的表示范围内，所以 255 没问题。而 256 则超过了范围，因此它会被归为 0。257 则会归为 1。280 则归为 24.
 
-这里是一个 2 字节无符号短整型（ `unsigned short`） 的例子：
+这里是一个 2 字节无符号短整型（`unsigned short`） 的例子：
 
 ```cpp
 #include <iostream>

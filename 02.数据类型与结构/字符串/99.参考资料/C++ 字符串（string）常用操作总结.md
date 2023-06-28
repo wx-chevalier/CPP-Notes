@@ -25,14 +25,14 @@
 使用标准库类型 string 声明并初始化一个字符串，需要包含头文件 **string**。可以初始化的方式如下：
 
 ```cpp
-    string s1;    // 初始化一个空字符串
-    string s2 = s1;   // 初始化s2，并用s1初始化
-    string s3(s2);    // 作用同上
-    string s4 = "hello world";   // 用 "hello world" 初始化 s4，除了最后的空字符外其他都拷贝到s4中
-    string s5("hello world");    // 作用同上
-    string s6(6,'a');  // 初始化s6为：aaaaaa
-    string s7(s6, 3);  // s7 是从 s6 的下标 3 开始的字符拷贝
-    string s8(s6, pos, len);  // s7 是从 s6 的下标 pos 开始的 len 个字符的拷贝
+string s1;    // 初始化一个空字符串
+string s2 = s1;   // 初始化s2，并用s1初始化
+string s3(s2);    // 作用同上
+string s4 = "hello world";   // 用 "hello world" 初始化 s4，除了最后的空字符外其他都拷贝到s4中
+string s5("hello world");    // 作用同上
+string s6(6,'a');  // 初始化s6为：aaaaaa
+string s7(s6, 3);  // s7 是从 s6 的下标 3 开始的字符拷贝
+string s8(s6, pos, len);  // s7 是从 s6 的下标 pos 开始的 len 个字符的拷贝
 ```
 
 使用 = 的是拷贝初始化，使用 () 的是直接初始化。当初始值只有一个时，两者都可。当初始值有多个时一般来说要使用直接初始化，如上述最后一个的形式。

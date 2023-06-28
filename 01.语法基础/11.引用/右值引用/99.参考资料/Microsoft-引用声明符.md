@@ -1,12 +1,5 @@
 # 引用声明符 &&
 
-## 语法
-
-_`rvalue-reference-type-id`_:
- \*`type-specifier-seq`**_`&&`_**`attribute-specifier-seq`_opt_`ptr-abstract-declarator`\*opt
-
-## 注解
-
 利用右值引用，您可以将左值与右值区分开。 lvalue 引用和 rvalue 引用在语法和语义上相似，但它们遵循的规则稍有不同。 有关 lvalue 和 rvalue 的详细信息，请参阅 [Lvalue 和 Rvalue](https://learn.microsoft.com/zh-cn/cpp/cpp/lvalues-and-rvalues-visual-cpp?view=msvc-170)。有关详细信息，请参阅[lvalue 引用声明符：&](https://learn.microsoft.com/zh-cn/cpp/cpp/lvalue-reference-declarator-amp?view=msvc-170)。
 
 下面的章节介绍了 rvalue 引用如何支持“移动语义”和“完美转移”的实现。
