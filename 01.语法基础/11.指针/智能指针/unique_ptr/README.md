@@ -1,12 +1,12 @@
 # unique_ptr
 
-unique_ptr 不共享它的指针。 它无法复制到其他 unique_ptr，无法通过值传递到函数，也无法用于需要副本的任何 C++ 标准库算法。 只能移动 unique_ptr。 这意味着，内存资源所有权将转移到另一 unique_ptr，并且原始 unique_ptr 不再拥有此资源。 我们建议你将对象限制为由一个所有者所有，因为多个所有权会使程序逻辑变得复杂。 因此，当需要智能指针用于纯 C++ 对象时，可使用 unique_ptr，而当构造 unique_ptr 时，可使用 make_unique Helper 函数。
+unique_ptr 不共享它的指针。它无法复制到其他 unique_ptr，无法通过值传递到函数，也无法用于需要副本的任何 C++ 标准库算法。只能移动 unique_ptr。这意味着，内存资源所有权将转移到另一 unique_ptr，并且原始 unique_ptr 不再拥有此资源。我们建议你将对象限制为由一个所有者所有，因为多个所有权会使程序逻辑变得复杂。因此，当需要智能指针用于纯 C++ 对象时，可使用 unique_ptr，而当构造 unique_ptr 时，可使用 make_unique Helper 函数。
 
 下图演示了两个 unique_ptr 实例之间的所有权转换。
 
 ![所有权变化](https://learn.microsoft.com/zh-cn/cpp/cpp/media/unique_ptr.png?view=msvc-170)
 
-unique_ptr 在 C++ 标准库的 <memory> 标头中定义。 它与原始指针一样高效，可在 C++ 标准库容器中使用。 将 unique_ptr 实例添加到 C++ 标准库容器很有效，因为通过 unique_ptr 的移动构造函数，不再需要进行复制操作。
+unique_ptr 在 C++ 标准库的 <memory> 标头中定义。它与原始指针一样高效，可在 C++ 标准库容器中使用。将 unique_ptr 实例添加到 C++ 标准库容器很有效，因为通过 unique_ptr 的移动构造函数，不再需要进行复制操作。
 
 # 示例
 
@@ -35,7 +35,7 @@ void MakeSongs()
 }
 ```
 
-这些示例说明了 unique_ptr 的基本特征：可移动，但不可复制。 “移动”将所有权转移到新 unique_ptr 并重置旧 unique_ptr。
+这些示例说明了 unique_ptr 的基本特征：可移动，但不可复制。“移动”将所有权转移到新 unique_ptr 并重置旧 unique_ptr。
 
 以下示例演示如何创建 unique_ptr 实例并在向量中使用这些实例。
 
@@ -59,7 +59,7 @@ void SongVector()
 }
 ```
 
-在 range for 循环中，注意 unique_ptr 通过引用来传递。 如果你尝试通过此处的值传递，由于删除了 unique_ptr 复制构造函数，编译器将引发错误。
+在 range for 循环中，注意 unique_ptr 通过引用来传递。如果你尝试通过此处的值传递，由于删除了 unique_ptr 复制构造函数，编译器将引发错误。
 
 以下示例演示如何初始化类成员 unique_ptr。
 
