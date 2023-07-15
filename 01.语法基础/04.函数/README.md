@@ -231,7 +231,7 @@ auto Add2(const Lhs& lhs, const Rhs& rhs)
 }
 ```
 
-请注意， auto 不会保留它所推断的类型的常量。对于返回值需要保留其自变量的常量性或引用性的转发函数，可以使用 decltype(auto) 关键字，该关键字使用 decltype 类型推断规则并保留所有类型信息。decltype(auto) 可以用作左侧的普通返回值，或结尾返回值。下面的示例演示的 decltype(auto) 用于采用在模板实例化之前未知的返回类型实现函数自变量的完美转发。
+请注意，auto 不会保留它所推断的类型的常量。对于返回值需要保留其自变量的常量性或引用性的转发函数，可以使用 decltype(auto) 关键字，该关键字使用 decltype 类型推断规则并保留所有类型信息。decltype(auto) 可以用作左侧的普通返回值，或结尾返回值。下面的示例演示的 decltype(auto) 用于采用在模板实例化之前未知的返回类型实现函数自变量的完美转发。
 
 ```cpp
 template<typename F, typename Tuple = tuple<T...>, int... I>

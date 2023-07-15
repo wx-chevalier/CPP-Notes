@@ -18,7 +18,7 @@
 
 下面的代码主要实现了利用`OpenCV`载入一张图片并显示的简单功能：
 
-**注：** 此处假设你已经安装了 OpenCV 库， 并对 OpenCV 有稍许的了解即可。
+**注：** 此处假设你已经安装了 OpenCV 库，并对 OpenCV 有稍许的了解即可。
 
 具体代码项目下载地址：[Github：find_package_learning](https://github.com/zhanghming/programming-learning-examples/tree/master/cmake_learning/learn_cmake_easily)
 
@@ -134,7 +134,7 @@ make -j4
 - **Module 模式**
   `find_package`命令基础工作模式(Basic Signature)，也是默认工作模式。
 - **Config 模式**
-  `find_package`命令高级工作模式(Full Signature)。 只有在`find_package()`中指定**CONFIG**、**NO_MODULE**等关键字，或者**Module**模式查找失败后才会进入到**Config**模式。
+  `find_package`命令高级工作模式(Full Signature)。只有在`find_package()`中指定**CONFIG**、**NO_MODULE**等关键字，或者**Module**模式查找失败后才会进入到**Config**模式。
 
 因此 find_package 工作模式流程图为：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200412150800892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3poYW5naG0xOTk1,size_16,color_FFFFFF,t_70#pic_center)

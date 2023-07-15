@@ -5,7 +5,7 @@
 toc::[]
 
 == 介绍
-使用CMake进行构建时，可以设置C和C ++编译器。 此示例与link:../A-hello-cmake[hello-cmake]示例相同，不同之处在于它显示了将编译器从默认的gcc更改为link:http://clang.llvm.org/[clang]的最基本方法。
+使用CMake进行构建时，可以设置C和C ++编译器。此示例与link:../A-hello-cmake[hello-cmake]示例相同，不同之处在于它显示了将编译器从默认的gcc更改为link:http://clang.llvm.org/[clang]的最基本方法。
 
 == 文件树
 
@@ -145,7 +145,7 @@ CMake提供了控制程序编译以及链接的选项，选项如下:
 
 [注意]
 ====
-这是调用clang的最基本，最简单的方法。 未来的示例将展示调用编译器的更好方法
+这是调用clang的最基本，最简单的方法。未来的示例将展示调用编译器的更好方法
 ====
 
 
@@ -160,7 +160,7 @@ CMake提供了控制程序编译以及链接的选项，选项如下:
 cmake .. -DCMAKE_C_COMPILER=clang-3.6 -DCMAKE_CXX_COMPILER=clang++-3.6
 ----
 注意，本文件中有两个脚本，可以自动执行脚本，通过脚本，指定编译器为clang并且编译工程。
-上面通过设置关键字，表示运行make命令时，clang将用于编译二进制文件。 从make输出的以下几行可以看出这一点。
+上面通过设置关键字，表示运行make命令时，clang将用于编译二进制文件。从make输出的以下几行可以看出这一点。
 
 [source,bash]
 ----

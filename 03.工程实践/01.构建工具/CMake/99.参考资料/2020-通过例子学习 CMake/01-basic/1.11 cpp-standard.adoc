@@ -1,7 +1,7 @@
 = 设置C++ 标准
 
 
-自C ++ 11和C ++ 14发行以来，普遍做法是调用编译器以使用这些标准。 随着CMake的发展，有了新的使用这些标准的方式。
+自C ++ 11和C ++ 14发行以来，普遍做法是调用编译器以使用这些标准。随着CMake的发展，有了新的使用这些标准的方式。
 
 
 以下示例显示了设置C ++标准的不同方法，以及提供哪些版本的CMake。
@@ -21,7 +21,7 @@ toc::[]
 
 ## Introduction
 
-This example shows a common method to set the C++ Standard. This can be used with most versions of CMake. However, if you are targeting a recent version of CMake there are more convenient methods available.此示例显示了设置C ++标准的常用方法。 可以与大多数版本的CMake一起使用。 但是，如果有CMake的最新版本建议使用其他更便捷的方法。
+This example shows a common method to set the C++ Standard. This can be used with most versions of CMake. However, if you are targeting a recent version of CMake there are more convenient methods available.此示例显示了设置C ++标准的常用方法。可以与大多数版本的CMake一起使用。但是，如果有CMake的最新版本建议使用其他更便捷的方法。
 
 The files in this tutorial are below:
 
@@ -39,7 +39,7 @@ A-hello-cmake$ tree
 
 ### Checking Compile flags
 
-CMake has support for attempting to compile a program with any flags you pass into the function `CMAKE_CXX_COMPILER_FLAG`. The result is then stored in a variable that you pass in.CMake支持传递一个变量给函数CMAKE_CXX_COMPILER_FLAG来编译程序。 然后将结果存储在您传递的变量中。
+CMake has support for attempting to compile a program with any flags you pass into the function `CMAKE_CXX_COMPILER_FLAG`. The result is then stored in a variable that you pass in.CMake支持传递一个变量给函数CMAKE_CXX_COMPILER_FLAG来编译程序。然后将结果存储在您传递的变量中。
 
 For example:
 
@@ -56,7 +56,7 @@ The line `include(CheckCXXCompilerFlag)` tells CMake to include this function to
 
 ### Adding the flag
 
-Once you have determined if the compile supports a flag, you can then use the link:../../G-compile-flags/[standard cmake methods] to add this flag to a target. In this example we use the `CMAKE_CXX_FLAGS` to propegate the flag to all targets .确定编译器是否支持标志后，即可使用标准cmake方法将此标志添加到目标。 在此示例中，我们使用CMAKE_CXX_FLAGS将标志（c++标准）传播给所有目标。
+Once you have determined if the compile supports a flag, you can then use the link:../../G-compile-flags/[standard cmake methods] to add this flag to a target. In this example we use the `CMAKE_CXX_FLAGS` to propegate the flag to all targets .确定编译器是否支持标志后，即可使用标准cmake方法将此标志添加到目标。在此示例中，我们使用CMAKE_CXX_FLAGS将标志（c++标准）传播给所有目标。
 
 [source,cmake]
 ----
@@ -69,7 +69,7 @@ else()
 endif()
 ----
 
-The above example only checks for the gcc version of the compile flags and supports fallback from C+\+11 to the pre-standardisation C+\+0x flag. In real usage you may want to check for C++14, or add support for different methods of setting the compile, e.g. `-std=gnu++11`上面的示例仅检查编译标志的gcc版本，并支持从C ++ 11到预标准化C + \ + 0x标志的回退。 在实际使用中，您可能需要检查C14，或添加对设置编译方法的不同支持，例如 `-std = gnu11`
+The above example only checks for the gcc version of the compile flags and supports fallback from C+\+11 to the pre-standardisation C+\+0x flag. In real usage you may want to check for C++14, or add support for different methods of setting the compile, e.g. `-std=gnu++11`上面的示例仅检查编译标志的gcc版本，并支持从C ++ 11到预标准化C + \ + 0x标志的回退。在实际使用中，您可能需要检查C14，或添加对设置编译方法的不同支持，例如 `-std = gnu11`
 
 ## Building the Examples
 

@@ -24,7 +24,7 @@ ADD_EXECUTABLE(hello main.c;func.c)
 
 - project(<projectname>)命令：语法：project(projectname [cxx] [c] [java])，
 
-  可以指定工程采用的语言，选项分别表示：C++, C, java， 如不指定默认支持所有语言。指定项目的名称，在生成 VS 项目下即指明了生成的.sln 项目的文件名。项目最终编译生成的可执行文件不一定是这个项目名称，而是由另一条命令(add_executable)指定的。
+  可以指定工程采用的语言，选项分别表示：C++, C, java，如不指定默认支持所有语言。指定项目的名称，在生成 VS 项目下即指明了生成的.sln 项目的文件名。项目最终编译生成的可执行文件不一定是这个项目名称，而是由另一条命令(add_executable)指定的。
 
   通过 project 命令，为整个代码项目定义了一个管理架构，这点可以通过在 VS 下建立项目的结构层次来帮助理解。VS 下所有的项目都是在解决方案（.sln 文件）下进行管理的，一个解决方案可以包含多个项目。cmake 中 project 命令正是定义了解决方案的名称，add_executable 和 add_library 命令都会生成一个项目，cmake 会自动为每个项目（包括生成可执行文件的项目和生成链接库的项目）创建对应的文件夹，存储编译中间文件。
 
@@ -40,7 +40,7 @@ ADD_EXECUTABLE(hello main.c;func.c)
 - **ADD_SUBDIRECTORY 命令**
   **语法：** `ADD_SUBDIRECTORY(source_dir [binary_dir] [EXCLUDE_FROM_ALL])`
   该命令告诉 CMake 去**子目录**中查看可用的 CMakeLists.txt 文件
-  指令用于向当前工程添加存放源文件的子目录,并可以指定中间二进制和目标二进制存放的位置。 `EXCLUDE_FROM_ALL` 参数的含义是将这个目录从编译过程中排除。比如,工程的 example,可能就需要工程构建完成后,再进入 example 目录单独进行构建。
+  指令用于向当前工程添加存放源文件的子目录,并可以指定中间二进制和目标二进制存放的位置。`EXCLUDE_FROM_ALL` 参数的含义是将这个目录从编译过程中排除。比如,工程的 example,可能就需要工程构建完成后,再进入 example 目录单独进行构建。
   在我们的项目中，我们添加了 src 目录到项目中，而把对应于 src 目录生成的中间文件和目标文件存放到 bin 目录下，在上一节举例中“外部构建”的情况下，中间文件和目标文件将存放在 build/srcobj 目录下
 - **ADD_EXECUTABLE 命令**
   告诉工程生成一个**可执行文件**。该命令定义了工程最终生成的可执行文件的文件名以及参与编译的头文件和 cpp 文件。
@@ -80,7 +80,7 @@ FIND_LIBRARY(RUNTIME_LIB rt /usr/lib  /usr/local/lib NO_DEFAULT_PATH)
 cmake 会在目录中查找，如果所有目录中都没有，值`RUNTIME_LIB`就会被赋为`NO_DEFAULT_PATH`
 
 - **SET 命令——用于设置变量，相当于为变量取别名**
-  **SET(CMAKE_BUILE_TYPE DEBUG)** 设置编译类型 debug 或者 release。 debug 版会生成相关调试信息，可以使用 GDB 进行调试；release 不会生成调试信息。当无法进行调试时查看此处是否设置为 debug.
+  **SET(CMAKE_BUILE_TYPE DEBUG)** 设置编译类型 debug 或者 release。debug 版会生成相关调试信息，可以使用 GDB 进行调试；release 不会生成调试信息。当无法进行调试时查看此处是否设置为 debug.
   SET(CMAKE_C_FLAGS_DEBUG “-g -Wall”) 设置编译器的类型
   CMAKE_C_FLAGS_DEBUG ---- C 编译器
   CMAKE_CXX_FLAGS_DEBUG ---- C++ 编译器

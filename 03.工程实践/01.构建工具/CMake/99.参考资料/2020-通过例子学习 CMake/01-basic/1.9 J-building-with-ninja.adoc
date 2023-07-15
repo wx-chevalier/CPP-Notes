@@ -6,7 +6,7 @@ toc::[]
 
 ## 介绍
 
-如前所述，CMake是一个元构建系统，可用于为许多其他构建工具创建构建文件。 这个例子展示了如何让CMake使用ninja构建工具。
+如前所述，CMake是一个元构建系统，可用于为许多其他构建工具创建构建文件。这个例子展示了如何让CMake使用ninja构建工具。
 
 ## 文件树
 
@@ -28,7 +28,7 @@ CMake  are
 responsible for writing the input files (e.g. Makefiles) for the underlying build system. Running `cmake --help`
 will show the generators available. For cmake v2.8.12.2 the generators supported
 on my system include:
-CMakehttps://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html[generators]负责为基础构建系统编写输入文件（例如Makefile）。 运行cmake --help将显示可用的生成器。 对于cmake v2.8.12.2，我的系统支持的生成器包括：
+CMakehttps://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html[generators]负责为基础构建系统编写输入文件（例如Makefile）。运行cmake --help将显示可用的生成器。对于cmake v2.8.12.2，我的系统支持的生成器包括：
 
 [source,bash]
 ----
@@ -54,7 +54,7 @@ CMake includes different types of generators such as Command-Line, IDE, and Extr
 
 #### Command-Line Build Tool Generators命令行编译工具生成器
 
-These generators are for command-line build tools, like Make and Ninja. The chosen tool chain must be configured prior to generating the build system with CMake.这些生成器用于命令行构建工具，例如Make和Ninja。 在使用CMake生成构建系统之前，必须先配置所选的工具链。
+These generators are for command-line build tools, like Make and Ninja. The chosen tool chain must be configured prior to generating the build system with CMake.这些生成器用于命令行构建工具，例如Make和Ninja。在使用CMake生成构建系统之前，必须先配置所选的工具链。
 
 The supported generators include:支持的生成器包括：
 
@@ -69,7 +69,7 @@ The supported generators include:支持的生成器包括：
 
 #### IDE Build Tool Generators
 
-These generators are for Integrated Development Environments that include their own compiler. Examples are Visual Studio and Xcode which include a compiler natively.这些生成器用于自己有编译器的IDE。 示例是Visual Studio和Xcode。
+These generators are for Integrated Development Environments that include their own compiler. Examples are Visual Studio and Xcode which include a compiler natively.这些生成器用于自己有编译器的IDE。示例是Visual Studio和Xcode。
 
 The supported generators include:
 
