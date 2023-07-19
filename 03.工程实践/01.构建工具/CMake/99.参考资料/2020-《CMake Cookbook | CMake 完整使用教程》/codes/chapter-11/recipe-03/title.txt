@@ -1,1 +1,0 @@
-Distributing a C/Fortran/Python project built with CMake/CFFI via PyPI

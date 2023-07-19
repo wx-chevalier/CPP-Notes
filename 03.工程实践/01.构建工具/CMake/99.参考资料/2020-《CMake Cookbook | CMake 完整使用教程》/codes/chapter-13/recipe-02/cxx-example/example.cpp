@@ -1,1 +1,0 @@
-../../../chapter-03/recipe-05/cxx-example/example.cpp

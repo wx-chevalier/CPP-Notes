@@ -1,4 +1,0 @@
-travis-osx:
-  failing_generators:
-    - 'Unix Makefiles'
-    - 'Ninja'

@@ -1,1 +1,0 @@
-../../../../chapter-03/recipe-08/cxx-example/path-info.cpp

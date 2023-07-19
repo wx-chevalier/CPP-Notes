@@ -1,1 +1,0 @@
-../../recipe-02/cxx-example/custom.sh

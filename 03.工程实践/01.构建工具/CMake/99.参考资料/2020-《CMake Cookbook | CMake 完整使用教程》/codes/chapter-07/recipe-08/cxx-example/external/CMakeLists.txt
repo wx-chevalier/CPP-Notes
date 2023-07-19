@@ -1,1 +1,0 @@
-../../../recipe-07/cxx-example/external/CMakeLists.txt

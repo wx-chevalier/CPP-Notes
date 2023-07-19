@@ -1,5 +1,0 @@
-# OpenMP does not work with clang
-travis-osx:
-  skip_generators:
-    - 'Unix Makefiles'
-    - 'Ninja'

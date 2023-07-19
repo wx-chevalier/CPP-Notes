@@ -1,3 +1,0 @@
-appveyor-vs:
-  definitions:
-    - ZeroMQ_ROOT: 'c:\tools\vcpkg\installed\x64-windows'

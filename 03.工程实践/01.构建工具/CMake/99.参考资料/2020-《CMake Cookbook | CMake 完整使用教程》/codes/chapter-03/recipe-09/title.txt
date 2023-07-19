@@ -1,1 +1,0 @@
-Detecting external libraries: I. Using `pkg-config`

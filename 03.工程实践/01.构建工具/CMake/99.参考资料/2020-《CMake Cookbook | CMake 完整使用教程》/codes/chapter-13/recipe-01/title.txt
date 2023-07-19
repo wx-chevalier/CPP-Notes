@@ -1,1 +1,0 @@
-Cross-compiling a hello world example

@@ -1,2 +1,0 @@
-include README.rst CMakeLists.txt
-recursive-include account *.h *.f90 CMakeLists.txt

@@ -1,1 +1,0 @@
-../../recipe-03/cxx-example/Message.cpp

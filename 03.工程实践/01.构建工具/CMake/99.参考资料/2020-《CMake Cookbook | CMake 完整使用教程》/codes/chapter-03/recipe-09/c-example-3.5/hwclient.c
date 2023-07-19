@@ -1,1 +1,0 @@
-../c-example/hwclient.c

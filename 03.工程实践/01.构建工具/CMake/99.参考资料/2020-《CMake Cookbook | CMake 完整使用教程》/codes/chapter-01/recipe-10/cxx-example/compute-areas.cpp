@@ -1,1 +1,0 @@
-../../recipe-08/cxx-example/compute-areas.cpp

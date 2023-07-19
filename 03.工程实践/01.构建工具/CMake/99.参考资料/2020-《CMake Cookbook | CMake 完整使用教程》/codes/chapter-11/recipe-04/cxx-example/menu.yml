@@ -1,3 +1,0 @@
-local:
-  env:
-    - VERBOSE_OUTPUT: 'ON'
