@@ -61,7 +61,7 @@ public:
    {
       return 0;
    }
-   void   operator delete[] (void*)
+   void operator delete[] (void*)
    {
    }
 };
