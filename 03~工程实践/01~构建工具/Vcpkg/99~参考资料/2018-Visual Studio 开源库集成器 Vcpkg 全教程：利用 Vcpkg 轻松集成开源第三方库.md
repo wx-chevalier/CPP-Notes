@@ -48,7 +48,6 @@ Vcpkg 的官方源码站点为：
 
 ```shell
 git clone https://github.com/microsoft/vcpkg
-1
 ```
 
 ### 2.2. 编译 Vcpkg
@@ -67,7 +66,6 @@ git clone https://github.com/microsoft/vcpkg
 
 ```shell
 .\vcpkg.exe search
-1
 ```
 
 ### 3.2. 安装一个开源库
@@ -78,7 +76,6 @@ git clone https://github.com/microsoft/vcpkg
 
 ```shell
 .\vcpkg.exe install jsoncpp
-1
 ```
 
 输出：
@@ -120,7 +117,6 @@ The package jsoncpp:x86-windows provides CMake targets:
 
     find_package(jsoncpp REQUIRED)
     target_link_libraries(main PRIVATE jsoncpp_lib)
-123456789101112131415161718192021222324252627282930313233343536
 ```
 
 我们大致可以了解到 install 会经历这几个过程：
@@ -143,7 +139,6 @@ The package jsoncpp:x86-windows provides CMake targets:
 
 ```shell
 .\vcpkg.exe help triplet
-1
 ```
 
 我们可以看到会列出如下清单：
@@ -174,7 +169,6 @@ The package jsoncpp:x86-windows provides CMake targets:
 
 ```shell
 .\vcpkg.exe remove jsoncpp
-1
 ```
 
 注意：
@@ -186,7 +180,6 @@ The package jsoncpp:x86-windows provides CMake targets:
 
 ```shell
 .\vcpkg.exe remove --outdated
-1
 ```
 
 ### 3.5. 列出已经安装的开源库
