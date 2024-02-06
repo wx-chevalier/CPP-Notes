@@ -222,8 +222,67 @@
       - [5.6.6 读写锁](/04~并发编程/线程安全/读写锁.md)
     - 5.7 线程池 [1]
       - [5.7.1 基于 C++ 11 简单线程池实现](/04~并发编程/线程池/基于%20C++%2011%20简单线程池实现.md)
-  - [6 05~设计模式](/05~设计模式/README.md)
-    
+  - [6 05~设计模式 [1]](/05~设计模式/README.md)
+    - 6.1 99~参考资料 [1]
+      - [6.1.1 liu jianhao~Cpp Design Patterns [29]](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/README.md)
+        - [6.1.1.1 Abstract Factory](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Abstract%20Factory/README.md)
+          
+        - [6.1.1.2 Adapter](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Adapter/README.md)
+          
+        - [6.1.1.3 Bridge](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Bridge/README.md)
+          
+        - [6.1.1.4 Builder](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Builder/README.md)
+          
+        - [6.1.1.5 Chain of Resposibility](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Chain%20of%20Resposibility/README.md)
+          
+        - [6.1.1.6 Command](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Command/README.md)
+          
+        - [6.1.1.7 Command Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Command-Pattern/README.md)
+          
+        - [6.1.1.8 Composite](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Composite/README.md)
+          
+        - [6.1.1.9 Decorator](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Decorator/README.md)
+          
+        - [6.1.1.10 Decorator Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Decorator-Pattern/README.md)
+          
+        - [6.1.1.11 Facade](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Facade/README.md)
+          
+        - [6.1.1.12 Factory Method](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Factory%20Method/README.md)
+          
+        - [6.1.1.13 Factory Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Factory-Pattern/README.md)
+          
+        - [6.1.1.14 Flyweight](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Flyweight/README.md)
+          
+        - [6.1.1.15 Interpreter](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Interpreter/README.md)
+          
+        - [6.1.1.16 Iterator](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Iterator/README.md)
+          
+        - [6.1.1.17 Mediator](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Mediator/README.md)
+          
+        - [6.1.1.18 Memento](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Memento/README.md)
+          
+        - [6.1.1.19 Observer](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Observer/README.md)
+          
+        - [6.1.1.20 Observer Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Observer-Pattern/README.md)
+          
+        - [6.1.1.21 Prototype](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Prototype/README.md)
+          
+        - [6.1.1.22 Proxy](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Proxy/README.md)
+          
+        - [6.1.1.23 Singleton](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Singleton/README.md)
+          
+        - [6.1.1.24 State](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/State/README.md)
+          
+        - [6.1.1.25 Strategy](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Strategy/README.md)
+          
+        - [6.1.1.26 Strategy Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Strategy-Pattern/README.md)
+          
+        - [6.1.1.27 Template Method](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Template%20Method/README.md)
+          
+        - [6.1.1.28 Template Pattern](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Template-Pattern/README.md)
+          
+        - [6.1.1.29 Visitor](/05~设计模式/99~参考资料/liu-jianhao~Cpp-Design-Patterns/Visitor/README.md)
+          
   - [7 10~MFC](/10~MFC/README.md)
     
   - [8 11~Qt [2]](/11~Qt/README.md)
