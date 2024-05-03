@@ -309,7 +309,7 @@ Qt 为每一个 Object 都预先写好了一些信号与槽函数，可以直接
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     // 创建一个按钮
-    // 文本内容是“点击关闭该窗口"， 其父对象是this，即该窗口所指的具体对象
+    // 文本内容是“点击关闭该窗口"，其父对象是this，即该窗口所指的具体对象
     QPushButton *button = new QPushButton("点击关闭该窗口", this);
 
     // 设置按钮的位置和大小
@@ -514,7 +514,7 @@ flowchart LR
 ## 简化信号槽传参——Lambda 表达式
 
 Lambda 表达式（lambda expression），即**匿名函数**（没有函数名的函数）。
-Lambda 表达式基于数学中的 $λ$ 演算得名，通过 Lambda 表达式可以不用创建匿名类就使用匿名方法， Lambda 表达式可以使代码变的更加简洁紧凑。
+Lambda 表达式基于数学中的 $λ$ 演算得名，通过 Lambda 表达式可以不用创建匿名类就使用匿名方法，Lambda 表达式可以使代码变的更加简洁紧凑。
 
 `C++11` 提供了对 Lambda 表达式的支持，Lambda 表达式把函数看作对象。Lambda 表达式可以像对象一样使用，比如可以将它们赋给变量和作为参数传递，还可以像函数一样对其求值。
 
