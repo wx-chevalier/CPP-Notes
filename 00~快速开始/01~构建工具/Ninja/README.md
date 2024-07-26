@@ -1,14 +1,13 @@
 ## 简介
 
-ninja 是`Google`的一名程序员推出的注重速度的构建工具.一般在 Unix/Linux 上的程序通过`make/makefile`来构建编译，而`ninja`通过将编译任务并行组织，大大提高了构建速度。
+ninja 是 `Google` 的一名程序员推出的注重速度的构建工具.一般在 Unix/Linux 上的程序通过 `make/makefile` 来构建编译，而 `ninja` 通过将编译任务并行组织，大大提高了构建速度。
 
 ## 执行
 
 ```bash
-bash
-复制代码ninja [-options] targets
-bash
-复制代码支持参数
+ninja [-options] targets
+
+支持参数
 --version  # 打印版本信息
 -v         # 显示构建中的所有命令行（这个对实际构建的命令核对非常有用）
 
@@ -44,7 +43,7 @@ bash
 
 ```bash
 bash
-复制代码Android.bp --> Blueprint --> Soong --> ninja
+Android.bp --> Blueprint --> Soong --> ninja
 Makefile or Android.mk --> kati --> ninja
 (Android.mk --> Soong --> Blueprint --> Android.bp)
 ```
@@ -57,7 +56,7 @@ Makefile or Android.mk --> kati --> ninja
 
 ```bash
 bash
-复制代码$ source build/envsetup.sh
+$ source build/envsetup.sh
 $ lunch pixel3_mainline-userdebug
 $ make nothing
 $ cat out/combined-pixel3_mainline.ninja
@@ -74,7 +73,7 @@ subninja out/soong/build.ninja
 
 ```bash
 bash
-复制代码prebuilts/build-tools/linux-x86/bin/ninja \
+prebuilts/build-tools/linux-x86/bin/ninja \
     -f  out/combined-pixel3_mainline.ninja
 ```
 
@@ -86,7 +85,7 @@ ninja 本身就是通过 ninja 编译出来的
 
 ```bash
 bash
-复制代码git clone https://android.googlesource.com/platform/external/ninja
+git clone https://android.googlesource.com/platform/external/ninja
 
 python3 configure.py --bootstrap
 ```
@@ -104,7 +103,7 @@ Ninja 提供了一个简单的生成脚本,它实际上是一个 python 模块`m
 
 ```python
 python
-复制代码from ninja_syntax import Writer
+from ninja_syntax import Writer
 
 with open("build.ninja", "w") as buildfile:
     n = Writer(buildfile)
@@ -127,7 +126,7 @@ with open("build.ninja", "w") as buildfile:
 
 ```bash
 bash
-复制代码$ time ninja
+$ time ninja
 ninja  39.24s user 2.16s system 1021% cpu 4.053 total
 3.79s
 
@@ -147,8 +146,7 @@ make  22.29s user 1.59s system 101% cpu 23.543 total
 - **scope**(作用域)：变量的作用范围，有 rule 与 build 语句的块级，也有文件级别。
 
 ```makefile
-makefile
-复制代码Gcc = gcc # 全局变量
+Gcc = gcc # 全局变量
 
 # rule
 rule name # name是rule名
@@ -184,8 +182,7 @@ build output0 output1 | output2 output3: rule_name $
 `State`保存单次运行的全局状态
 
 ```cpp
-cpp
-复制代码struct State {
+struct State {
   //内置pool和Rule使用这个虚拟的内置scope来初始化它们的关系位置字段。这个范围内没有任何东西。
   static Scope kBuiltinScope;
   static Pool kDefaultPool;
@@ -214,8 +211,7 @@ private:
 `Scope`作用域：变量的作用范围，有 rule 与 build 语句的块级，也有文件级别。包含 Rule，同时保存了父 Scope 的位置
 
 ```cpp
-cpp
-复制代码struct Scope {
+struct Scope {
   Scope(ScopePosition parent) : parent_(parent) {}
 
 
@@ -236,8 +232,7 @@ private:
 `Rule`文件的构建规则，存在局部变量
 
 ```cpp
-cpp
-复制代码struct Rule {
+struct Rule {
   Rule() {}
 
   struct {
@@ -256,8 +251,7 @@ cpp
 `Binding`以键值对的形式存在用来变量 `DefaultTarget` 保存默认的输出的 target
 
 ```cpp
-cpp
-复制代码struct Binding {
+struct Binding {
 
   RelativePosition pos_;  // 偏移位置
   HashedStr name_;  //变量名
@@ -276,7 +270,7 @@ struct DefaultTarget {
 ```
 Node`是最边界的数据结构,ninja语法中的`input`,`output`,`target`,`default`的底层保存都是`Node
 cpp
-复制代码struct Node {
+struct Node {
   Node(const HashedStrView& path, uint64_t initial_slash_bits)
       : path_(path),
         first_reference_({ kLastDeclIndex, initial_slash_bits }) {}
@@ -306,8 +300,7 @@ private:
 `Edge`是最核心的数据结构,会将`Node` `Rule` `Binding`等数据结构组合起来
 
 ```cpp
-cpp
-复制代码struct Edge {
+struct Edge {
 
   // 固定的属性值 在Rule下进行配置
   struct DepScanInfo {
@@ -349,8 +342,7 @@ public:
 根据当前的值的位置与显隐式的数量做对比就可以知道
 
 ```cpp
-cpp
-复制代码edge->outputs_.reserve(edge->explicit_outs_ + edge->implicit_outs_);
+edge->outputs_.reserve(edge->explicit_outs_ + edge->implicit_outs_);
 edge->inputs_.reserve(edge->explicit_deps_ + edge->implicit_deps_ +
                       edge->order_only_deps_);
 ```
@@ -360,8 +352,7 @@ edge->inputs_.reserve(edge->explicit_deps_ + edge->implicit_deps_ +
 #### 入口函数
 
 ```cpp
-cpp
-复制代码ninja.cc main() -> real_mian()
+ninja.cc main() -> real_mian()
 ```
 
 #### 1 处理参数
@@ -371,8 +362,7 @@ cpp
 - **-t** 选择内置工具
 
 ```cpp
-cpp
-复制代码NORETURN void real_main(int argc, char** argv) {
+NORETURN void real_main(int argc, char** argv) {
   BuildConfig config;
   Options options = {};
   options.input_file = "build.ninja";
@@ -382,7 +372,7 @@ cpp
     ...
 }
 cpp
-复制代码struct Options {
+struct Options {
   // 文件 -f
   const char* input_file;
   // 工作路径 -C
@@ -405,8 +395,7 @@ cpp
 ![Ninja4.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9093d28ece644ab4bab0d322d479ce90~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
 
 ```cpp
-cpp
-复制代码static std::vector<ParserItem> ParseManifestChunks(const LoadedFile& file,
+static std::vector<ParserItem> ParseManifestChunks(const LoadedFile& file,
                                                    ThreadPool* thread_pool) {
   ...
   for (std::vector<ParserItem>& chunk_items :
@@ -425,8 +414,7 @@ cpp
 再执行 ParseFileInclude
 
 ```cpp
-cpp
-复制代码class ChunkParser{
+class ChunkParser{
     const LoadedFile& file_;
     Lexer lexer_;
     const char* chunk_end_ = nullptr;
@@ -465,8 +453,7 @@ struct ParserItem {
 此函数为读取文件进行`初步分析`的主要位置,按行,循环执行`lexer_.ReadToken()`;读取 `build.ninja` 的内容并根据内容返回枚举属性值,判断属性值并执行对应的函数
 
 ```cpp
-cpp
-复制代码bool ChunkParser::ParseChunk() {
+bool ChunkParser::ParseChunk() {
   while (true) {
     if (lexer_.GetPos() >= chunk_end_) {
       assert(lexer_.GetPos() == chunk_end_ &&
@@ -512,8 +499,7 @@ cpp
 在初步加载分析后,会执行`ManifestLoader::FinishLoading(std::vector<Clump*>&,std::string*)`在再次分析得到准确的`Edge`和`Node`,将其保存到`State`,分为 5 部分
 
 ```cpp
-cpp
-复制代码bool ManifestLoader::FinishLoading(const std::vector<Clump*>& clumps,
+bool ManifestLoader::FinishLoading(const std::vector<Clump*>& clumps,
                                    std::string* err) {
   // 构造输入/输出节点的初始图。
   // 选择一个可能保持碰撞次数较低的初始大小。
@@ -697,7 +683,7 @@ ninja 自身集成了 graphviz 等一些对开发有用的工具,可以使用 `n
 
 ```python
 python
-复制代码ninja subtools:
+ninja subtools:
 
 browse        # 在浏览器中浏览依赖关系图。（默认会在 8080 端口启动一个基于python的http服务）
 clean         # 清除构建生成的文件
@@ -718,14 +704,14 @@ recompact     # 重新紧凑化ninja内部数据结构
 
 ```shell
 shell
-复制代码ninja -t graph ninja | dot -Tpng -o ninja.png
+ninja -t graph ninja | dot -Tpng -o ninja.png
 ```
 
 ### 使用 ninja 提高编译速度
 
 ```bash
 bash
-复制代码source build/envsetup.sh
+source build/envsetup.sh
 lunch xxx
 make
 ```
@@ -739,7 +725,7 @@ make
 
 ```shell
 shell
-复制代码function quickbuild() {
+function quickbuild() {
     # 备份当前目录
     local current=$PWD
 
