@@ -1,72 +1,65 @@
 # Table of content
 
-- [Reverse a Queue](#reverse-a-queue)
-  - [Reverse a queue without using recursion](#reverse-a-queue-without-using-recursion)
-       - [Approach](#approach)
-       - [Pseudo Code](#pseudo-code)
-       - [Time Complexity](#time-complexity)
-       - [Space Complexity](#space-complexity)
-  - [Reverse a queue using recursion](#reverse-a-queue-using-recursion)
-       - [Approach](#approach-1)
-       - [Pseudo Code](#pseudo-code-1)
-       - [Time Complexity](#time-complexity-1)
-       - [Space Complexity](#space-complexity-1)
+- [Table of content](#table-of-content)
+  - [Reverse a Queue](#reverse-a-queue)
+    - [Reverse a queue without using recursion](#reverse-a-queue-without-using-recursion)
+    - [Approach](#approach)
+    - [Pseudo Code](#pseudo-code)
+    - [Time Complexity](#time-complexity)
+    - [Space Complexity](#space-complexity)
+    - [Reverse a queue using recursion](#reverse-a-queue-using-recursion)
+    - [Approach](#approach-1)
+    - [Pseudo Code](#pseudo-code-1)
+    - [Time Complexity](#time-complexity-1)
+    - [Space Complexity](#space-complexity-1)
+  - [Implementation of Queue using Array](#implementation-of-queue-using-array)
+    - [Features](#features)
+    - [Approach](#approach-2)
+    - [Pseudo Code](#pseudo-code-2)
+    - [Time Complexity](#time-complexity-2)
+    - [Space Complexity](#space-complexity-2)
+    - [Disadvantages](#disadvantages)
+  - [Implementation of Queue using Linked List](#implementation-of-queue-using-linked-list)
+    - [Features](#features-1)
+    - [Approach](#approach-3)
+    - [Pseudo Code](#pseudo-code-3)
+    - [Time Complexity](#time-complexity-3)
+    - [Space Complexity](#space-complexity-3)
+    - [Advantages](#advantages)
+  - [Implementation of Circular Queue using Array](#implementation-of-circular-queue-using-array)
+    - [Features](#features-2)
+    - [Approach](#approach-4)
+    - [Pseudo Code](#pseudo-code-4)
+    - [Time Complexity](#time-complexity-4)
+    - [Space Complexity](#space-complexity-4)
+    - [Advantages](#advantages-1)
+    - [Applications](#applications)
+  - [Implementation of Circular Queue using Linked List](#implementation-of-circular-queue-using-linked-list)
+    - [Features](#features-3)
+    - [Approach](#approach-5)
+    - [Pseudo Code](#pseudo-code-5)
+    - [Time Complexity](#time-complexity-5)
+    - [Space Complexity](#space-complexity-5)
+    - [Advantages](#advantages-2)
+  - [Implementation of Queue using Stacks](#implementation-of-queue-using-stacks)
+    - [Features](#features-4)
+    - [Approach](#approach-6)
+    - [Pseudo Code](#pseudo-code-6)
+    - [Time Complexity](#time-complexity-6)
+    - [Space Complexity](#space-complexity-6)
+  - [Implementation of Deque](#implementation-of-deque)
+    - [Features](#features-5)
+    - [Pseudo Code](#pseudo-code-7)
+    - [Time Complexity](#time-complexity-7)
+    - [Space Complexity](#space-complexity-7)
 
-- [Implementation of Queue using Array](#implementation-of-queue-using-array)
-  - [Features](#features)
-  - [Approach](#approach-2)
-  - [Pseudo Code](#pseudo-code-2)
-  - [Time Complexity](#time-complexity-2)
-  - [Space Complexity](#space-complexity-2)
-  - [Disadvantages](#disadvantages)
-
-- [Implementation of Queue using Linked List](#implementation-of-queue-using-linked-list)
-  - [Features](#features-1)
-  - [Approach](#approach-3)
-  - [Pseudo Code](#pseudo-code-3)
-  - [Time Complexity](#time-complexity-3)
-  - [Space Complexity](#space-complexity-3)
-  - [Advantages](#advantages)
-
-- [Implementation of Circular Queue using Array](#implementation-of-circular-queue-using-array)
-  - [Features](#features-2)
-  - [Approach](#approach-4)
-  - [Pseudo Code](#pseudo-code-4)
-  - [Time Complexity](#time-complexity-4)
-  - [Space Complexity](#space-complexity-4)
-  - [Advantages](#advantages-1)
-  - [Applications](#applications)
-
-- [Implementation of Circular Queue using Linked List](#implementation-of-circular-queue-using-linked-list)
-  - [Features](#features-3)
-  - [Approach](#approach-5)
-  - [Pseudo Code](#pseudo-code-5)
-  - [Time Complexity](#time-complexity-5)
-  - [Space Complexity](#space-complexity-5)
-  - [Advantages](#advantages-2)
-
-- [Implementation of Queue using Stacks](#implementation-of-queue-using-stacks)
-  - [Features](#features-4)
-  - [Approach](#approach-6)
-  - [Pseudo Code](#pseudo-code-6)
-  - [Time Complexity](#time-complexity-6)
-  - [Space Complexity](#space-complexity-6)
-
-- [Implementation of Deque](#implementation-of-dequeue)
-  - [Features](#features-5)
-  - [Pseudo Code](#pseudo-code-7)
-  - [Time Complexity](#time-complexity-7)
-  - [Space Complexity](#space-complexity-7)
-
-
-
-##  Reverse a Queue
+## Reverse a Queue
 
 - Reverse a given queue with and without using recursion
 
-### Reverse a queue without using recursion 
+### Reverse a queue without using recursion
 
-- Give an algorithm for reversing a queue Q. Only following standard operations are allowed on queue. 
+- Give an algorithm for reversing a queue Q. Only following standard operations are allowed on queue.
 - enqueue(x) : Add an item x to rear of queue.
 - dequeue() : Remove an item from front of queue.
 - empty() : Checks if a queue is empty or not.
@@ -112,13 +105,13 @@ end reverseQueueWithoutRecursion
 
 ### Reverse a queue using recursion
 
-- Given a queue, write a recursive function to reverse it. 
-- Standard operations allowed : 
-- enqueue(x) : Add an item x to rear of queue. 
-- dequeue() : Remove an item from front of queue. 
+- Given a queue, write a recursive function to reverse it.
+- Standard operations allowed :
+- enqueue(x) : Add an item x to rear of queue.
+- dequeue() : Remove an item from front of queue.
 - empty() : Checks if a queue is empty or not.
 
-### Approach 
+### Approach
 
 - Store the front element of the queue in a variable and pop that element from queue.
 - Continue Step 1 until queue is empty.
@@ -126,7 +119,7 @@ end reverseQueueWithoutRecursion
 
    <!-- image to help better explain the concept -->
 
-   ![Queue-reversal-using-recursion](https://user-images.githubusercontent.com/58851969/156620794-d21157e6-54a3-46ed-b9c6-e5c354bee35e.jpg)
+  ![Queue-reversal-using-recursion](https://user-images.githubusercontent.com/58851969/156620794-d21157e6-54a3-46ed-b9c6-e5c354bee35e.jpg)
    <!-- citation : [Here](https://www.geeksforgeeks.org/reversing-queue-using-recursion/)  -->
 
 ### Pseudo Code
@@ -155,8 +148,6 @@ end reverseQueueWithRecursion
 -  O(n) (As recursion uses stack concept)
 ```
 
-
-
 ## Implementation of Queue using Array
 
 - Implementation of Queue using Array and performing different operations such as insertion, deletion and display of elements in a queue.
@@ -170,9 +161,10 @@ end reverseQueueWithRecursion
 
 ### Approach
 
- There are 3 main operations.
-- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition. 
-- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition. 
+There are 3 main operations.
+
+- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.
 - Display: All the elements of the queue are displayed, starting from the front index to the rear.
 
 <!-- image to help better explain the concept -->
@@ -180,7 +172,9 @@ end reverseQueueWithRecursion
 ![Queue](https://www.tutorialandexample.com/wp-content/uploads/2020/05/Queue-in-DS-1.jpg)
 
 ### Pseudo Code
+
 - For insertion
+
 ```
 STEP 1: IF REAR == N-1
    Return OVERFLOW
@@ -193,7 +187,9 @@ STEP 2: IF REAR != N-1
 
 STEP 3: EXIT LOOP
 ```
+
 - For deletion
+
 ```
 STEP 1: IF (FRONT==0 AND REAR==-1) OR FRONT==REAR+1
         Return UNDERFLOW
@@ -202,9 +198,11 @@ STEP 1: IF (FRONT==0 AND REAR==-1) OR FRONT==REAR+1
         Return ARR[FRONT]
         INCREMENT FRONT BY 1
 
-STEP 2: EXIT  
+STEP 2: EXIT
 ```
+
 - For display
+
 ```
 for i from front to rear
     print array[i]
@@ -225,10 +223,9 @@ for i from front to rear
 -  O(1)
 ```
 
-### Disadvantages 
+### Disadvantages
 
 - Memory wastage : The space of the array, which is used to store queue elements, can never be reused to store the elements of that queue because the elements can only be inserted at front end and the value of front might be so high so that, all the space before that, can never be filled.
-
 
 ## Implementation of Queue using Linked List
 
@@ -243,18 +240,20 @@ for i from front to rear
 
 ### Approach
 
- There are 3 main operations.
-- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition. 
-- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition. 
+There are 3 main operations.
+
+- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.
 - Display: All the elements of the queue are displayed, starting from the front index to the rear.
 
 <!-- image to help better explain the concept -->
 
 ![queue_linkedlist](https://user-images.githubusercontent.com/93239528/163711530-ae87370a-e59e-4d8b-8a18-1876028f255d.png)
 
-
 ### Pseudo Code
+
 - For insertion
+
 ```
 Step 1: Allocate the space for the new node NEWNODE
 Step 2: SET NEWNODE -> DATA = VAL
@@ -268,7 +267,9 @@ SET REAR -> NEXT = NULL
 [END OF IF]
 Step 4: END
 ```
+
 - For deletion
+
 ```
 Step 1: Take TEMP=FRONT
 Step 2: IF FRONT = NULL
@@ -278,9 +279,11 @@ Go to Step 5
 Step 3: SET TEMP = FRONT
 Step 4: SET FRONT = FRONT -> NEXT
 Step 5: FREE TEMP
-Step 6: END  
+Step 6: END
 ```
+
 - For display
+
 ```
 Step 1: Set TEMP = FRONT [Initializes pointer TEMP]
 Step 2: Repeat Steps 3 and 4 while TEMP != NULL
@@ -308,7 +311,6 @@ Step 4: Set TEMP = TEMP -> NEXT
 
 - The benefit of implementing queue using linked list over arrays is that it allows to grow the queue as per the requirements,i.e, memory can be allocated dynamically.
 
-
 ## Implementation of Circular Queue using Array
 
 - Implementation of Circular Queue using Array and performing different operations such as insertion, deletion and display of elements in a circular queue.
@@ -316,26 +318,23 @@ Step 4: Set TEMP = TEMP -> NEXT
 ### Features
 
 - Circular Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle.
-- It is also called ‘Ring Buffer’. 
+- It is also called ‘Ring Buffer’.
 - In a normal Queue, we can insert elements until queue becomes full. But once queue becomes full, we can not insert the next element even if there is a space in front of queue.
 - This problem is solved using Circular Queue.
 
 ### Approach
 
- There are 3 main operations.
+There are 3 main operations.
 
-- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition. 
+- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
 
-- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition. 
+- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.
 
 - Display: All the elements of the queue are displayed, starting from the front index to the rear.
 
-
 <!-- image to help better explain the concept -->
 
-
 ![CircularQueue_Array](https://user-images.githubusercontent.com/93239528/163921078-3cb9f653-803d-4d39-89ac-1cea9472693c.jpeg)
-
 
 ### Pseudo Code
 
@@ -377,7 +376,7 @@ Step 6: Otherwise, set Front = Front + 1
 
 Step 7: Exit
 
-  
+
 
 ```
 
@@ -418,12 +417,11 @@ Step 7 - Again display 'cQueue[i]' value and increment i value by one (i++). Rep
 
 - The key advantage of a circular queue over a normal queue is effective utilization of storage space or memory.
 
-### Applications 
+### Applications
 
 - CPU scheduling
 - Memory management
 - Traffic Management
-
 
 ## Implementation of Circular Queue using Linked List
 
@@ -433,22 +431,19 @@ Step 7 - Again display 'cQueue[i]' value and increment i value by one (i++). Rep
 
 - Circular Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle.
 
--  When we implement circular Queue using linked list it is similar to circular linked list except there is two pointer front and rear in circular Queue where as circular linked list has only one pointer head.
-
+- When we implement circular Queue using linked list it is similar to circular linked list except there is two pointer front and rear in circular Queue where as circular linked list has only one pointer head.
 
 ### Approach
 
- There are 3 main operations.
-- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition. 
-- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition. 
-- Display: All the elements of the queue are displayed, starting from the front index to the rear.
+There are 3 main operations.
 
+- Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.
+- Display: All the elements of the queue are displayed, starting from the front index to the rear.
 
 <!-- image to help better explain the concept -->
 
-
 ![circular_linkedlist](https://user-images.githubusercontent.com/93239528/164962445-a57731dd-610e-43e7-aecb-c5e7301df0c5.jpg)
-
 
 ### Pseudo Code
 
@@ -466,7 +461,7 @@ Step 7: REAR = 0
 Step 8: end ifelse
 Step 9: REAR = REAR + 1   //  Increment REAR
 Step 10: end else
-Step 11: QUEUE [REAR]=  element     
+Step 11: QUEUE [REAR]=  element
 Step 12: end
 ```
 
@@ -487,7 +482,7 @@ Step 10: FRONT = FRONT + 1  //  Increment FRONT
 Step 11: end else
 Step 12: end Dequeue
 
-  
+
 
 ```
 
@@ -517,34 +512,31 @@ Step 6: Exit
 -  O(1)
 ```
 
-### Advantages 
+### Advantages
+
 - The key advantage of a circular queue over a normal queue is effective utilization of storage space or memory.
 - Linked list provide the facility of dynamic memory allocation so it is easy to create.
 
-
-##  Implementation of Queue using Stacks
+## Implementation of Queue using Stacks
 
 - We are given a stack data structure with push and pop operations, the task is to implement a queue using instances of stack data structure and operations on them.
 
 ### Features
 
-- Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle 
+- Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle
 - When we implement circular Queue using linked list it is similar to circular linked list except there is two pointer front and rear in circular Queue where as circular linked list has only one pointer head.
-
 
 ### Approach
 
- There are 3 main operations.
-- Enqueue: Adds an item to the queue. 
-- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition and an error message is displayed. 
-- Empty: Tells whether a queue is empty or not.
+There are 3 main operations.
 
+- Enqueue: Adds an item to the queue.
+- Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition and an error message is displayed.
+- Empty: Tells whether a queue is empty or not.
 
 <!-- image to help better explain the concept -->
 
-
 ![queue using stacks](https://i1.wp.com/algorithms.tutorialhorizon.com/files/2015/01/Implement-Queue-Using-Stacks.png?ssl=1)
-
 
 ### Pseudo Code
 
@@ -566,7 +558,7 @@ Step 3: end Dequeue
 Step 4: end if
 Step 5: if (s2.empty)
 Step 6: while(!s1.empty())
-Step 7: s2.push(s1.pop()) 
+Step 7: s2.push(s1.pop())
 Step 8: s1.pop()
 Step 9: end if
 Step 10: topval = s2.top()
@@ -574,7 +566,7 @@ Step 11: s2.pop()
 Step 12: return topval
 Step 13: end dequeue
 
-  
+
 
 ```
 
@@ -601,9 +593,10 @@ Step 5: Exit
 ```
 -  O(n)
 ```
-##  Implementation of Deque
 
-- Deque or Double Ended Queue is a generalized version of Queue data structure that allows insert and delete at both ends. We are ussing array to implement it 
+## Implementation of Deque
+
+- Deque or Double Ended Queue is a generalized version of Queue data structure that allows insert and delete at both ends. We are ussing array to implement it
 
 ### Features
 
@@ -619,9 +612,7 @@ Step 5: Exit
 
 <!-- image to help better explain the concept -->
 
-
 ![deque](https://media.geeksforgeeks.org/wp-content/uploads/anod.png)
-
 
 ### Pseudo Code
 
@@ -650,6 +641,7 @@ Otherwise print overflow.
 If queue is empty, print underflow otherwise delete the front element and update front.
 
 ```
+
 - For delete_fr_end()
 
 ```
@@ -672,4 +664,3 @@ If queue is empty, print underflow otherwise delete the rear element and update 
 ```
 -  O(n)
 ```
-

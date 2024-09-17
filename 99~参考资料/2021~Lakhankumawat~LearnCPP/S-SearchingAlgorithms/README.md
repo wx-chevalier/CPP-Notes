@@ -1,53 +1,62 @@
-
 <!-- Table of content -->
-# Table of content
-- [Searching Algorithms](#searching-algorithms)
- - [classification :](#classification-)
-   -  [Linear Search](#linear-search)
-       - [Code](#code)
-       - [Properties](#properties)
-       - [Advantages](#advantages)
-       - [Disadvantage](#disadvantage)
-   -  [Binary Search](#binary-search)
-        - [Explanation](#explanation)
-       -  [Code](#desc)
-        - [Properties](#binarysearchproperties)
-        - [Advantages](#advantagesofbinarysearch)
-        - [Disadvantage](#disadvantageofbinarysearch)
-    - [Search Element in a Rotated Sorted Array](#search-element-in-rotated-sorted-array)
-        - [Explanation](#explanation)
-        - [Properties](#properties)
 
-    -  [Interpolation Search](#interpolation-search)
-        - [Approach](#approach)
-        - [Complexities](#complexities)
-        - [Advantages](#advantages-2)
-        - [Disadvantage](#disadvantages)
+# Table of content
+
+- [Table of content](#table-of-content)
+- [Searching Algorithms](#searching-algorithms)
+  - [Classification :](#classification-)
+  - [Linear Search](#linear-search)
+  - [Some More Example](#some-more-example)
+    - [Code](#code)
+    - [Properties](#properties)
+    - [Advantages](#advantages)
+    - [Disadvantage](#disadvantage)
+  - [Binary Search](#binary-search)
+  - [Explanation](#explanation)
+    - [middle = lowerBound + ( upperBound - lowerBound ) / 2](#middle--lowerbound---upperbound---lowerbound---2)
+  - [Example :](#example-)
+  - [Code](#code-1)
+    - [Properties](#properties-1)
+    - [Advantages](#advantages-1)
+    - [Disadvantage](#disadvantage-1)
+- [Search element in rotated sorted array](#search-element-in-rotated-sorted-array)
+  - [Naive Approach](#naive-approach)
+  - [Optimal Approach](#optimal-approach)
+  - [Properties](#properties-2)
+  - [Interpolation Search](#interpolation-search)
+    - [Approach](#approach)
+    - [Complexities](#complexities)
+    - [Advantages](#advantages-2)
+    - [Disadvantages](#disadvantages)
 
 # Searching Algorithms
 
 - searching is the process of finding an item with specified properties from a
-collection of items. The items may be stored as records in a database, simple data elements in
-arrays or they may be elements of other search spaces.
+  collection of items. The items may be stored as records in a database, simple data elements in
+  arrays or they may be elements of other search spaces.
 - There are certain ways of organizing the data that improves the searching process.
+
 ### Classification :
 
 - Generally There are two categories of searching.
- - a)Sequential Search b) Interval Search:
+- a)Sequential Search b) Interval Search:
 - The Example of Sequential Search is :-(Linear Search).
-- The Example of  Interval Search is  :- (Binary Search).
+- The Example of Interval Search is :- (Binary Search).
 
 ## Linear Search
 
 - Start from the zero index of array and one by one compare Search Element(X) with each element of arr[].
--  If Search Element(X) matches with an element of the arr[], return the index.
--  If Search Element(X) doesn’t match with any of elements, then return -1.
+- If Search Element(X) matches with an element of the arr[], return the index.
+- If Search Element(X) doesn’t match with any of elements, then return -1.
 <!-- image to help better explain the concept -->
 
 ![linear_search](https://user-images.githubusercontent.com/88760648/158869345-bce5e75c-57f8-4604-9c5e-f57650c3dfdb.gif)
 n
+
 ## Some More Example
+
 ![linearsearchalgorithim](https://user-images.githubusercontent.com/88760648/158868400-013fdfd5-0acf-4653-bc57-ed79572c08a6.jpeg)
+
 <!-- citation : [Here](https://www.tutorialspoint.com/data_structures_algorithms/linear_search_algorithm.htm)  -->
 
 <!-- citation : [Here](https://thecleverprogrammer.com/2020/09/10/linear-search-algorithm-with-python/)  -->
@@ -64,7 +73,7 @@ using namespace std;
 
 int search(int arr[], int n, int searchkey)
 {
-	
+
 	for (int i = 0; i < n; i++)
 		if (arr[i] == searchkey)
 			return i;
@@ -89,6 +98,7 @@ int main()
 
 
 ```
+
 ### Properties
 
 - Time Complexity : O(n)
@@ -103,24 +113,28 @@ int main()
 
 - Inversely, slow searching of big lists.
 
-
 ## Binary Search
+
 - Binary search algorithm finds a given element in a list of elements with O(log n) time complexity where n is total number of elements in the list.
-- Binary search is applied only on monotonic functions,values should either be in increasing order or decreasing order. 
-- Binary search can not be used for a list of elements arranged in random order. 
+- Binary search is applied only on monotonic functions,values should either be in increasing order or decreasing order.
+- Binary search can not be used for a list of elements arranged in random order.
 
 <a name="explanation"></a>
-##  Explanation
-- This search process starts comparing the search element with the middle element in the list. If both are matched, then the result is "element found and we return   the index". 
+
+## Explanation
+
+- This search process starts comparing the search element with the middle element in the list. If both are matched, then the result is "element found and we return the index".
 - Otherwise, we check whether the search element is smaller or larger than the middle element in the list, then we decide which part we should search.
 - If the search element is smaller, then we repeat the same process for the left sublist of the middle element.
-- If the search element is larger, then we repeat the same process for the right sublist of the middle element. 
+- If the search element is larger, then we repeat the same process for the right sublist of the middle element.
 - We repeat this process until we find the search element in the list or until we left with a sublist of only one element.
--  And if that element also doesn't match with the search element, then the result is "Element not found in the list".
+- And if that element also doesn't match with the search element, then the result is "Element not found in the list".
 
 ### middle = lowerBound + ( upperBound - lowerBound ) / 2
+
     why we are calculating the middle index this way, we can just simply add the lower and higher index and divide it by 2.
      middle = ( lowerBound +  upperBound ) / 2
+
 But if we calculate the middle index like this it fails for larger values of int variables low and high. Specifically,
 it fails if the sum of low and high is greater than the maximum positive int value(2^31 – 1 ).
 
@@ -130,7 +144,7 @@ it fails if the sum of low and high is greater than the maximum positive int val
 <!-- citation : [Here](http://www.btechsmartclass.com/data_structures/binary-search.html)  -->
 <a name="desc"></a>
 
-##  Code
+## Code
 
 ```
    A ← sorted array
@@ -138,39 +152,45 @@ it fails if the sum of low and high is greater than the maximum positive int val
    x ← value to be searched
 
    Set lowerBound = 1
-   Set upperBound = n 
+   Set upperBound = n
 
    while x not found
-      if upperBound < lowerBound 
+      if upperBound < lowerBound
          EXIT: x does not exists.
-   
+
       set middle = lowerBound + ( upperBound - lowerBound ) / 2
-      
+
       if A[midPoint] < x
          set lowerBound = midPoint + 1
-         
-      if A[midPoint] > x
-         set upperBound = midPoint - 1 
 
-      if A[midPoint] = x 
+      if A[midPoint] > x
+         set upperBound = midPoint - 1
+
+      if A[midPoint] = x
          EXIT: x found at location midPoint
    end while
-   
+
 end procedure
 ```
 
 <a name="binarysearchproperties"></a>
+
 ### Properties
+
 - Time Complexity : O(log n)
 - Space complexity : O(1)
 
 <a name="advantagesofbinarysearch"></a>
+
 ### Advantages
+
 - It is great to search through large sorted arrays.
 - It has a simple implementation.
 
 <a name="disadvantageofbinarysearch"></a>
+
 ### Disadvantage
+
 - The biggest problem with a binary search is that you can only use this if the data is sorted into an order.
 
 <a name="#difference"></a>
@@ -178,15 +198,17 @@ end procedure
 # [Search element in rotated sorted array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ### Naive Approach
-Use Linear Search to check if the element is present in the array or not. 
 
-Time Complexity: ` O(n) `  where n is size of the array
-Space Complexity: ` O(1) `
+Use Linear Search to check if the element is present in the array or not.
+
+Time Complexity: `O(n)` where n is size of the array
+Space Complexity: `O(1)`
 
 ### Optimal Approach
+
 Since, it is given that the array is sorted, we will solve this problem using Binary Search.
 
-Consider this array:- arr= [4,5,6,7,0,1,2]   n=7, element=1
+Consider this array:- arr= [4,5,6,7,0,1,2] n=7, element=1
 
 Suppose, we are standing on index 1.
 
@@ -204,18 +226,18 @@ Therefore, if we are standing on any index, either the left half is sorted or th
 
 Case 1: Check if mid is equal to the element `arr[mid]==element` . If yes, then `return mid`
 Case 2a: Check if the left half of the array is sorted `arr[low]<=arr[mid]`.
-        Now, check if the element lies in the left sorted half `element>=arr[low] && element< arr[mid]`
-            i)If yes, then search in left sorted half `high=mid-1`
-            ii) else, the element must lie in the right unsorted half `low=mid+1`
+Now, check if the element lies in the left sorted half `element>=arr[low] && element< arr[mid]`
+i)If yes, then search in left sorted half `high=mid-1`
+ii) else, the element must lie in the right unsorted half `low=mid+1`
 Case 2b: The right half of the array must be sorted .
-        Now, check if the element lies in the right sorted half `element>arr[mid] && element<= arr[high]`
-            i)If yes, then search in right sorted half `low=mid+1`
-            ii)else, the element must lie in the left unsorted half `high=mid-1`
-
+Now, check if the element lies in the right sorted half `element>arr[mid] && element<= arr[high]`
+i)If yes, then search in right sorted half `low=mid+1`
+ii)else, the element must lie in the left unsorted half `high=mid-1`
 
 ### Properties
-- Time Complexity: ` O(log n) `  where n is size of the array
-- Space Complexity: ` O(1) `
+
+- Time Complexity: `O(log n)` where n is size of the array
+- Space Complexity: `O(1)`
 
 ---
 
@@ -226,7 +248,6 @@ The interpolation search is the enhanced form of the binary search in this value
 - **For example :-** If the value of the target is closer to the last element, interpolation search is likely to start search toward the end of the array or we say from the last element.
 
 ![image](https://user-images.githubusercontent.com/86917304/168891817-2b2a2d57-2c05-43a1-b350-12419b74ce17.png)
-
 
 ### Approach
 

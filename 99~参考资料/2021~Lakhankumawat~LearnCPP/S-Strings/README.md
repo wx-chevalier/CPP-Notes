@@ -1,11 +1,11 @@
 <!-- Table of contents  -->
 
 # Table of content
+
 - [String Comparison](#string-comparison)
 - [Longest Word in Sentence](#longest-word-in-sentence)
 - [Count the Occurence of particular Chararacter in Sentence](#counts-the-occurence-of-particular-chararacter-in-sentence)
 - [Roman to Decimal](#roman-to-decimal)
-
 
 # String Comparison
 
@@ -15,30 +15,34 @@ Most string comparison algorithms compare the strings character by character. C+
 
 ![image](https://user-images.githubusercontent.com/100208233/162752958-b3be8277-195f-4b86-8b38-950dfaf7a6e8.png)
 
-
 ## Example:
 
 ### Example1:
+
 Suppose there are two strings :
 string1: HELLO WORLD
 string2: HELLO
 in these two strings 1st string contains "HELLO WORLD" but the 2nd string does not contain the word "WORLD" so,these two string are not equal.
 
 ### Example2:
+
 Suppose there are two strings :
 string1: HELLO WORLD
 string2: HELLO WORLD
-Here both the strings contain the same word "HELLO WORLD" hence both the strings are same.  
+Here both the strings contain the same word "HELLO WORLD" hence both the strings are same.
 
 ## Application :
+
 For example, consider a website having two fields ‘Email’ & ‘Confirm Email’. It would have to use some sort of string comparison in order to confirm whether both the entered email strings are equal or not.
 
 ## Algorithim :
+
 1. Decelare two strings.
 2. take the input of two strings.
 3. comparing the two strings we can use any of the three methords mentioned below.
 
 ## Ways to compare strings :
+
 1. strcmp() inbuilt function
 2. compare() inbuilt function, and
 3. C++ relational operators ( ‘==’, ‘!=’)
@@ -55,12 +59,14 @@ In this Problem we have to print the word that is `Longest word` in the sentence
 ## Examples
 
 ### Example1:
+
 Input : "This is a GSSOC'22" \
 Output : Maximum length word: GSSOC'22
 
 ### Example2:
+
 Input : "Open Source is best way to enhance your knowledge" \
-Output : Maximum length word: knowledge 
+Output : Maximum length word: knowledge
 
 ## Approach
 
@@ -78,8 +84,8 @@ Output : Maximum length word: knowledge
 - **Time Complexity :-** O(n) n is the length of string or sentence.
 - **Space Complexity :-** O(n) n is the length of sentence.
 
-
 ## Counts the Occurence of particular Chararacter in Sentence
+
 - In this problem the cout of occurrence of every character present in the input sentence is displayed .
 
 <!-- image to help better explain the concept -->
@@ -87,10 +93,12 @@ Output : Maximum length word: knowledge
 ![Counts the Occurence of particular Chararacter in Sentence](https://www.shristitechlabs.com/wp-content/uploads/2019/05/totalcharacters.png)
 
 ### Examples of count character occurrence
+
 1. - Input : example one !
-   - Output : "e" : 3 , "x" : 1, "a" : 1, "m" : 1,  "p" : 1, "l" : 1,  " " : 2,  "o" : 1, "n" : 1,  "!" : 1
+   - Output : "e" : 3 , "x" : 1, "a" : 1, "m" : 1, "p" : 1, "l" : 1, " " : 2, "o" : 1, "n" : 1, "!" : 1
 
 ### Algorithm of count character occurrence
+
 ```
 countEachChar(str){
 1. initialized counter array of 256 size
@@ -122,23 +130,26 @@ countEachChar(str){
 # Roman To Decimal
 
 ## Problem Statement
-Given a string in roman no format (s)  your task is to convert it to an integer . Various symbols and their values are given below.
+
+Given a string in roman no format (s) your task is to convert it to an integer . Various symbols and their values are given below.
 I :1, V : 5 X : 10 L : 50 C :100 D : 500 M : 1000
 
 ## Examples :
 
-### Example 1 : 
+### Example 1 :
+
 Input: s = V \
 Output: 5
 
-### Example 2 : 
+### Example 2 :
+
 Input: III \
 Output: 3
 
 ![image](https://user-images.githubusercontent.com/94742536/169452774-8d033d92-c614-44cc-b401-ce79b63c3f91.png)
 
-
 ## Algorithm
+
 - We have to convert Roman to Decimal.
 - First, we have to declare and enter a string which will depict the roman numeral.
 - Then we have called the romanDec() function which will convert the roman numeral to decimal .
@@ -150,6 +161,9 @@ Output: 3
 - Then we will update the value of previous as the value of current symbol.
 
 ## Time Complexity
+
 - Time Complexity : O(N)
+
 ## Space Complexity
-- Space Complexity : O(1) 
+
+- Space Complexity : O(1)

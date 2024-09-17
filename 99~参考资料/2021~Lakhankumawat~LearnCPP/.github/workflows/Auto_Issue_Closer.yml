@@ -7,7 +7,6 @@ on:
 
 jobs:
   Close_Issue:
-
     runs-on: ubuntu-latest
     # Checks if PR is merged (subflag)
     if: ${{ github.event.pull_request.merged == true }}

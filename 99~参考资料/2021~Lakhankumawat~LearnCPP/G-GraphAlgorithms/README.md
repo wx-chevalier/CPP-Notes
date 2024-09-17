@@ -1,27 +1,26 @@
 <!-- Table of content -->
+
 # Table of content
-- [Multistage Graph](#multistage-graph)
+
+- [Table of content](#table-of-content)
+  - [Multistage Graph](#multistage-graph)
     - [Algorithm](#algorithm)
     - [Properties](#properties)
     - [Advantages](#advantages)
     - [Disadvantage](#disadvantage)
-
-- [Ford Fulkerson Algorithm](#ford---fulkerson-algorithm)
-    - [PreRequisites](#prerequisites)
-    - [Intution](#how-algorithm-works)
+  - [Ford - Fulkerson Algorithm](#ford---fulkerson-algorithm)
+    - [Prerequisites](#prerequisites)
+    - [How algorithm works?](#how-algorithm-works)
     - [Approach](#approach)
-    - [Complexities](#time-and-space-complexity)
+    - [Time and Space Complexity](#time-and-space-complexity)
     - [Applications](#applications)
-    
-
 
 ## Multistage Graph
 
 - Multistage graph is a directed graph in which vertices can be divided in sets ( stages) such that vertices on same stage do not have edges between them and can't have a edge from present stage to previous stage .
--  Given a source and destination for which shortest path is to be find.
-<!-- image to help better explain the concept -->
-![Multistage Graph](https://res.cloudinary.com/codecrucks/images/w_1024,h_500,c_scale/f_webp,q_auto/v1634486462/multi-stage-graph-06/multi-stage-graph-06-1024x500.png?_i=AA)
-
+- Given a source and destination for which shortest path is to be find.
+  <!-- image to help better explain the concept -->
+  ![Multistage Graph](https://res.cloudinary.com/codecrucks/images/w_1024,h_500,c_scale/f_webp,q_auto/v1634486462/multi-stage-graph-06/multi-stage-graph-06-1024x500.png?_i=AA)
 
 ### Algorithm
 
@@ -51,7 +50,7 @@ shortestPath(graph)
 
 ### Advantages
 
-- More efficient as overlapping of sub problem stored and use. 
+- More efficient as overlapping of sub problem stored and use.
 
 ### Disadvantage
 
@@ -66,7 +65,6 @@ It is a algorithm which is based in **greedy approach** for finding the maximum 
 We can visualize the algorithm using a pipeline system in which every pipe have the different capacities and for a instance their is some water in each pipe and using algorithm we have to find amount of liquid flowed from source to sink.
 
 ![image](https://user-images.githubusercontent.com/86917304/168588090-43973475-e956-488f-8b42-29ec88258284.png)
-
 
 ### Prerequisites
 

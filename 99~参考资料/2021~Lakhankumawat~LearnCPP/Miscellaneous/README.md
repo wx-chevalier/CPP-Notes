@@ -1,6 +1,5 @@
-
-
 ## Lambda Functions
+
 Lambda expressions allow us to write a function in hassle free manner or we say function in a single line . In these functions we only write short snippets of code specially as `Comparitor Function` in STL sort function.
 
 ### How to define lambda function
@@ -28,7 +27,6 @@ lambda functions are more power than an ordinary function by having access to va
 - `[a, &b]` : Here a is capture by value and b is capture by reference.
 
 Note :- lambda function with empty capture clause `[ ]` can access only those variable which are local.
-
 
 ## Exception Handling in Cpp
 

@@ -1,6 +1,6 @@
 # Network Flow
 
-## Ford Fulkerson 
+## Ford Fulkerson
 
 ![PsuedoCode](https://user-images.githubusercontent.com/55774240/134647454-23023cac-841a-485f-8e64-e8fd4117e6eb.jpg)
 
@@ -11,13 +11,12 @@
 ![Flow3](https://user-images.githubusercontent.com/55774240/134647335-2e8c3c0d-8856-4523-8c71-8645a76bbb38.png) <br>
 ![Flow4](https://user-images.githubusercontent.com/55774240/134647330-d867271d-af90-4fa5-b54f-1d74600482ff.png)
 
-
 ## Edmonds-Karp algorithm
 
 Edmonds-Karp algorithm is just an implementation of the Ford-Fulkerson method that uses BFS for finding augmenting paths.
 
-## Graph example 
+## Graph example
 
 ![graph](https://user-images.githubusercontent.com/55774240/134647528-843ea5af-86de-4ea9-8c05-d2dd60204bbf.png)
 
-Max Flow for the above graph is 150 `Source is 0 , Sink is 1` : calculate on your own  **If you have doubt how feel free to post in discussion of this repo**
+Max Flow for the above graph is 150 `Source is 0 , Sink is 1` : calculate on your own **If you have doubt how feel free to post in discussion of this repo**

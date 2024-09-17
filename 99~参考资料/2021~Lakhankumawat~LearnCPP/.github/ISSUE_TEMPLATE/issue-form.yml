@@ -12,7 +12,7 @@ body:
     attributes:
       label: Description
       description: Enter a brief description
-      placeholder: Please include a summary. Please also include relevant motivation and context. 
+      placeholder: Please include a summary. Please also include relevant motivation and context.
       value: "Description"
     validations:
       required: true

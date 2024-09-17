@@ -1,12 +1,15 @@
 <!-- Table of content -->
+
 # Table of content:
+
 -[Sieve Of Eratosthenes](#sieve-of-eratosthenes)
 
- -[Armstrong Number](#armstrong-number)
- 
- -[Bisection Method](#bisection-method)
+-[Armstrong Number](#armstrong-number)
 
-#  Sieve Of Eratosthenes :
+-[Bisection Method](#bisection-method)
+
+# Sieve Of Eratosthenes :
+
 - [Sieve Of Eratosthenes](#sieve-of-eratosthenes)
   - [Algorithm](#algorithm)
   - [Advantages](#advantages)
@@ -14,10 +17,12 @@
   - [Problems](#problems)
 
 # Sieve Of Eratosthenes :
-The sieve of Eratosthenes is an algorithm for finding all prime numbers up to any given limit. 
+
+The sieve of Eratosthenes is an algorithm for finding all prime numbers up to any given limit.
 It does so by iteratively marking as composite (i.e., not prime) the multiples of each prime, starting with the first prime number, 2.
 
 ### Algorithm
+
 ```
 - Create a boolean list of number from 0 to n and assign each of them with the value true
 - Mark 0th and 1st index as false
@@ -35,39 +40,44 @@ It does so by iteratively marking as composite (i.e., not prime) the multiples o
 
 - It takes up O(n) of extra space
 
-
 ### Problems
- ```
-   Given a number n.
-   Express it as a sum of two prime numbers if it is possible else print -1.
 
-   Example 1: 
-   n=24
-   Output: 5 19
-
-
-   Example 2: 
-   n=1
-   Output: -1 -1
-
-   Example 3: 
-   n=100
-   Output: 3 97
- ```
- ```
 ```
-//Time Complexity : O(n*log(log(n)))
+  Given a number n.
+  Express it as a sum of two prime numbers if it is possible else print -1.
+
+  Example 1:
+  n=24
+  Output: 5 19
+
+
+  Example 2:
+  n=1
+  Output: -1 -1
+
+  Example 3:
+  n=100
+  Output: 3 97
+```
+
+```
+
+```
+
+//Time Complexity : O(n\*log(log(n)))
 //Space Complexity :O(n)
+
 ```
- 
-Solution Link: 
- ```
+
+Solution Link:
+```
 
 # Armstrong number:
-  - [Armstrong Number](#armstrong-number)
-  - [Algorithm of armstrong number](#algorithm-of-armstrong-number)
-  - [Example](#example)
-  - [Time_complexity](#time_complexity)
+
+- [Armstrong Number](#armstrong-number)
+- [Algorithm of armstrong number](#algorithm-of-armstrong-number)
+- [Example](#example)
+- [Time_complexity](#time_complexity)
 
 ### Armstrong number:
 
@@ -101,31 +111,28 @@ Example 1:
 Example 2:
 ![image](https://user-images.githubusercontent.com/100208233/162582384-25ff197c-9f36-4758-b9e4-4828acd4cd14.png)
 
-
 ### Time_complexity:
+
 Time complexity of armstrong number is n.
 
-
-
-
-
 # Bisection Method :-
+
 It is the binary search method used to find the roots of an equation in a given interval.
 It is also called as the interval halving method.
-The method is based on the Intermediate Value Theorem which states that if f(x) is a continuous function and there are two real numbers a and b such that f(a)*f(b) 0 and f(b) < 0), then it is guaranteed that it has at least one root between them.
+The method is based on the Intermediate Value Theorem which states that if f(x) is a continuous function and there are two real numbers a and b such that f(a)\*f(b) 0 and f(b) < 0), then it is guaranteed that it has at least one root between them.
 
 ### There are some conditions that are pre-assumed:-
-1.	f(x) is a continuous function in interval [a, b]
-2.	f(a) * f(b) < 0
+
+1. f(x) is a continuous function in interval [a, b]
+2. f(a) \* f(b) < 0
 
 ### Procedure:-
-1.	Find middle point c= (a + b)/2 .
-2.	If f(c) == 0, then c is the root of the solution.
-3.	Else f(c) is not equal to. 0
-    If value f(a)*f(c) < 0 then root lies between a and c. So we check for a and c
-    Else If f(b)*f(c) < 0 then root lies between b and c. So we check for  b and c.
-    Else given function doesnt follow one of assumptions.
-  
-**Time Complexity**:- Depends upon The value of a function
 
- 
+1. Find middle point c= (a + b)/2 .
+2. If f(c) == 0, then c is the root of the solution.
+3. Else f(c) is not equal to. 0
+   If value f(a)*f(c) < 0 then root lies between a and c. So we check for a and c
+   Else If f(b)*f(c) < 0 then root lies between b and c. So we check for b and c.
+   Else given function doesnt follow one of assumptions.
+
+**Time Complexity**:- Depends upon The value of a function
