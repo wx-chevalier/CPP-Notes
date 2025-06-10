@@ -141,7 +141,7 @@ gcc 从`4.8`版本起，集成了`Address Sanitizer`工具，可以用来检查�
       ASan internal:           fe
     ==1951==ABORTING
 
-执行程序时检测出了访问释放内存的错误（`*p = 3`）。  
+执行程序时检测出了访问释放内存的错误（`*p = 3`）。
 详情参见[gcc 手册](https://gcc.gnu.org/onlinedocs/gcc-4.9.2/gcc/Debugging-Options.html#index-fsanitize_003daddress-593)
 
 ## 贡献者
