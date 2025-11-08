@@ -16,7 +16,7 @@
 
 C++内联函数提供了另一种选择。内联函数的编译代码与其他程序代码“内联”起来了。也就是说，**编译器将使用相应的函数代码替换函数调用**。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。
 
-![image-20210805155012304](https://assets.ng-tech.icu/item/image-20210805155012304.png)
+![image-20210805155012304](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805155012304.png)
 
 要使用这项特性，必须采取下述措施之一：
 
@@ -44,7 +44,7 @@ int &rodents = rats;  // makes rodents an alias for rats
 
 引用看上去很像伪装表示的指针（其中，`*` 解除引用运算符被隐式理解）。实际上，引用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是，必须在声明引用时将其初始化，而不能像指针那样，先声明，再赋值。
 
-![image-20210805160617225](https://assets.ng-tech.icu/item/image-20210805160617225.png)
+![image-20210805160617225](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805160617225.png)
 
 引用更接近 const 指针，必须在创建时进行初始化，一旦与某个变量关联起来，就将一直效忠于它。也就是说：**某个变量的引用是不可更改的**。
 
@@ -54,13 +54,13 @@ int &rodents = rats;  // makes rodents an alias for rats
 
 **引用经常被用作函数参数，使得函数中的变量名成为调用程序中的变量的别名。这种传递参数的方法称为按引用传递**。按引用传递允许被调用的函数能够访问调用函数中的变量。**C++新增的这项特性是对 C 语言的超越，C 语言只能按值传递**。按值传递导致被调用函数使用调用程序的值的拷贝（参见图 8.2）。
 
-![image-20210805161500948](https://assets.ng-tech.icu/item/image-20210805161500948.png)
+![image-20210805161500948](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805161500948.png)
 
 交换函数必须能够修改调用程序中的变量的值。这意味着按值传递变量将不管用，因为函数将交换原始变量副本的内容，而不是变量本身的内容。但传递引用时，函数将可以使用原始数据。另一种方法是，传递指针来访问原始数据。
 
-![image-20210805162214166](https://assets.ng-tech.icu/item/image-20210805162214166.png)
+![image-20210805162214166](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805162214166.png)
 
-![image-20210805162432252](https://assets.ng-tech.icu/item/image-20210805162432252.png)
+![image-20210805162432252](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805162432252.png)
 
 ### 8.2.3 引用的属性和特别之处
 
@@ -82,7 +82,7 @@ double refcube(const double &ra);
 
 ### 8.2.4 将引用用于结构体
 
-![image-20210805164836645](https://assets.ng-tech.icu/item/image-20210805164836645.png)
+![image-20210805164836645](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805164836645.png)
 
 2．为何要返回引用
 
@@ -94,7 +94,7 @@ double refcube(const double &ra);
 
 返回引用时最重要的一点是，应避免返回函数终止时不再存在的内存单元引用。应**避免**编写如下代码：
 
-![image-20210805165912018](https://assets.ng-tech.icu/item/image-20210805165912018.png)
+![image-20210805165912018](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805165912018.png)
 
 **该函数返回一个指向临时变量（newguy）的引用，函数运行完毕后 它将不再存在。同样，也应避免返回 指向临时变量的指针。**
 
@@ -106,7 +106,7 @@ double refcube(const double &ra);
 
 将类对象传递给函数时，C++通常的做法是使用引用。
 
-![image-20210805171059802](https://assets.ng-tech.icu/item/image-20210805171059802.png)
+![image-20210805171059802](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805171059802.png)
 
 ### 8.2.6 对象、继承和引用
 
@@ -153,9 +153,9 @@ int groucho(int k=1, int m=2, int n=3);  // Valid
 
 **_默认参数只在声明函数的时候给出，定义函数时，则不需要给出_**。
 
-![image-20210807220518596](https://assets.ng-tech.icu/item/image-20210807220518596.png)
+![image-20210807220518596](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210807220518596.png)
 
-![image-20210807220537984](https://assets.ng-tech.icu/item/image-20210807220537984.png)
+![image-20210807220537984](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210807220537984.png)
 
 ## 8.4 函数重载
 
@@ -165,7 +165,7 @@ int groucho(int k=1, int m=2, int n=3);  // Valid
 
 如果两个函数的参数数目和类型相同，同时参数的排列顺序也相同，则它们的特征标相同，而变量名是无关紧要的。C++允许定义名称相同的函数，条件是它们的特征标不同。
 
-![image-20210807221358552](https://assets.ng-tech.icu/item/image-20210807221358552.png)
+![image-20210807221358552](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210807221358552.png)
 
 一些看起来彼此不同的特征标是不能共存的。例如，请看下面的两 个原型：
 
@@ -210,7 +210,7 @@ void drivel(const char *bits);    // not overloaded
 
 现在的 C++编译器实现了 C++的另一个新增特性——函数模板。函数模板是通用的函数描述，也就是说，它们使用泛型来定义函数，其中的泛型可用具体的类型（如`int`或`double`）替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。由于模板允许以泛型（而不是具体类型）的方式编写程序，因此有时也被称为通用编程。由于类型是用参数表示的，因此模板特性有时也被称为参数化类型（parameterized types）。
 
-![image-20210807224625424](https://assets.ng-tech.icu/item/image-20210807224625424.png)
+![image-20210807224625424](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210807224625424.png)
 
 第一行指出，要建立一个模板，并将类型命名为 `AnyType`。关键字 `template`和 `typename` 是必需的，除非可以使用关键字 `class` 代替 `typename`。另外，**必须使用尖括号**。类型名可以任意选择（这里为 `AnyType`），只要遵守 C++命名规则即可；许多程序员都使用简单的名称，如 `T`。
 
@@ -218,7 +218,7 @@ void drivel(const char *bits);    // not overloaded
 
 最终 的代码不包含任何模板，而只包含了为程序生成的实际函数。使用模板 的好处是，它使生成多个函数定义更简单、更可靠。
 
-![image-20210807225139508](https://assets.ng-tech.icu/item/image-20210807225139508.png)
+![image-20210807225139508](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210807225139508.png)
 
 `typename`关键字使得参数`AnyType`表示类型这一点更为明显；然而，有大量代码库是使用关键字 class 开发的。在这种上下文中，**这两个关键字是等价的**。
 
@@ -241,9 +241,9 @@ void drivel(const char *bits);    // not overloaded
 
 如果有多个原型，则编译器在选择原型时，**非模板版本优先于显式具体化和模板版本，而显式具体化优先于使用模板生成的版本**。
 
-![image-20210808001952681](https://assets.ng-tech.icu/item/image-20210808001952681.png)
+![image-20210808001952681](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210808001952681.png)
 
-![image-20210808002201785](https://assets.ng-tech.icu/item/image-20210808002201785.png)
+![image-20210808002201785](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210808002201785.png)
 
 ### 8.5.4 实例化和具体化
 
@@ -272,7 +272,7 @@ template <> void Swap(int &, int &);
 
 引入显式实例化后，必须使用新的语法——在声明中使用前缀`template`和`template <>`，以区分显式实例化和显式具体化。通常，功能 越多，语法规则也越多。下面的代码片段总结了这些概念：
 
-![image-20210808202129389](https://assets.ng-tech.icu/item/image-20210808202129389.png)
+![image-20210808202129389](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210808202129389.png)
 
 ### 8.5.5 编译器选择使用哪个函数版本
 

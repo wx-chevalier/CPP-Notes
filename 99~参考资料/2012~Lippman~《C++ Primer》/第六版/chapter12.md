@@ -44,7 +44,7 @@ public:
 
 其次，将 num_strings 成员声明为静态存储类。静态类成员有一个特点：无论创建了多少对象，程序都只创建一个静态类变量副本。也就是说，`StringBad` 类的所有对象共享同一个 `num_strings`。假设创建了 10 个 `StringBad` 对象，将有 10 个 `str` 成员和 10 个 `len` 成员，但只有一个共享的 `num_strings` 成员（参见图 12.1）。
 
-![image-20210812100941808](https://assets.ng-tech.icu/item/image-20210812100941808.png)
+![image-20210812100941808](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812100941808.png)
 
 ```Cpp
 // strngbad.cpp -- StringBad class methods
@@ -109,7 +109,7 @@ std::ostream & operator<<(std::ostream & os, const StringBad & st)
 
 程序输出结果：
 
-![image-20210812111740343](https://assets.ng-tech.icu/item/image-20210812111740343.png)
+![image-20210812111740343](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812111740343.png)
 
 `callme2()` 按值（而不是按引用）传递 `headline2`，结果表明这是一个严重的问题。
 
@@ -151,7 +151,7 @@ std::ostream & operator<<(std::ostream & os, const StringBad & st)
 
 新建一个对象并将其初始化为同类现有对象时，复制构造函数都将被调用。最常见的情况是将新对象显式地初始化为现有的对象。
 
-![image-20210812120029250](https://assets.ng-tech.icu/item/image-20210812120029250.png)
+![image-20210812120029250](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812120029250.png)
 
 其中中间的 2 种声明可能会使用复制构造函数直接创建 metoo 和 also，也可能使用复制构造函数生成一个临时对象，然后将临时对象的 内容赋给 metoo 和 also，这取决于具体的实现。最后一种声明使用 motto 初始化一个匿名对象，并将新对象的地址赋给 pStringBad 指针。
 
@@ -165,9 +165,9 @@ std::ostream & operator<<(std::ostream & os, const StringBad & st)
 
 默认的复制构造函数逐个复制非静态成员（成员复制也称为浅复制），复制的是成员的值。
 
-![image-20210812120710195](https://assets.ng-tech.icu/item/image-20210812120710195.png)
+![image-20210812120710195](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812120710195.png)
 
-![image-20210812120946029](https://assets.ng-tech.icu/item/image-20210812120946029.png)
+![image-20210812120946029](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812120946029.png)
 
 ### 12.1.3 回到 Stringbad：复制构造函数的哪里出了问题
 
@@ -175,7 +175,7 @@ std::ostream & operator<<(std::ostream & os, const StringBad & st)
 
 第二个异常之处更微妙，也更危险，其症状之一是字符串内容出现乱码。原因在于隐式复制构造函数是按值进行复制的。例如，对于程序清 单 12.3，隐式复制构造函数的功能相当于：`sailor.str = sport.str;`。这里复制的并不是字符串，而是一个指向字符串的指针。也就是 说，将 sailor 初始化为 sports 后，得到的是两个指向同一个字符串的指 针。当 operator <<()函数使用指针来显示字符串时，这并不会出现问 题。但当析构函数被调用时，这将引发问题。析构函数 StringBad 释放 str 指针指向的内存，因此释放 sailor 的效果如下：
 
-![image-20210812121546201](https://assets.ng-tech.icu/item/image-20210812121546201.png)
+![image-20210812121546201](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812121546201.png)
 
 `sports.str`指向的内存已经被 `sailor` 的析构函数释放，这将导致不确定 的、可能有害的后果。
 
@@ -193,7 +193,7 @@ String::String(const char * s)     // construct String from C string
 }
 ```
 
-![image-20210812121927440](https://assets.ng-tech.icu/item/image-20210812121927440.png)
+![image-20210812121927440](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812121927440.png)
 
 ### 12.1.4 Stringbad 的其他问题：赋值运算符
 
@@ -273,7 +273,7 @@ String::~String()                     // necessary destructor
 ```
 
 对 `operator>` 的重载很妙啊，直接利用了 `operator<` 的重载结果：
-![image-20210812163721949](https://assets.ng-tech.icu/item/image-20210812163721949.png)
+![image-20210812163721949](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812163721949.png)
 
 ### 12.2.3 使用中括号表示法访问字符
 
@@ -299,7 +299,7 @@ const char & String::operator[](int i) const
 
 > 重载要注意同时考虑对 const 和非 const 变量进行。
 
-![image-20210812165647776](https://assets.ng-tech.icu/item/image-20210812165647776.png)
+![image-20210812165647776](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812165647776.png)
 
 也可以修改内容：
 
@@ -314,11 +314,11 @@ means[0] = 'r';   // 这一句相当于 means.str[0] = 'r', 但 str 是私有成
 
 其次，由于静态成员函数不与特定的对象相关联，因此只能使用静 态数据成员。
 
-![image-20210812170316128](https://assets.ng-tech.icu/item/image-20210812170316128.png)
+![image-20210812170316128](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812170316128.png)
 
 ### 12.2.5 进一步重载赋值运算符
 
-![image-20210812170559987](https://assets.ng-tech.icu/item/image-20210812170559987.png)
+![image-20210812170559987](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812170559987.png)
 
 重载>>运算符提供了一种将键盘输入行读入到 String 对象中的简单 方法。它假定输入的字符数不多于 String::CINLIM 的字符数，并丢弃多 余的字符。在 if 条件下，如果由于某种原因（如到达文件尾或`get(char *, int)` 读取的是一个空行）导致输入失败，istream 对象的值将置为 false。
 
@@ -331,11 +331,11 @@ means[0] = 'r';   // 这一句相当于 means.str[0] = 'r', 但 str 是私有成
 - 如果有多个构造函数，则必须以相同的方式使用 new，要么都带中 括号，要么都不带。因为只有一个析构函数，所有的构造函数都必 须与它兼容。然而，可以在一个构造函数中使用 new 初始化指针，而在另一个构造函数中将指针初始化为空（0 或 C++11 中的 nullptr），这是因为 delete（无论是带中括号还是不带中括号）可以用于空指针；
 - 应定义一个复制构造函数，通过深度复制将一个对象初始化为另一 个对象；
 
-![image-20210812183412719](https://assets.ng-tech.icu/item/image-20210812183412719.png)
+![image-20210812183412719](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812183412719.png)
 
 - 应当定义一个赋值运算符，通过深度复制将一个对象复制给另一个对象；
 
-![image-20210812183448925](https://assets.ng-tech.icu/item/image-20210812183448925.png)
+![image-20210812183448925](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812183448925.png)
 
 具体地说，该方法应完成这些操作：**检查自我赋值的情况，释放成员指针以前指向的内存，复制数据而不仅仅是数据的地址，并返回一个指向调用对象的引用**。
 
@@ -343,7 +343,7 @@ means[0] = 'r';   // 这一句相当于 means.str[0] = 'r', 但 str 是私有成
 
 ### 12.3.2 包含类成员的类的逐成员复制
 
-![image-20210812185109539](https://assets.ng-tech.icu/item/image-20210812185109539.png)
+![image-20210812185109539](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812185109539.png)
 
 如果您将一个 Magazine 对象复制或赋值给另一个 Magazine 对象，逐成员复制将使用成 员类型定义的复制构造函数和赋值运算符。也就是说，复制成员 title 时，将使用 String 的复制构造函数，而将成员 title 赋给另一个 Magazine 对 象时，将使用 String 的赋值运算符，依此类推。
 
@@ -353,7 +353,7 @@ means[0] = 'r';   // 这一句相当于 means.str[0] = 'r', 但 str 是私有成
 
 ### 12.4.1 返回指向 const 对象的引用
 
-![image-20210812185620612](https://assets.ng-tech.icu/item/image-20210812185620612.png)
+![image-20210812185620612](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812185620612.png)
 
 这里有三点需要说明。首先，返回对象将调用复制构造函数，而返回引用不会，所以版本 2 效率更高。其次，引用指向的对象应该在调用函数执行时存在。第 三，**v1 和 v2 都被声明为 const 引用，因此返回类型必须为 const，这样才匹配**。
 
@@ -393,11 +393,11 @@ cout << (force1 + force2 = net).magval() << endl;
 
 ## 12.5 使用指向对象的指针
 
-![image-20210812215628088](https://assets.ng-tech.icu/item/image-20210812215628088.png)
+![image-20210812215628088](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812215628088.png)
 
 ### 12.5.1 再谈`new`和`delete`
 
-![image-20210812220903934](https://assets.ng-tech.icu/item/image-20210812220903934.png)
+![image-20210812220903934](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812220903934.png)
 
 ### 12.5.2 指针和对象小结
 
@@ -406,9 +406,9 @@ cout << (force1 + force2 = net).magval() << endl;
 - 可以使用 new 来初始化指针，这将创建一个新的对象；
 - 对类使用 new 将调用相应的类构造函数来初始化新创建的对象。
 
-![image-20210812221115586](https://assets.ng-tech.icu/item/image-20210812221115586.png)
+![image-20210812221115586](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812221115586.png)
 
-![image-20210812221146826](https://assets.ng-tech.icu/item/image-20210812221146826.png)
+![image-20210812221146826](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812221146826.png)
 
 - 可以使用`->`运算符通过指针访问类方法；
 - 可以对对象指针应用解除引用运算符`*`来获得对象。
@@ -421,7 +421,7 @@ cout << (force1 + force2 = net).magval() << endl;
 
 要重新定义 << 运算符，以便将它和 cout 一起用来显示对象的内 容，请定义下面的友元运算符函数：
 
-![image-20210812221524669](https://assets.ng-tech.icu/item/image-20210812221524669.png)
+![image-20210812221524669](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210812221524669.png)
 
 ### 12.6.2 转换函数
 
@@ -449,11 +449,11 @@ operator type_name();
 
 对于`const`数据成员，必须在执行到构造函数体之前，即创建对象时进行初始化。C++提供了一种特殊的语法来完成上 述工作，它叫做成员初始化列表（member initializer list）。成员初始化 列表由逗号分隔的初始化列表组成（前面带冒号）。它位于参数列表的 右括号之后、函数体左括号之前。如果数据成员的名称为 `mdata`，并需 要将它初始化为`val`，则初始化器为`mdata(val)`。
 
-![image-20210814205323898](https://assets.ng-tech.icu/item/image-20210814205323898.png)
+![image-20210814205323898](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814205323898.png)
 
 **只有构造函数可以使用这种初始化列表语法**。如上所示，对于 const 类成员，必须使用这种语法。另外，**对于被声明为引用的类成员，也必须使用这种语法**：
 
-![image-20210814205737591](https://assets.ng-tech.icu/item/image-20210814205737591.png)
+![image-20210814205737591](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814205737591.png)
 
 **这是因为引用与 const 数据类似，只能在被创建时进行初始化**。对于 简单数据成员（例如 front 和 items），使用成员初始化列表和在函数体中 使用赋值没有什么区别。
 
@@ -466,7 +466,7 @@ operator type_name();
 
 如果我们不希望复制构造函数被调用，也不允许赋值运算，可以这样做：
 
-![image-20210814214006080](https://assets.ng-tech.icu/item/image-20210814214006080.png)
+![image-20210814214006080](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814214006080.png)
 
 这是一种禁用方法的技巧，同时可以作为一种暂时不编写这两个函数的预防措施：与其将来面对无法预料的运行故障，不如得到一个易于跟踪的编译错误，指出这些方法是不可访问的。另外，在定义其对象不允许 被复制的类时，这种方法也很有用。
 

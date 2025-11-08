@@ -92,7 +92,7 @@ public:
 
 因此，公有成员函 数是程序和对象的私有成员之间的桥梁，提供了对象和程序之间的接口。防止程序直接访问数据被称为数据隐藏（参见图 10.1）。C++还提 供了第三个访问控制关键字 protected，第 13 章介绍类继承时将讨论该关 键字。
 
-![image-20210811220839703](https://assets.ng-tech.icu/item/image-20210811220839703.png)
+![image-20210811220839703](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811220839703.png)
 
 类设计尽可能将公有接口与实现细节分开。公有接口表示设计的抽 象组件。**将实现细节放在一起并将它们与抽象分开被称为封装。**数据隐藏（将数据放在类的私有部分中）是一种封装，将实现的细节隐藏在私 有部分中，就像`Stock`类对`set_tot()` 所做的那样，也是一种封装。封装的 另一个例子是，将类函数定义和类声明放在不同的文件中。
 
@@ -142,7 +142,7 @@ void Stock::show()
 
 **所创建的每个新对象都有自己的存储空间，用于存储其内部变量和 类成员；但同一个类的所有对象共享同一组类方法，即每种方法只有一 个副本**。例如，假设 `kate` 和 `joe` 都是 `Stock` 对象，则 `kate.shares` 将占据一个 内存块，而 `joe.shares` 占用另一个内存块，但`kate.show()` 和 `joe.show()` 都调用同一个方法，也就是说，**它们将执行同一个代码块**，只是将这些代码用于不同的数据。在 OOP 中，调用成员函数被称为发送消息，因此将 同样的消息发送给两个不同的对象将调用同一个方法，但该方法被用于两个不同的对象。
 
-![image-20210811222542618](https://assets.ng-tech.icu/item/image-20210811222542618.png)
+![image-20210811222542618](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811222542618.png)
 
 ### 10.2.4 使用类
 
@@ -156,13 +156,13 @@ void Stock::show()
 
 指定类设计的第一步是提供类声明。类声明类似结构声明，可以包 括数据成员和函数成员。声明有私有部分，在其中声明的成员只能通过 成员函数进行访问；声明还具有公有部分，在其中声明的成员可被使用 类对象的程序直接访问。通常，数据成员被放在私有部分中，成员函数 被放在公有部分中，因此典型的类声明的格式如下：
 
-![image-20210811223153090](https://assets.ng-tech.icu/item/image-20210811223153090.png)
+![image-20210811223153090](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811223153090.png)
 
 ## 10.3 类的构造函数和析构函数
 
 C++的目标之一是让使用类对象就像使用标准类型一样。
 
-![image-20210811223501009](https://assets.ng-tech.icu/item/image-20210811223501009.png)
+![image-20210811223501009](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811223501009.png)
 
 一般来说，最好是在创建对象时对它进行初始化。
 
@@ -357,7 +357,7 @@ stock1 = Stock("Nifty Foods", 10, 50.0);
 
 stock1 对象已经存在，因此这条语句不是对 stock1 进行初始化，而 是将新值赋给它。这是通过让构造程序创建一个新的、临时的对象，然后将其内容复制给 `stock1` 来实现的。临时对象复制完成之后，程序调用析构函数，删除该临时对象。
 
-![image-20210811230556935](https://assets.ng-tech.icu/item/image-20210811230556935.png)
+![image-20210811230556935](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811230556935.png)
 
 输出表明，下面两条语句有根本性的差别：
 
@@ -423,13 +423,13 @@ const Stock & topval(const Stock &s) const;
 
 比较之后，返回引用时有一个问题需要解决：
 
-![image-20210811232755584](https://assets.ng-tech.icu/item/image-20210811232755584.png)
+![image-20210811232755584](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811232755584.png)
 
 C++解决这种问题的方法是：使用被称为 `this` 的特殊指针。`this` 指针指向用来调用成员函数的对象（`this`被作为隐藏参数传递给方法）。这样，函数调用 `stock1.topval(stock2)` 将 `this` 设置为 `stock1` 对象的地址，使得这个指针可用于 `topval()` 方法。
 
 一般来说，所有的类方法都将 `this` 指针设置为调用它的对象的地址。而 `topval()` 中的 `total_val` 只不过是 `this->total_val` 的简写。
 
-![image-20210811233043535](https://assets.ng-tech.icu/item/image-20210811233043535.png)
+![image-20210811233043535](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811233043535.png)
 
 ```Cpp
 const Stock & Stock::topval(const Stock & s) const
@@ -469,7 +469,7 @@ Stock mystuff[4];
 
 总之，在类声明或成员函数定义中，可以使用未修饰的成员名称 （未限定的名称），就像`sell( )` 调用 `set_tot()` 成员函数时那样。构造函数名称在被调用时，才能被识别，因为它的名称与类名相同。在其他情况下，使用类成员名时，必须根据上下文使用直接成员运算符、间接成员运算符 `->` 或作用域解析运算符 `::`。
 
-![image-20210811235956703](https://assets.ng-tech.icu/item/image-20210811235956703.png)
+![image-20210811235956703](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210811235956703.png)
 
 ### 10.6.1 作用域为类的常量
 

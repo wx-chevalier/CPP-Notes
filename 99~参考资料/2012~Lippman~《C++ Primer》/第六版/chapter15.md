@@ -11,13 +11,11 @@
 - `dynamic_cast` 和 `typeid`；
 - `static_cast`、`const_cast` 和 `reiterpret_cast`。
 
+![image-20210815204948714](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815204948714.png)
 
-![image-20210815204948714](https://assets.ng-tech.icu/item/image-20210815204948714.png)
+2．bad_alloc 异常和 new
 
-2．bad_alloc异常和new
-
-对于使用new导致的内存分配问题，C++的**最新处理方式是让new引发bad_alloc异常**。头文件new包含bad_alloc类的声明，它是从exception 类公有派生而来的。但**在以前，当无法分配请求的内存量时，new返回 一个空指针**，然后我们可以 `exit(EXIT_FAILURE)`。
-
+对于使用 new 导致的内存分配问题，C++的**最新处理方式是让 new 引发 bad_alloc 异常**。头文件 new 包含 bad_alloc 类的声明，它是从 exception 类公有派生而来的。但**在以前，当无法分配请求的内存量时，new 返回 一个空指针**，然后我们可以 `exit(EXIT_FAILURE)`。
 
 ## 15.6 总结
 

@@ -38,7 +38,7 @@ class RetedPlayer: public TableTennisPlayer {}
 - 派生类对象存储了基类的数据成员（派生类继承了基类的实现）；
 - 派生类对象可以使用基类的方法（派生类继承了基类的接口）。
 
-![image-20210814224752163](https://assets.ng-tech.icu/item/image-20210814224752163.png)
+![image-20210814224752163](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814224752163.png)
 
 需要在继承特性中添加什么呢？
 
@@ -83,7 +83,7 @@ RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
 
 其中: `TableTennisPlayer(fn,ln,ht)` 是成员初始化列表。它是可执行的 代码，调用`TableTennisPlayer`构造函数。
 
-![image-20210814225744213](https://assets.ng-tech.icu/item/image-20210814225744213.png)
+![image-20210814225744213](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814225744213.png)
 
 ```Cpp
 RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
@@ -130,7 +130,7 @@ RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
 第二，基类指针可以在不进行显式类型转换的情况下指向派生类对象（基类指针可以直接指向派生类，神奇）；
 第三，基类引用可以在不进行显式类型转换的情况下引用派生类对象（基类引用可以直接应用派生类，神奇）。
 
-![image-20210814231630592](https://assets.ng-tech.icu/item/image-20210814231630592.png)
+![image-20210814231630592](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210814231630592.png)
 
 不过，**基类指针或引用只能用于调用基类方法**，因此，不能使用`rt` 或`pt`来调用派生类的`ResetRanking`方法。
 
@@ -181,7 +181,7 @@ RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
 
 对于使用基类引用或指针作为参数的函数调用，将进行向上转换。
 
-![image-20210815000054655](https://assets.ng-tech.icu/item/image-20210815000054655.png)
+![image-20210815000054655](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815000054655.png)
 
 ### 13.4.2 虚成员函数和动态联编
 
@@ -199,7 +199,7 @@ RatedPlayer::RatedPlayer(unsigned int r, const string & fn,
 
 编译器处理虚函数的方法是：给每个对象添加一个隐藏成 员。隐藏成员中保存了一个指向函数地址数组的指针。这种数组称为虚 函数表（virtual function table，vtbl）。虚函数表中存储了为类对象进行 声明的虚函数的地址。例如，基类对象包含一个指针，该指针指向基类 中所有虚函数的地址表。派生类对象将包含一个指向独立地址表的指 针。如果派生类提供了虚函数的新定义，该虚函数表将保存新函数的地 址；如果派生类没有重新定义虚函数，该 vtbl 将保存函数原始版本的地 址。如果派生类定义了新的虚函数，则该函数的地址也将被添加到 vtbl 中（参见图 13.5）。注意，无论类中包含的虚函数是 1 个还是 10 个，都 只需要在对象中添加 1 个地址成员，只是表的大小不同而已。
 
-![image-20210815000546665](https://assets.ng-tech.icu/item/image-20210815000546665.png)
+![image-20210815000546665](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815000546665.png)
 
 调用虚函数时，程序将查看存储在对象中的 vtbl 地址，然后转向相 应的函数地址表。如果使用类声明中定义的第一个虚函数，则程序将使 用数组中的第一个函数地址，并执行具有该地址的函数。如果使用类声 明中的第三个虚函数，程序将使用地址为数组中第三个元素的函数。
 
@@ -295,14 +295,14 @@ public:
 2. 析构函数。一定要定义显式析构函数来释放类构造函数使用 new 分配的所有内 存，并完成类对象所需的任何特殊的清理工作。对于基类，即使它不需 要析构函数，也应提供一个虚析构函数；
 3. 转换。使用一个参数就可以调用的构造函数定义了从参数类型到类类型的转换。将可转换的类型传递给以类为参数的函数时，**将调用转换构造函数**。在带一个参数的构造函数原型中使用 `explicit`将禁止进行隐式转换，但仍允许显式转换：
 
-![image-20210815165206668](https://assets.ng-tech.icu/item/image-20210815165206668.png)
+![image-20210815165206668](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815165206668.png)
 
 要将类对象转换为其他类型，应定义转换函数（参见第 11 章）。
 
 4. 按值传递对象与传递引用。编写使用对象作为参数的函数时，**应按引用而不是按值来传递对象。这样做的原因之一是为了提高效率**。按值传递对象涉及到生成 临时拷贝，即调用复制构造函数，然后调用析构函数。调用这些函数需 要时间，复制大型对象比传递引用花费的时间要多得多。如果函数不修 改对象，应将参数声明为 const 引用。按引用传递对象的另外一个原因是，在继承使用虚函数时，被定义 为接受基类引用参数的函数可以接受派生类；
 5. 返回对象和返回引用。有些成员函数直接返回对 象，而另一些则返回引用。有时方法必须返回对象，但如果可以不返回对象，则应返回引用。如果函数返回在函数中创建的临时对象，则不要使用引用，而是返回该对象。**如果函数返回的是通过引用或指针传递给它的对象，则应按引用返回对象**；
 
-![image-20210815163426527](https://assets.ng-tech.icu/item/image-20210815163426527.png)
+![image-20210815163426527](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815163426527.png)
 
 6. 使用 const。使用 const 来确保方法不修改调用它的对象。如果函数将参数声明为指向 const 的引用或指针，则不能将该 参数传递给另一个函数，除非后者也确保了参数不会被修改（即，确保 const 对 const）。
 
@@ -316,7 +316,7 @@ public:
 6. 析构函数；
 7. 友元函数。由于友元函数并非类成员，因此不能继承。然而，您可能希望派生 类的友元函数能够使用基类的友元函数。为此，可以通过强制类型转换将派生类引用或指针转换为基类引用或指针，然后使用转换后的指针 或引用来调用基类的友元函数：
 
-![image-20210815164304163](https://assets.ng-tech.icu/item/image-20210815164304163.png)
+![image-20210815164304163](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815164304163.png)
 
 8. 关于使用基类方法的说明：
    - 派生类对象自动使用继承而来的基类方法，如果派生类没有重新定 义该方法；
@@ -330,8 +330,8 @@ public:
 
 C++类函数有很多不同的变体，其中有些可以继承，有些不可以。有些运算符函数既可以是成员函数，也可以是友元，而有些运算符函数 只能是成员函数。
 
-![image-20210815164804696](https://assets.ng-tech.icu/item/image-20210815164804696.png)
-![image-20210815164826218](https://assets.ng-tech.icu/item/image-20210815164826218.png)
+![image-20210815164804696](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815164804696.png)
+![image-20210815164826218](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210815164826218.png)
 
 ## 13.9 总结
 

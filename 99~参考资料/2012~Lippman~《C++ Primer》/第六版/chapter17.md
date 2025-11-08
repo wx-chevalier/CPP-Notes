@@ -35,17 +35,17 @@ C++程序只是检查字节流，而不需要知道字节来自何方。同理�
 
 换句话说，输入流需要两个连接，每端各一个。文件端部连接提供了流的来源，程序端连接将流的流出部分转储到程序中（文件端连接可以是文件，也可以是设备，如键盘）。同样，对输出的管理包括将输出流连接到程序以及将输出目标与流关联起来。这就像将字节（而不是水）引入到水管中（参见图 17.1）。
 
-![image-20210816095844394](https://assets.ng-tech.icu/item/image-20210816095844394.png)
+![image-20210816095844394](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816095844394.png)
 
 通常，通过使用缓冲区可以更高效地处理输入和输出。缓冲区是用作中介的内存块，它是将信息从设备传输到程序或从程序传输给设备的临时存储工具。
 
-![image-20210816100336241](https://assets.ng-tech.icu/item/image-20210816100336241.png)
+![image-20210816100336241](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816100336241.png)
 
 C++程序通常在用户按下回车 键时刷新输入缓冲区。对于屏幕输出，C++程序通 常在用户发送换行符时刷新输出缓冲区。程序也可能会在其他情况下刷新输入，例如输入即将到来时，这取决于实现。
 
 ### 17.1.2 流、缓冲区和 iostream 文件
 
-![image-20210816100640816](https://assets.ng-tech.icu/item/image-20210816100640816.png)
+![image-20210816100640816](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816100640816.png)
 
 - cin 对象对应于标准输入流；
 - cout 对象与标准输出流相对应；
@@ -75,7 +75,7 @@ cout << 12 << "#" << 24 << "#\n";
 
 输出：
 
-![image-20210816104442007](https://assets.ng-tech.icu/item/image-20210816104442007.png)
+![image-20210816104442007](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816104442007.png)
 
 12 被放到宽度为 12 个字符的字段的最右边，这被称为右对齐。然后，字段宽度恢复为默认值，并将两个#符号以及 24 放在宽度与它们的长度相等的字段中。
 
@@ -93,7 +93,7 @@ C++的默认精度为 6 位（但末尾的 0 将不显 示）。`precision()` �
 
 5. 在谈 `setf()`
 
-![image-20210816105318255](https://assets.ng-tech.icu/item/image-20210816105318255.png)
+![image-20210816105318255](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816105318255.png)
 
 ## 17.3 使用 `cin` 进行输入
 
@@ -104,7 +104,7 @@ C++的默认精度为 6 位（但末尾的 0 将不显 示）。`precision()` �
 - 函数 `get(char&)` 和 `get(void)` 提供不跳过空白的单字符输入功能；
 - 函数 `get(char*, int, char)` 和 `getline(char*, int, char)` 在默认情况下读取整行而不是一个单词。
 
-![image-20210816110518509](https://assets.ng-tech.icu/item/image-20210816110518509.png)
+![image-20210816110518509](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816110518509.png)
 
 这里的重点是，**通过使用 `get(ch)`，代码读取、显示并考虑空格和可打印字符**。
 
@@ -118,11 +118,11 @@ IC++clearly.
 
 到达文件尾后（不管是真正的文件尾还是模拟的文件尾），`cin.get(void)` 都将返回值 `EOF`——头文件 `iostream` 提供的一个符号常量。
 
-![image-20210816113232207](https://assets.ng-tech.icu/item/image-20210816113232207.png)
+![image-20210816113232207](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816113232207.png)
 
 这里应将 `ch` 的类型声明为 `int`，而不是 `char`，因为值 `EOF` 可能无法使 用 `char` 类型来表示。
 
-![image-20210816113531629](https://assets.ng-tech.icu/item/image-20210816113531629.png)
+![image-20210816113531629](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816113531629.png)
 
 2．采用哪种单字符输入形式
 
@@ -136,7 +136,7 @@ IC++clearly.
 
 getline( )成员函 数和 get( )的字符串读取版本都读取字符串，它们的函数特征标相同（这 是从更为通用的模板声明简化而来的）：
 
-![image-20210816114047447](https://assets.ng-tech.icu/item/image-20210816114047447.png)
+![image-20210816114047447](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816114047447.png)
 
 第一个参数是用于放置输入字符串的内存单元的地址。第二个参数比要读取的最大字符数大 1（额外的一个字符用于存储结尾的空字符，以便将输入存储为一个字符串）。**第三个参数指定用作分界符的字符，只有两个参数的版本将换行符用作分界符**。上述函数都在读取最大数目的字符或遇到换行符后为止。
 
@@ -167,11 +167,11 @@ getline( )方法将从输入队列中读取字符，将它们放到 temp 数组�
 
 `get(char *, int)` 方法首先测试字符数，然后测试是否为 文件尾以及下一个字符是否是换行符。如果它读取了最大数目的字符，则不设置 `failbit` 标记。然而，由此可以知道终止读取是否是由于输入字 符过多引起的。可以用 `peek()`（下一节）来查看下一个输入字符。如果它是换行符，则说明 `get()` 已读取了整行；如果不是换行符，则说明 `get()` 是在到达行尾前停止的。这种技术对`getline()` 不适用，因为 `getline()` 读取并丢弃换行符，因此查看下一个字符无法知道任何情况。然而，如果使用的是 `get()`，则可以知道是否读取了整个一行。
 
-![image-20210816120636318](https://assets.ng-tech.icu/item/image-20210816120636318.png)
+![image-20210816120636318](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816120636318.png)
 
 与 `getline()` 和 `get()` 不同的是，**`read()` 不会在输入后加上空值字符，因此不能将输入转换为字符串**。`read()` 方法不是专为键盘输入设计的，它最常与 `ostream write()` 函数结合使用，来完成文件输入和输出。该方法的返回类型为 `istream &`。
 
-![image-20210816145101989](https://assets.ng-tech.icu/item/image-20210816145101989.png)
+![image-20210816145101989](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816145101989.png)
 
 ## 17.4 文件输入和输出
 
@@ -225,13 +225,13 @@ if (!fin.is_open()) {...}  // open attempt failed
 
 这种方式之所以更好，是因为它能够检测出其他方式不能检测出的 微妙问题：
 
-![image-20210816152004401](https://assets.ng-tech.icu/item/image-20210816152004401.png)
+![image-20210816152004401](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816152004401.png)
 
 ### 17.4.3 打开多个文件
 
 可能要依次处理一组文件。例如，可能要计算某个名称在 10 个文件中出现的次数。在这种情况下，可以打开一个流，并将它依次关 联到各个文件。这在节省计算机资源方面，比为每个文件打开一个流的效率高。使用这种方法，首先需要声明一个`ifstream` 对象（不对它进行初始化），然后使用 `open()` 方法将这个流与文件关联起来。例如，下面 是依次读取两个文件的代码：
 
-![image-20210816152403503](https://assets.ng-tech.icu/item/image-20210816152403503.png)
+![image-20210816152403503](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816152403503.png)
 
 ### 17.4.4 命令行处理技术
 
@@ -255,7 +255,7 @@ wc report1 report2 report3
 
 文件模式描述的是文件将被如何使用：读、写、追加等。将流与文件关联时（无论是使用文件名初始化文件流对象，还是使用 `open()` 方法），都可以提供指定文件模式的第二个参数，下表给出了第二个参数的具体信息。
 
-![image-20210816154243582](https://assets.ng-tech.icu/item/image-20210816154243582.png)
+![image-20210816154243582](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816154243582.png)
 
 ```Cpp
 ofstream fout("text", ios_base::out);                // 新写入
@@ -264,7 +264,7 @@ ofstream fout("text", ios_base::out|ios_base::app);  // 追加
 
 注意，C++ mode 是一个 open mode 值，如 `ios_base::in`；而 c mode 是相 应的 C 模式字符串，如“r”。
 
-![image-20210816163125203](https://static.fungenomics.com/images/2021/08/image-20210816163125203.png) ![image-20210816163153980](https://assets.ng-tech.icu/item/image-20210816163153980.png)
+![image-20210816163125203](https://static.fungenomics.com/images/2021/08/image-20210816163125203.png) ![image-20210816163153980](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210816163153980.png)
 
 ### 17.4.6 随机存取
 

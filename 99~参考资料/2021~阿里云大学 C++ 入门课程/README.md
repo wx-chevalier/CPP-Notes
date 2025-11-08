@@ -2,7 +2,7 @@
 
 # 阿里云大学 C++ 入门课程
 
-![img](https://assets.ng-tech.icu/item/1539291c8853274278.png)
+![img](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/1539291c8853274278.png)
 
 C++ 是一种中级语言，它是由 Bjarne Stroustrup 于 1979 年在贝尔实验室开始设计开发的。C++ 进一步扩充和完善了 C 语言，是一种面向对象的程序设计语言。C++ 可运行于多种平台上，如 Windows、MAC 操作系统以及 UNIX 的各种版本。
 

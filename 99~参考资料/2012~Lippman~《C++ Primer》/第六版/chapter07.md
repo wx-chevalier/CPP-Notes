@@ -39,7 +39,7 @@ C++ 对于返回值的类型有一定的限制：**不能是数组**，但可以
 **C++ 函数返回值的原理是什么？**
 首先，函数将返回值复制到指定的 CPU 寄存器或内存单元中将值返回；随后，调用程序将查看该内存单元。**返回函数和调用函数必须就该内存单元中存储的数据的类型达成一致**。函数原型将返回值类型告知调用程序，而函数定义命令被调用函数应返回什么类型的数据。
 
-![image-20210804133448677](https://assets.ng-tech.icu/item/image-20210804133448677.png)
+![image-20210804133448677](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804133448677.png)
 
 ### 7.1.2 函数原型和函数调用
 
@@ -68,7 +68,7 @@ double volume = cube(side);
 - 编译器检查使用的参数数目是否正确；
 - 编译器检查使用的参数类型是否正确，如果不正确，则转换为正确的类型。
 
-![image-20210804144730761](https://assets.ng-tech.icu/item/image-20210804144730761.png)
+![image-20210804144730761](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804144730761.png)
 
 仅当有意义时，原型化才会导致类型转换。例如，原型不会将整数转换为结构或指针。
 
@@ -82,19 +82,19 @@ C++通常按值传递参数，这意味着将 数值参数传递给函数，而�
 double volume = cube(side);
 ```
 
-![image-20210804145401521](https://assets.ng-tech.icu/item/image-20210804145401521.png)
+![image-20210804145401521](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804145401521.png)
 
 side 是一个变量，被调用时，该函数将创建一个新的名为 x 的 double 变量，并将其初 始化为 5。这样，cube( )执行的操作将不会影响 main( )中的数据，因为 cube( )使用的是 side 的副本，而不是原来的数据。
 
 **在函数中声明的变量（包括参数）是该函数私有的。在函数被调用 时，计算机将为这些变量分配内存；在函数结束时，计算机将释放这些 变量使用的内存**。这样的变量被称为局部变量，因为它们被限制在函数中。前面提到过，这样做有助于确保数据的完整性。这还意 味着，如果在 main( )中声明了一个名为 x 的变量，同时在另一个函数中 也声明了一个名为 x 的变量，则它们将是两个完全不同的、毫无关系的变量。
 
-![image-20210804145526933](https://assets.ng-tech.icu/item/image-20210804145526933.png)
+![image-20210804145526933](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804145526933.png)
 
 ### 7.2.1 多个参数
 
 函数可以有多个参数。在调用函数时，只需使用逗号将这些参数分开即可。
 
-![image-20210804150422862](https://assets.ng-tech.icu/item/image-20210804150422862.png)
+![image-20210804150422862](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804150422862.png)
 
 它使用`cin>>ch`，而不是`cin.get(ch)`或`ch = cin.get()`来读取一个字符。这样做是有原因的。前面讲过，这两个`cin.get()` 函数读取所有的输入字符，包括空格和换行符，而 `cin>>` 跳过空格和换行符。当用户对程序提示作出响应时，必须在每行的最后按 `Enter` 键，以生成换行符。`cin>>ch` 方法可以轻松地**跳过这些换行符**，但当输入的下一个字符为数字时，`cin.get()` 将读取后面的换行符，虽然可以通过编程来避开这种麻烦，但比较简便的方法是像该程序那样使用 `cin`。
 
@@ -118,7 +118,7 @@ cookies == &cookies[0];   // array name is the address of first element
 
 首先，数组声明使用数组名来标记存储位置；其次，对数组名使用 sizeof 将得到整个数组的长度（以字节为单位）；第三，正如第 4 章指出的，将地址运算符&用于数组名时，将返回整个数组的地址。
 
-![image-20210804152348446](https://assets.ng-tech.icu/item/image-20210804152348446.png)
+![image-20210804152348446](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804152348446.png)
 
 > 当且仅当在函数头中或者函数原型中，`int *arr` 和 `int arr[]` 的含义是相同的。它们都指 arr 是一个 int 指针。
 
@@ -133,13 +133,13 @@ arr[i] == *(arr+i);  // values in two notations
 
 传递常规变量时，函数将使用该变量的拷贝；**但传递数组时，函数将使用原来的数组（传地址）**。实际上，这种区别并不违反 C++按值传递的方法，`sum_arr()` 函数仍传递了一个值，这个值被赋给 一个新变量，但这个值是一个地址，而不是数组的内容。
 
-![image-20210804154353723](https://assets.ng-tech.icu/item/image-20210804154353723.png)
+![image-20210804154353723](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804154353723.png)
 
 **将数组地址作为参数可以节省复制整个数组所需的时间和内存**。如果数组很大，则使用拷贝的系统开销将非常大；程序不仅需要更多的计算机内存，还需要花费时间来复制大块的数据。**但另一方面，使用原始数据增加了破坏数据的风险**。
 
 `sum_arr(cookies+4, 4)` 和 `sum_arr(&cookies[4], 4)` 是等效的。
 
-![image-20210804155245012](https://assets.ng-tech.icu/item/image-20210804155245012.png)
+![image-20210804155245012](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804155245012.png)
 
 ### 7.3.3 更多数组函数示
 
@@ -193,7 +193,7 @@ void _f_no_change(const double arr[], int n);
 
 还有另一种给函数提供所需信息的方法，即指定元素区间 （range），这可以通过传递两个指针来完成：**一个指针标识数组的开头，另一个指针标识数组的尾部**。
 
-![image-20210804170600111](https://assets.ng-tech.icu/item/image-20210804170600111.png)
+![image-20210804170600111](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804170600111.png)
 
 它将 `pt` 设置为指向要处理的第一个元素（`begin`指向的元素）的指针，并将`*pt`（元素的值）加入到 `total` 中。然后，循环通过递增操作来更新 `pt`，使之指向下一个元素。只要 `pt` 不等于 `end`，这一过程就将继续下去。当 `pt` 等于 `end` 时，它将指向区间中最后一个元素后面的一个位置，此时循环将结束。
 
@@ -203,19 +203,19 @@ void _f_no_change(const double arr[], int n);
 
 首先看一个指向常量的指针：
 
-![image-20210804171314723](https://assets.ng-tech.icu/item/image-20210804171314723.png)
+![image-20210804171314723](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804171314723.png)
 
 这里要求 `pt` 指向的是一个 `const int`，所以，赋值之后我们是不能用 `*pt` 来修改 age 的值的。
 
-![image-20210804171334907](https://assets.ng-tech.icu/item/image-20210804171334907.png)
+![image-20210804171334907](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804171334907.png)
 
 现在来看一个微妙的问题。pt 的声明并不限定着它指向的值就必须得是一个常量，只是对 pt 来说，这个值是常量。例如，pt 指向 age，但 age 不是 const。我们是可以直接通过 age 变量来修改 age 的值的，但不能使用 pt 指针来修改它。
 
-![image-20210804171429933](https://assets.ng-tech.icu/item/image-20210804171429933.png)
+![image-20210804171429933](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804171429933.png)
 
 > 我觉得这类指针可以称为：**只读指针**。这个指针可以移动，但是它只能读出它所指向地址的内容，但是无法通过这个指针修改其中的数据。
 
-![image-20210804171526205](https://assets.ng-tech.icu/item/image-20210804171526205.png)
+![image-20210804171526205](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804171526205.png)
 
 C++禁止第二种情况的原因很简单——如果将 `g_moon` 的地 址赋给 `pm`，那么就可以用 `pm` 来修改 `g_moon` 的值，这使得 `g_moon` 的 `const` 状态很荒谬，因此, **C++禁止将 const 的地址赋给非 const 指针**。
 
@@ -233,11 +233,11 @@ C++禁止第二种情况的原因很简单——如果将 `g_moon` 的地 址赋
 
 第二种使用 `const` 的方式使得无法修改指针的值：
 
-![image-20210804172355209](https://assets.ng-tech.icu/item/image-20210804172355209.png)
+![image-20210804172355209](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804172355209.png)
 
 > 这样的指针，我想将其称为：**静止指针**。指针本身定死在一个地址上了，但是地址里的内容是可以通过这个指针随便修改的。
 
-![image-20210804172525799](https://assets.ng-tech.icu/item/image-20210804172525799.png)
+![image-20210804172525799](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804172525799.png)
 
 通常，将指针作为函数参数来传递时，可以使用指向`const`的指针来保护数据。
 
@@ -271,7 +271,7 @@ C-风格字符串由一系列字符组成，以空值字符（`\0`）结尾。
 
 ### 7.5.1 将 C-风格字符串作为参数的函数
 
-![image-20210804204604444](https://assets.ng-tech.icu/item/image-20210804204604444.png)
+![image-20210804204604444](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804204604444.png)
 
 假设要将字符串作为参数传递给函数，则表示字符串的方式有三 种：
 
@@ -281,7 +281,7 @@ C-风格字符串由一系列字符组成，以空值字符（`\0`）结尾。
 
 但上述 3 种选择的类型都是`char`指针（准确地说是`char*`），因此可 以将其作为字符串处理函数的参数。
 
-![image-20210804214230755](https://assets.ng-tech.icu/item/image-20210804214230755.png)
+![image-20210804214230755](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210804214230755.png)
 
 可以说是将字符串作为参数来传递，**但实际传递的是字符串第一个字符的地址**。这意味着字符串函数原型应将其表示字符串的形参声明为 `char *` 类型。
 
@@ -344,15 +344,15 @@ C++函数有一种有趣的特点——可 以调用自己，但不允许 main()
 
 声明指向函数的指针时，必须指定指针指向的函数类型。意味着声明应指定函数的返回类型以及函数的特征标（参数列表）。也就是说，声明应像函数原型那样指出有关函数的信息：
 
-![image-20210805084458826](https://assets.ng-tech.icu/item/image-20210805084458826.png)
+![image-20210805084458826](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805084458826.png)
 
 3．使用指针来调用函数
 
-![image-20210805084920592](https://assets.ng-tech.icu/item/image-20210805084920592.png)
+![image-20210805084920592](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805084920592.png)
 
 > 为何 pf 和`(*pf`等价呢？一种学派认为，由于 pf 是函数指针，而 `*pf` 是函数，因此应将`(*pf)()`用作函数调用。另一种学派认为，由于函数名是指向该函数的指 针，指向函数的指针的行为应与函数名相似，因此应将 pf( )用作函数调用使用。C++进行了折 衷——这 2 种方式都是正确的，或者至少是允许的，虽然它们在逻辑上是互相冲突的。在认为 这种折衷粗糙之前，应该想到，容忍逻辑上无法自圆其说的观点正是人类思维活动的特点。
 
-![image-20210805085227934](https://assets.ng-tech.icu/item/image-20210805085227934.png)
+![image-20210805085227934](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/image-20210805085227934.png)
 
 可能看起来比较深奥，但指向函数指针数组的指针并不少见。实际上，类的虚方法实现通常都采用了这种技术（参见第 13 章）。
 
