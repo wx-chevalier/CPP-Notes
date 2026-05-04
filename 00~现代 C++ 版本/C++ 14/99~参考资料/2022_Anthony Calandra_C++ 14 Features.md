@@ -149,7 +149,7 @@ static_assert(std::is_same<int, decltype(f(x))>::value == 1);
 static_assert(std::is_same<const int&, decltype(g(x))>::value == 1);
 ```
 
-See also: [`decltype (C++11)`](README.md#decltype).
+See also: [`decltype (C++11)`](02~算法/20~机器人/README.md#decltype).
 
 ### Relaxing constraints on constexpr functions
 
@@ -240,7 +240,7 @@ The compiler is free to call `new T{}`, then `function_that_throws()`, and so on
 foo(std::make_unique<T>(), function_that_throws(), std::make_unique<T>());
 ```
 
-See the section on [smart pointers (C++11)](README.md#smart-pointers) for more information on `std::unique_ptr` and `std::shared_ptr`.
+See the section on [smart pointers (C++11)](02~算法/20~机器人/README.md#smart-pointers) for more information on `std::unique_ptr` and `std::shared_ptr`.
 
 ## Acknowledgements
 

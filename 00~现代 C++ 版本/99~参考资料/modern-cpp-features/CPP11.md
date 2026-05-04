@@ -323,7 +323,7 @@ auto add(X x, Y y) -> decltype(x + y) {
 add(1, 2.0); // `decltype(x + y)` => `decltype(3.0)` => `double`
 ```
 
-See also: [`decltype(auto) (C++14)`](README.md#decltypeauto).
+See also: [`decltype(auto) (C++14)`](02~软件/00~编程语言/CPP-Notes/00~现代%20C++%20版本/99~参考资料/modern-cpp-features/README.md#decltypeauto).
 
 ### Type aliases
 
@@ -771,7 +771,7 @@ auto add(T a, U b) -> decltype(a + b) {
 }
 ```
 
-In C++14, [`decltype(auto) (C++14)`](README.md#decltypeauto) can be used instead.
+In C++14, [`decltype(auto) (C++14)`](02~软件/00~编程语言/CPP-Notes/00~现代%20C++%20版本/99~参考资料/modern-cpp-features/README.md#decltypeauto) can be used instead.
 
 ### Noexcept specifier
 
