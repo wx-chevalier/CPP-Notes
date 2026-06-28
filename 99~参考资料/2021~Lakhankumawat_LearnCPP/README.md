@@ -124,7 +124,7 @@ Fond of designing README this section will be helpful to you
 
 ## Want to contribute?
 
-- Take a look at [`contributing guidelines`](Contributing.md) if you're interested in helping!
+- Take a look at [`contributing guidelines`](02~软件/00~编程语言/CPP-Notes/99~参考资料/2021~Lakhankumawat_LearnCPP/Contributing.md) if you're interested in helping!
 - Refer [GitHub Flow](https://guides.github.com/introduction/flow).
   <!-- Create a branch, add commits, and [open a pull request](https://github.com/Lakhankumawat/HackNITP-3.0/compare). -->
   <!--  will mention the method of contri in short in the README-->

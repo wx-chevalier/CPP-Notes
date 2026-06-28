@@ -86,7 +86,7 @@ int main()
 
 具有初值 0 或者 constexpr 类型初始化值的静态变量，在程序启动时就会被初始化。而具有非 constexpr 类型初始化值的静态局部变量则会在第一次被定义时进行初始化(在后续的函数调用中，该变量不会被重新初始化）。因为  `s_value`  具有 constexpr 初始化值  `1`，所以在程序启动时 `s_value` 就会被初始化。
 
-当函数结束时， `s_value`  会[[out-of-scope|超出作用域]]，但是它不会被销毁。每次 `incrementAndPrint()` 被调用时，`s_value`  的值仍然为之前的值。这样一来，程序的打印结果如下：
+当函数结束时， `s_value`  会[[OUT-OF-SCOPE|超出作用域]]，但是它不会被销毁。每次 `incrementAndPrint()` 被调用时，`s_value`  的值仍然为之前的值。这样一来，程序的打印结果如下：
 
 ```
 2
