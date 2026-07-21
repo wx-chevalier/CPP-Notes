@@ -1,2 +1,0 @@
-add_executable(timestamp_unittest Timestamp_unittest.cc)
-target_link_libraries(timestamp_unittest muduo_base)
