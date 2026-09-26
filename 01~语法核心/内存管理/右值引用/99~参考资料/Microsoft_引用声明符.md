@@ -157,8 +157,6 @@ int main()
 
 该示例产生下面的输出：
 
-Output 复制
-
 ```output
 In f(const MemoryBlock&). This version can't modify the parameter.
 In f(MemoryBlock&&). This version can modify the parameter.

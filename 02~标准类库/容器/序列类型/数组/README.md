@@ -230,8 +230,6 @@ double FindMinToMkt(int Mkt, double myTransportCosts[][cMkts], int mycFacts) {
 }
 ```
 
-Output 复制
-
 ```output
 The minimum cost to Market 3 is: 17.29
 ```
