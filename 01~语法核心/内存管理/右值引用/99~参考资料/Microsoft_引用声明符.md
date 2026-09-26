@@ -178,12 +178,6 @@ In f(MemoryBlock&&). This version can modify the parameter.
 #include <iostream>
 using namespace std;
 
-// A class that contains a memory resource.
-class MemoryBlock
-{
-   // TODO: Add resources for the class here.
-};
-
 void g(const MemoryBlock&)
 {
    cout << "In g(const MemoryBlock&)." << endl;
@@ -224,12 +218,6 @@ C++ 标准库 [`std::move`](https://learn.microsoft.com/zh-cn/cpp/standard-libra
 // Compile with: /EHsc
 #include <iostream>
 using namespace std;
-
-// A class that contains a memory resource.
-class MemoryBlock
-{
-   // TODO: Add resources for the class here.
-};
 
 void g(const MemoryBlock&)
 {

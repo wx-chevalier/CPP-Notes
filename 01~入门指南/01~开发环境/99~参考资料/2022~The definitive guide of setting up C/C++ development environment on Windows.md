@@ -204,11 +204,6 @@ Installing Clang will also automatically install `GCC` (on MSYS2).
 pacman -Syu
 ```
 
-`pacman` is the package manager used by MSYS2. `-S` means "sync". `-y` means "download fresh package databases from the server". `-u` means "upgrade installed packages".
-
-This command will update the packages info, so you get the latest packages. It will prompt you like this, and you type `y` and hit enter.
-![](./https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/Compiler/MSYS2/1.png)
-
 3. Then it will prompt you ` To complete this update all MSYS2 processes including this terminal will be closed. Confirm to proceed [Y/n]`, type `y` and hit enter, and it will close the window after the update is done.
 
 4. Relaunch MSYS2 from your start menu. Type:
@@ -235,15 +230,6 @@ pacman -S mingw-w64-x86_64-gdb
 ```
 
 And type `y` to also install `gdb`.
-
-5. Now search for `environment variable` and open it
-   ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/Compiler/MSYS2/3.png)
-
-6. Click `Environment Variables`, find `Path` in `System variables`, double click to open the setting.
-   ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/Compiler/MSYS2/4.png)
-
-7. Click `New` and copy `C:\msys64\mingw64\bin` to the new entry.
-   ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/Compiler/MSYS2/5.png)
 
 8. Click `OK` to close all windows. Now you finished installing clang. Open any shell such as `cmd` and type in `clang --version` and you shall see the following: ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/Compiler/clang/clang-version.png)
 
@@ -401,8 +387,6 @@ You can install Visual Studio as a standalone IDE or as a whole package includin
 ##### Standalone IDE
 
 If you install Visual Studio as a standalone IDE without installing MSVC compiler toolchains, you can use it with CMake. If you have installed MSVC compiler toolchain, you can use it with Visual Studio solution just as it's a [full install](#full-package) like above. Here I introduce how to use it with CMake, **without MSVC**.
-
-1. Download [Visual studio](https://visualstudio.microsoft.com/downloads/). Choose the `Community` option.
 
 2. Run the installer, select these workflows and deselect all the optionals on the right, like this
    ![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/book/CPPDevOnWindows/screenshots/IDE/VisualStudio/InstallStandalone.png)

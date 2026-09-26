@@ -380,24 +380,6 @@ int main()
 ```cpp
 #include <iostream>
 
-int main()
-{
-    int start = 0, end = 0;
-    std::cout << "Please input two num: ";
-    std::cin >> start >> end;
-    if (start <= end) {
-        while (start <= end){
-            std::cout << start << " ";
-            ++start;
-        }
-        std::cout << std::endl;
-    }
-    else{
-        std::cout << "start should be smaller than end !!!";
-    }
-}
-```
-
 ## 练习 1.20
 
 在网站http://www.informit.com/title/032174113 上，第 1 章的代码目录包含了头文件 Sales_item.h。将它拷贝到你自己的工作目录中。用它编写一个程序，读取一组书籍销售记录，将每条记录打印到标准输出上。

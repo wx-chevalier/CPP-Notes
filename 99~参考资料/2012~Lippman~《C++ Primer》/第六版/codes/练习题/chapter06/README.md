@@ -563,26 +563,9 @@ int main() {
     }
     in_file_handle.close();
 
-    unsigned int grand_amount_n = 0;
-    cout << "\nGrand patron: " << endl;
-    for (int i = 0; i < contribute_num; ++i) {
-
-        if (p_contribution[i].amount > Grand_Amount) {
-            cout << "Contributor name: " << p_contribution[i].name << "\n"
-                 << "Contributor amount: " << p_contribution[i].amount << endl;
-            ++grand_amount_n;
-        }
-    }
-
     if (grand_amount_n == 0) {
         cout << "None" << endl;
     }
-
-    bool is_empty = true;
-    cout << "\nPatrons: " << endl;
-    for (int i=0; i < contribute_num; ++i) {
-        cout << "Contributor name: " << p_contribution[i].name << "\n"
-             << "Contributor amount: " << p_contribution[i].amount << endl;
 
         is_empty = false;
     }

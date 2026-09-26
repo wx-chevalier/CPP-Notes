@@ -173,8 +173,6 @@ build output0 output1 | output2 output3: rule_name $
 
 ### 底层的数据结构
 
-![Ninja3.jpg](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a148933ab967454f826142cd734d6107~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp?)
-
 回到这张图,我们来看 Ninja 的底层的如何处理的(以下数据结构只保留到最简的部分)
 
 #### State

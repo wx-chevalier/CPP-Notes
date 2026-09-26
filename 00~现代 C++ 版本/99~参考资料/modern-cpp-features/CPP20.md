@@ -44,42 +44,6 @@ C++20 includes the following new language features:
 
 C++20 includes the following new library features:
 
-- [C++20](#c20)
-  - [Overview](#overview)
-  - [C++20 Language Features](#c20-language-features)
-    - [Coroutines](#coroutines)
-    - [Concepts](#concepts)
-    - [Designated initializers](#designated-initializers)
-    - [Template syntax for lambdas](#template-syntax-for-lambdas)
-    - [Range-based for loop with initializer](#range-based-for-loop-with-initializer)
-    - [\[\[likely\]\] and \[\[unlikely\]\] attributes](#likely-and-unlikely-attributes)
-    - [Deprecate implicit capture of this](#deprecate-implicit-capture-of-this)
-    - [Class types in non-type template parameters](#class-types-in-non-type-template-parameters)
-    - [constexpr virtual functions](#constexpr-virtual-functions)
-    - [explicit(bool)](#explicitbool)
-    - [Immediate functions](#immediate-functions)
-    - [using enum](#using-enum)
-    - [Lambda capture of parameter pack](#lambda-capture-of-parameter-pack)
-    - [char8_t](#char8_t)
-    - [constinit](#constinit)
-  - [C++20 Library Features](#c20-library-features)
-    - [Concepts library](#concepts-library)
-    - [Synchronized buffered outputstream](#synchronized-buffered-outputstream)
-    - [std::span](#stdspan)
-    - [Bit operations](#bit-operations)
-    - [Math constants](#math-constants)
-    - [std::is_constant_evaluated](#stdis_constant_evaluated)
-    - [std::make_shared supports arrays](#stdmake_shared-supports-arrays)
-    - [starts_with and ends_with on strings](#starts_with-and-ends_with-on-strings)
-    - [Check if associative container has element](#check-if-associative-container-has-element)
-    - [std::bit_cast](#stdbit_cast)
-    - [std::midpoint](#stdmidpoint)
-    - [std::to_array](#stdto_array)
-  - [Acknowledgements](#acknowledgements)
-  - [Author](#author)
-  - [Content Contributors](#content-contributors)
-  - [License](#license)
-
 ## C++20 Language Features
 
 ### Coroutines
